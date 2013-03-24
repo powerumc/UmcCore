@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C850538-31E8-4656-9734-B89600113CF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Umc.Core</RootNamespace>
+    <AssemblyName>Umc.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\Debug</OutputPath>
+    <DocumentationFile>bin\Debug\Umc.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET35</DefineConstants>
+    <DocumentationFile>bin\Debug\Umc.Core.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Umc.Core.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Umc.Core.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET35</DefineConstants>
+    <DocumentationFile>bin\Debug\Umc.Core.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Umc.Core.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Umc.Core.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\..\StrongKey\Umc.Core.Public.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\ReferenceAssemblies\Enterprise Library\5.0.414.0\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\ReferenceAssemblies\Enterprise Library\5.0.414.0\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\CommonCode\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\CommonCode\GlobalConstants.cs">
+      <Link>GlobalConstants.cs</Link>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DependencyInjectionAttribute.cs" />
+    <Compile Include="Dynamic\DynamicAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\DynamicExtendedObject.cs" />
+    <Compile Include="Dynamic\DynamicObject.cs" />
+    <Compile Include="Dynamic\OnMethodBoundAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Builder\BuilderExtensionBase.cs" />
+    <Compile Include="Dynamic\Proxy\Builder\FieldBuilderExtension.cs" />
+    <Compile Include="Dynamic\Proxy\Builder\ModuleBuilderExtension.cs" />
+    <Compile Include="Dynamic\Proxy\Builder\ParameterBuilderExtension.cs" />
+    <Compile Include="Dynamic\Proxy\Builder\TypeBuilderExtension.cs" />
+    <Compile Include="Dynamic\Proxy\Delegates.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicAssemblyContext.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicContext.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicModuleContext.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicProxy.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicProxyBase.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicProxyEventArgs.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicProxyException.cs" />
+    <Compile Include="Dynamic\Proxy\DynamicProxyToken.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\DynamicTypeContext.cs" />
+    <Compile Include="Dynamic\Proxy\IDynamicProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\ILDelegate.cs" />
+    <Compile Include="Dynamic\Proxy\ILItem.cs" />
+    <Compile Include="Dynamic\Proxy\ILItemCollection.cs" />
+    <Compile Include="Dynamic\Proxy\Internal\AssemblyCriteria.cs" />
+    <Compile Include="Dynamic\Proxy\Internal\CriteriaMetadata.cs" />
+    <Compile Include="Dynamic\Proxy\Internal\CriteriaMetadataInfo.cs">
+      <DependentUpon>ICriteriaMetadataInfo.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Internal\CriteriaMetadataToken.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Internal\ICriteriaMetadataInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Internal\ModuleCriteria.cs" />
+    <Compile Include="Dynamic\Proxy\Internal\ParameterCriteriaMetadataInfo.cs">
+      <DependentUpon>ICriteriaMetadataInfo.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\AccessorInvocation.cs">
+      <DependentUpon>IAccessorLambda.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\AssemblyLambda.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\AssemblyLambdaQualifiedNamePolicy.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\AssignOperand.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\AssignValueOperand.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\EnumLambda.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\FieldAccessor.cs">
+      <DependentUpon>IAccessorLambda.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\FieldOperand.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\IAccessorConfirmLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IAccessorLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IAssemblyLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IDelegateLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IEmitReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IEmitWriteable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IEnumLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IEventLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IMetadataLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\IModuleLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\INativeLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\CodeLambda.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IAssignLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IBlockLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\ICallLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\ICodeLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IDefinitionLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IExceptionHandleLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IFieldLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IIfLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IKeywordLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\ILocalLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\IPropertyLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\InType\PropertyLambda.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\IReleaseType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\ITypeLambda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\LocalOperand.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\MethodAccessor.cs">
+      <DependentUpon>IAccessorLambda.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\MethodOperand.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\ModuleLambda.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\Operand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\PropertyOperand.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\TypeAccessor.cs">
+      <DependentUpon>IAccessorLambda.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dynamic\Proxy\Lambda\TypeLambda.cs" />
+    <Compile Include="Dynamic\Proxy\Lambda\TypeUnitLambda.cs" />
+    <Compile Include="Extensions\EncodingExtension.cs" />
+    <Compile Include="Extensions\SerializationExtension.cs" />
+    <Compile Include="Extensions\StreamExtension.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Interfaces\EventArgs{T}.cs" />
+    <Compile Include="Interfaces\IDestroyable.cs" />
+    <Compile Include="Interfaces\IDone.cs" />
+    <Compile Include="Interfaces\IDynamicAttribute.cs" />
+    <Compile Include="Interfaces\AssignOption.cs" />
+    <Compile Include="DataModels\ErrorConfiguration.cs" />
+    <Compile Include="Interfaces\IException.cs" />
+    <Compile Include="Interfaces\IExecutable.cs" />
+    <Compile Include="Interfaces\IFrameworkException.cs" />
+    <Compile Include="Interfaces\IGetable.cs" />
+    <Compile Include="Interfaces\IInitializable.cs" />
+    <Compile Include="Interfaces\IMappingCollectionProvider.cs" />
+    <Compile Include="Interfaces\IMatchable.cs" />
+    <Compile Include="DataModels\ImpactDetailCollection.cs" />
+    <Compile Include="Interfaces\IName.cs" />
+    <Compile Include="Interfaces\INewInstance.cs" />
+    <Compile Include="Interfaces\IObject.cs" />
+    <Compile Include="Interfaces\IOrderable.cs" />
+    <Compile Include="Interfaces\IParameterMember.cs" />
+    <Compile Include="Interfaces\IProcessable.cs" />
+    <Compile Include="Interfaces\IRequireable.cs" />
+    <Compile Include="Interfaces\ISetable.cs" />
+    <Compile Include="Interfaces\IValidatable.cs" />
+    <Compile Include="Interfaces\IValuable.cs" />
+    <Compile Include="Interfaces\IMapping.cs" />
+    <Compile Include="Interfaces\IMappingReturn.cs" />
+    <Compile Include="Interfaces\IMappingProvider.cs" />
+    <Compile Include="Interfaces\IVisitable.cs" />
+    <Compile Include="DataModels\WarningCollection.cs" />
+    <Compile Include="Interfaces\Office\IOfficeCommand.cs" />
+    <Compile Include="IoC\Catalog\DependencyDynamicTypeCatalog.cs" />
+    <Compile Include="IoC\Interceptor\FrameworkInterceptionAttribute.cs" />
+    <Compile Include="IoC\Interceptor\FrameworkInterceptionInput.cs">
+      <DependentUpon>IFrameworkInterceptionInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\Interceptor\FrameworkInterceptionReturn.cs">
+      <DependentUpon>IFrameworkInterceptionReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\Interceptor\FrameworkInterceptorInvocation.cs">
+      <DependentUpon>IFrameworkInterceptorInvocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\Interceptor\FrameworkInterceptorKinds.cs" />
+    <Compile Include="IoC\Interceptor\FrameworkInvocationHandler.cs" />
+    <Compile Include="IoC\Interceptor\IFrameworkInterceptionInput.cs" />
+    <Compile Include="IoC\Interceptor\IFrameworkInterceptionReturn.cs" />
+    <Compile Include="IoC\Interceptor\IFrameworkInterceptorInvocation.cs" />
+    <Compile Include="IoC\Unity\FrameworkContainerForUnityExtension.cs" />
+    <Compile Include="Mapping\InvocationMapping.cs">
+      <DependentUpon>Mapping.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\KeyValueMapping.cs">
+      <DependentUpon>Mapping.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\LazyMapping.cs">
+      <DependentUpon>Mapping.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\Mapping.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\MappingReturn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\ObjectTypePair.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\PropertyMapping.cs">
+      <DependentUpon>Mapping.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reflection\AttributeConstants.cs" />
+    <Compile Include="Extensions\IEnumerableExtension.cs" />
+    <Compile Include="Interfaces\IDirtiable.cs" />
+    <Compile Include="Interfaces\ILoadable.cs" />
+    <Compile Include="Interfaces\ISaveable.cs" />
+    <Compile Include="Interfaces\ISupportable.cs" />
+    <Compile Include="Extensions\ObjectExtension.cs" />
+    <Compile Include="Extensions\StructExtension.cs" />
+    <Compile Include="Interfaces\IDependencyAttribute.cs" />
+    <Compile Include="DependencyContractAttribute.cs" />
+    <Compile Include="ImplicitStructures\Time.cs" />
+    <Compile Include="IoC\Catalog\DependencyAssemblyCatalog.cs" />
+    <Compile Include="IoC\Catalog\DependencyDirectoryCatalog.cs" />
+    <Compile Include="IoC\Configuration\Umc.Core.IoC.generated.cs">
+      <DependentUpon>Umc.Core.IoC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\Configuration\FrameworkDependencyVisitor.cs" />
+    <Compile Include="IoC\Catalog\DependencyCatalog.cs" />
+    <Compile Include="IoC\Catalog\DependencyTypeCatalog.cs" />
+    <Compile Include="IoC\Configuration\UmcCoreIoCElementExtension.cs" />
+    <Compile Include="IoC\Configuration\RootElementVerifyResult.cs" />
+    <Compile Include="IoC\DependencyThen.cs" />
+    <Compile Include="IoC\FrameworkCompositionResolver.cs" />
+    <Compile Include="IoC\FrameworkContainer%28TContainer,TLifetime%29.cs">
+      <DependentUpon>IFrameworkContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\FrameworkContainerExtensions.cs" />
+    <Compile Include="IoC\FrameworkContainerFactory.cs" />
+    <Compile Include="IoC\Interceptor\IFrameworkInterception.cs" />
+    <Compile Include="IoC\Unity\EventBrokerForUnity.cs" />
+    <Compile Include="IoC\Unity\FrameworkCompositionResolverForUnity.cs" />
+    <Compile Include="IoC\Unity\FrameworkContainerForUnity.cs" />
+    <Compile Include="IoC\Unity\FrameworkContainerForUnityChild.cs" />
+    <Compile Include="IoC\FrameworkDependencyException.cs" />
+    <Compile Include="IoC\IFrameworkComposable.cs" />
+    <Compile Include="IoC\DependencyIf.cs" />
+    <Compile Include="IoC\IFrameworkContainer.cs" />
+    <Compile Include="IoC\ILifetimeMapping.cs" />
+    <Compile Include="IoC\ILifetimeMappingReturns.cs" />
+    <Compile Include="ExceptionRS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExceptionRS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\Unity\FrameworkComposerForUnity.cs" />
+    <Compile Include="IoC\FrameworkContainer%28TContainer%29.cs">
+      <DependentUpon>IFrameworkContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrameworkException.cs" />
+    <Compile Include="Interfaces\IDataModel.cs" />
+    <Compile Include="IoC\LifetimeFlag.cs" />
+    <Compile Include="IoC\LifetimeMapping.cs">
+      <DependentUpon>ILifetimeMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IoC\Unity\LifetimeMappingForUnity.cs" />
+    <Compile Include="IoC\LifetimeMappingReturn.cs">
+      <DependentUpon>ILifetimeMappingReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IReleasable.cs" />
+    <Compile Include="Interfaces\IResolvable.cs" />
+    <Compile Include="Interfaces\IXmlReadable.cs" />
+    <Compile Include="Interfaces\IXmlWriteable.cs" />
+    <Compile Include="MessageRS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageRS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Emit\DynamicProxyProvider.cs" />
+    <Compile Include="Reflection\Emit\EmbbedProxyProvider.cs" />
+    <Compile Include="Reflection\Emit\EmitProviderAbstract.cs" />
+    <Compile Include="Reflection\Emit\IEmitProvider.cs" />
+    <Compile Include="Reflection\Emit\MethodClone.cs" />
+    <Compile Include="Reflection\Emit\OpCodeConvMapping.cs" />
+    <Compile Include="Reflection\Emit\OpCodeI4Mapping.cs" />
+    <Compile Include="Reflection\Emit\OpCodeLdargMapping.cs" />
+    <Compile Include="Reflection\Emit\OpCodeLdelemMapping.cs" />
+    <Compile Include="Reflection\Emit\OpCodeLdindMapping.cs" />
+    <Compile Include="Reflection\Emit\OpCodeMap.cs" />
+    <Compile Include="Reflection\Emit\OpCodeStelemMapping.cs" />
+    <Compile Include="Reflection\Emit\OpCodeStindMapping.cs" />
+    <Compile Include="Reflection\Extensions\AssemblyEx.cs" />
+    <Compile Include="Reflection\Extensions\EnumEx.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="Reflection\Extensions\TypeExtension.cs" />
+    <Compile Include="Security\FrameworkPermission.cs" />
+    <Compile Include="Security\FrameworkPermissionAttribute.cs" />
+    <Compile Include="Serialization\Formatter\CsvFormatter.cs" />
+    <Compile Include="Xml\Facets.cs" />
+    <Compile Include="Xml\Generator.cs" />
+    <Compile Include="Xml\InstanceAttribute.cs" />
+    <Compile Include="Xml\InstanceElement.cs" />
+    <Compile Include="Xml\InstanceGroup.cs" />
+    <Compile Include="Xml\InstanceObject.cs" />
+    <Compile Include="Xml\XmlGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\StrongKey\Umc.Core.Public.snk">
+      <Link>Umc.Core.Public.snk</Link>
+    </None>
+    <Content Include="IoC\Configuration\Umc.Core.IoC.xml" />
+    <None Include="Dynamic\Proxy\ClassDiagram1.cd" />
+    <None Include="IoC\Configuration\Umc.Core.IoC.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="IoC\IoCDiagram.cd" />
+    <None Include="Reflection\ReflectionDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExceptionRS.en-us.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExceptionRS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionRS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageRS.en-us.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageRS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageRS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IoC\Configuration\test.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\..\..\CommonCode\Umc.Core.ImportBefore.targets" />
+  <Import Project="..\..\..\..\CommonCode\Umc.Core.ImportAfter.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

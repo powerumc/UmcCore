@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Umc.Core.IoC.Catalog.DependencyAssemblyCatalog" Collapsed="true">
+    <Position X="0.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Catalog\DependencyAssemblyCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Catalog.DependencyCatalog">
+    <Position X="3" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Catalog\DependencyCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Catalog.DependencyDirectoryCatalog" Collapsed="true">
+    <Position X="3" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAKAAAAIAAQAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>IoC\Catalog\DependencyDirectoryCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Catalog.DependencyTypeCatalog" Collapsed="true">
+    <Position X="5.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>IoC\Catalog\DependencyTypeCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.FrameworkDependencyVisitor" Collapsed="true">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQwAAAAgAQEAIAAAAAAAAAAAIQIAAAA=</HashCode>
+      <FileName>IoC\Configuration\FrameworkDependencyVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.UmcCoreIoCElement" Collapsed="true">
+    <Position X="0.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.ContainerElement" Collapsed="true">
+    <Position X="2.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQACAAAAAAAAAAAAAAEAAAAAAgAAAAAAQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.RegisterElement" Collapsed="true">
+    <Position X="7.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACAAAAAAAACBAABIGEBAAAAAAFAAAAAAAABBACAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.LifetimeElement" Collapsed="true">
+    <Position X="4" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.MethodElement" Collapsed="true">
+    <Position X="7.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACACAAAIAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.ParamElement" Collapsed="true">
+    <Position X="4" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAIAAAAAEAAAHACAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.DependencyElement" Collapsed="true">
+    <Position X="5.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAEAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.ValueElement" Collapsed="true">
+    <Position X="2.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAADACAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.PropertyElement" Collapsed="true">
+    <Position X="5.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAEAAAEAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.InterceptorElement" Collapsed="true">
+    <Position X="2.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.ContainersElement" Collapsed="true">
+    <Position X="4" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.ConstructorElement" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.UmcCoreIoCElementExtension" Collapsed="true">
+    <Position X="2.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Configuration\UmcCoreIoCElementExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Configuration.RootElementVerifyResult" Collapsed="true">
+    <Position X="0.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJAAAAAAAAAAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Configuration\RootElementVerifyResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.DependencyIf" Collapsed="true">
+    <Position X="7.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAABAAAACEIAEBAAAABAAAAAAgCAAA=</HashCode>
+      <FileName>IoC\DependencyIf.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkCompositionResolver&lt;TFrameworkContainer&gt;" Collapsed="true">
+    <Position X="8.5" Y="7.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>BQAEBACAMAAQAAAAEIAIBAABAAAAAAAAQCAAAAAAgAA=</HashCode>
+      <FileName>IoC\FrameworkCompositionResolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkContainerExtensions" Collapsed="true">
+    <Position X="4" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\FrameworkContainerExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkContainerFactory" Collapsed="true">
+    <Position X="5.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\FrameworkContainerFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkDependencyException" Collapsed="true">
+    <Position X="7.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\FrameworkDependencyException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkContainer&lt;TContainer&gt;" Collapsed="true">
+    <Position X="4" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAAEICAAIQAACFAQAAAAAAAAAgEAAAAEAAAQAA=</HashCode>
+      <FileName>IoC\FrameworkContainer(TContainer).cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkContainer&lt;TContainer, TLifetime&gt;" Collapsed="true">
+    <Position X="4" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EACEAQAAAACAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\FrameworkContainer(TContainer,TLifetime).cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.LifetimeMapping&lt;TLifetime&gt;">
+    <Position X="8.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAIAAAAIAAAABAAAAAAAAAQIAAAAAgAAAE=</HashCode>
+      <FileName>IoC\LifetimeMapping.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.IoC.LifetimeMappingReturn&lt;TLifetime&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAAAAQA=</HashCode>
+      <FileName>IoC\LifetimeMappingReturn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkComposerForUnity" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Unity\FrameworkComposerForUnity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkContainerForUnity" Collapsed="true">
+    <Position X="4" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAAAACAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Unity\FrameworkContainerForUnity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.FrameworkContainerForUnityChild" Collapsed="true">
+    <Position X="4" Y="7.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Unity\FrameworkContainerForUnityChild.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.LifetimeMappingForUnity">
+    <Position X="8.5" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Unity\LifetimeMappingForUnity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Unity.EventBrokerForUnity" Collapsed="true">
+    <Position X="0.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Unity\EventBrokerForUnity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.IoC.Unity.FrameworkCompositionResolverForUnity" Collapsed="true">
+    <Position X="8.5" Y="9.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAAAMAAAAAAAAAAABAAFAAAAAAAAQCAAAAAAAAA=</HashCode>
+      <FileName>IoC\Unity\FrameworkCompositionResolverForUnity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Umc.Core.IoC.IFrameworkComposable" Collapsed="true">
+    <Position X="10.75" Y="10.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\IFrameworkComposable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.IoC.IFrameworkComposable&lt;TContainer&gt;" Collapsed="true">
+    <Position X="10.75" Y="12" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\IFrameworkComposable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.IoC.IFrameworkContainer">
+    <Position X="0.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAAEACAAIQAAABAQAAAAAAAAAgAAAAAAAAAQAA=</HashCode>
+      <FileName>IoC\IFrameworkContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.IoC.ILifetimeMapping&lt;TLifetime&gt;" Collapsed="true">
+    <Position X="5.75" Y="17.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAE=</HashCode>
+      <FileName>IoC\ILifetimeMapping.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.IoC.ILifetimeMappingReturn&lt;TLifetime&gt;" Collapsed="true">
+    <Position X="5.75" Y="17" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>IoC\ILifetimeMappingReturns.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.IoC.Interceptor.IFrameworkInterception" Collapsed="true">
+    <Position X="5.75" Y="16.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IoC\Interceptor\IFrameworkInterception.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Umc.Core.IoC.Configuration.LifetimeFlagType" Collapsed="true">
+    <Position X="2.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACgAAAAAAAAAAAAIAIAAAAAAAEAAAAgAAAACAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Umc.Core.IoC.LifetimeFlag" Collapsed="true">
+    <Position X="0.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAIAIAAAAAAAEAAAAgAAAACAA=</HashCode>
+      <FileName>IoC\LifetimeFlag.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

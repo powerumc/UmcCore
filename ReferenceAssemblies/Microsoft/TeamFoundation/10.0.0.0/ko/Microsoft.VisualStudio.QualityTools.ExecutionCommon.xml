@@ -1,0 +1,909 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.VisualStudio.QualityTools.ExecutionCommon</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.AdapterRunResult">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.AdapterRunResult" /> 열거형은 테스트 실행의 성공 여부를 나타내기 위해 테스트 프레임워크에서 사용합니다.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TestTools.Execution.AdapterRunResult.RunSuccess">
+      <summary>열거형 값이 0입니다.테스트 실행이 성공했습니다.</summary>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TestTools.Execution.AdapterRunResult.RunError">
+      <summary>열거형 값이 1입니다.테스트 실행이 실패했습니다.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.AgentContext">
+      <summary>에이전트 환경의 컨텍스트를 캡슐화합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.AgentContext.#ctor(System.String,System.String,System.String,System.Boolean)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.AgentContext.ConnectionString">
+      <summary>에이전트의 컴퓨터 이름과 들어오는 연결을 수신하는 포트를 가져옵니다.</summary>
+      <returns>컴퓨터 이름과 포트를 포함하는 string입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.AgentContext.CreateForLocalAgent"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.AgentContext.DisplayName">
+      <summary>환경 전체에서 고유한 에이전트 표시 이름입니다.</summary>
+      <returns>에이전트의 표시 이름을 포함하는 string입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.AgentContext.IsRemote">
+      <summary>이 에이전트 컨텍스트가 원격에서 실행되는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>이 에이전트 컨텍스트가 원격에서 실행되면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.AgentContext.Name"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.ClientFileName"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.Context"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.Description"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.PerformCleanup"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.RequestId"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.BasicTransferInformation.UserToken"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.ControllerContext"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ControllerContext.#ctor(System.String,System.String,System.String)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ControllerContext.ConnectionString"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ControllerContext.CreateForLocalController"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ControllerContext.DisplayName"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ControllerContext.Name"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Common.TestExecId)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext">
+      <summary>데이터 수집이 발생하는 컨텍스트를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.#ctor(Microsoft.VisualStudio.TestTools.Common.SessionId)">
+      <summary>제공된 세션 ID를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" /> 클래스의 새 인스턴스를 초기화합니다. </summary>
+      <param name="sessionId">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.SessionId" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.#ctor(Microsoft.VisualStudio.TestTools.Common.SessionId,Microsoft.VisualStudio.TestTools.Common.TestExecId)">
+      <summary>제공된 세션 ID와 테스트 실행 ID를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="sessionId">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.SessionId" /> 개체입니다.</param>
+      <param name="testExecId">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestExecId" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.Equals(System.Object)">
+      <summary>지정된 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />가 현재 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />와 일치하는지 여부를 확인합니다.</summary>
+      <returns>지정된 <see cref="T:System.Object" />가 현재 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />와 일치하면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="obj">현재 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />와 비교할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.GetHashCode">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />에 대한 해시 함수 역할을 합니다.</summary>
+      <returns>현재 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />에 대한 해시 코드입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.HasTestCase">
+      <summary>실행 중인 테스트 사례가 이 컨텍스트와 연결되는지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>연결된 테스트 사례가 실행 중이면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.op_Equality(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />의 두 인스턴스가 일치하는지 여부를 나타내는 값을 반환합니다.</summary>
+      <returns>
+        <paramref name="context1" />과 <paramref name="context2" />가 일치하면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="context1">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+      <param name="context2">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.op_Inequality(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />의 두 인스턴스가 일치하는지 않는지 여부를 나타내는 값을 반환합니다.</summary>
+      <returns>
+        <paramref name="context1" />과 <paramref name="context2" />가 일치하지 않으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="context1">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+      <param name="context2">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.SessionId">
+      <summary>데이터 수집이 발생하는 세션의 <see cref="Microsoft.VisualStudio.TestTools.Common.SessionId" />를 가져옵니다.null이 아닙니다.</summary>
+      <returns>
+        <see cref="Microsoft.VisualStudio.TestTools.Common.SessionId" /> 개체입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext.TestExecId">
+      <summary>데이터 수집이 발생하는 테스트 실행을 식별하는 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestExecId" />를 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestExecId" /> 개체이거나, 이 컨텍스트와 연결되어 있는 실행 중인 테스트가 없으면 null입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.#ctor(Microsoft.VisualStudio.TestTools.Execution.AgentContext,Microsoft.VisualStudio.TestTools.Execution.ControllerContext,Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.#ctor(Microsoft.VisualStudio.TestTools.Execution.AgentContext,Microsoft.VisualStudio.TestTools.Execution.ControllerContext,Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.TcmContext)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.AgentContext"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.ControllerContext"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.CreateForLocalEnvironment"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.CreateForLocalEnvironment(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.SessionDataCollectionContext"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext.TcmContext"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEventArgs">
+      <summary>모든 실행 이벤트 인수의 기본 클래스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)">
+      <summary>지정된 정보를 저장하여 인스턴스를 초기화합니다.</summary>
+      <param name="context">이벤트에 대한 컨텍스트 정보입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEventArgs.Context">
+      <summary>이벤트에 대한 컨텍스트 정보를 가져오거나 설정합니다.</summary>
+      <returns>이벤트에 대한 컨텍스트 정보를 반환합니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents">
+      <summary>진단 데이터 어댑터가 등록할 수 있는 실행 이벤트를 정의합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.#ctor"></member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.CustomNotification">
+      <summary>사용자 지정 알림에 대한 응답으로 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.DataRequest">
+      <summary>중간 데이터를 요청하기 위해 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionEnd">
+      <summary>테스트 세션이 끝날 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionPause">
+      <summary>테스트 세션이 일시 중지될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionResume">
+      <summary>테스트 세션이 다시 시작될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionStart">
+      <summary>테스트 세션이 시작할 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseEnd">
+      <summary>테스트 사례가 끝날 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseFailed"></member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCasePause">
+      <summary>테스트 사례가 일시 중지될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseReset">
+      <summary>테스트 사례가 다시 설정될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseResume">
+      <summary>테스트 사례가 다시 시작될 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseStart">
+      <summary>테스트 사례가 시작할 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestStepEnd">
+      <summary>테스트 단계가 끝날 때 발생합니다.</summary>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestStepStart">
+      <summary>테스트 단계가 시작할 때 발생합니다.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger">
+      <summary>클라이언트(Test Runner, Visual Studio IDE 또는 )에 진단 데이터 어댑터에 대한 오류 메시지를 보냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger.LogError(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.Exception)">
+      <summary>예외에 대한 오류 메시지를 기록합니다.</summary>
+      <param name="context">메시지가 전송되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+      <param name="exception">예외입니다.null일 수 없습니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger.LogError(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.String)">
+      <summary>오류 메시지를 기록합니다.</summary>
+      <param name="context">메시지가 전송되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+      <param name="text">오류 텍스트입니다.null일 수 없습니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger.LogError(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.String,System.Exception)">
+      <summary>예외에 대한 오류 메시지를 기록합니다.</summary>
+      <param name="context">메시지가 전송되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+      <param name="text">예외에 대해 설명하는 텍스트입니다.null일 수 없습니다.</param>
+      <param name="exception">예외입니다.null일 수 없습니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger.LogWarning(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.String)">
+      <summary>경고 메시지를 기록합니다.</summary>
+      <param name="context">메시지가 전송되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.</param>
+      <param name="text">경고 텍스트입니다.null일 수 없습니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink">
+      <summary>진단 데이터 어댑터에서는 나중에 버그 및 테스트 보고서에 첨부할 수 있도록 파일 및 XML 데이터를 저장하는 데 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />를 사용합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.#ctor">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" /> 클래스의 새 인스턴스를 초기화합니다. </summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendFileAsync(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.String,System.Boolean)">
+      <summary>이 메서드에 지정된 매개 변수를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 비동기적으로 파일을 보냅니다.</summary>
+      <param name="context">테스트가 실행되고 있는 컨텍스트에 대해 설명하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext" />입니다.null일 수 없습니다.</param>
+      <param name="path">파일이 있는 로컬 경로입니다.</param>
+      <param name="deleteFile">파일을 보낸 후 자동으로 삭제하려면 true이고, 그렇지 않으면 false입니다.</param>
+      <exception cref="FileNotFoundException">해당 <paramref name="path" />가 없는 경우</exception>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendFileAsync(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.String,System.String,System.Boolean)">
+      <summary>이 메서드에 지정된 매개 변수를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 비동기적으로 중간 파일을 보냅니다.</summary>
+      <param name="context">테스트가 실행되고 있는 컨텍스트에 대해 설명하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext" />입니다.null일 수 없습니다.</param>
+      <param name="path">파일이 있는 로컬 경로입니다.</param>
+      <param name="description">파일에 대한 간단한 설명입니다.</param>
+      <param name="deleteFile">파일을 보낸 후 자동으로 삭제하려면 true이고, 그렇지 않으면 false입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendFileAsync(Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation)">
+      <summary>제공된 파일 전송 정보 개체를 사용하여 중간 파일을 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 비동기적으로 보냅니다.</summary>
+      <param name="fileTransferInformation">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation" /> 개체입니다.</param>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendFileCompleted">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 파일을 보내면 발생합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendStreamAsync(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.IO.Stream,System.String,System.Boolean)">
+      <summary>이 메서드에 지정된 매개 변수를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 스트림을 보냅니다.</summary>
+      <param name="context">테스트가 실행되고 있는 컨텍스트에 대해 설명하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext" />입니다.null일 수 없습니다.</param>
+      <param name="stream">보낼 <see cref="T:System.IO.Stream" />입니다.</param>
+      <param name="fileName">클라이언트의 데이터에 사용할 파일 이름입니다.</param>
+      <param name="closeStream">보내기 완료 후 스트림을 자동으로 닫으려면 true이고, 그렇지 않으면 false입니다.</param>
+      <exception cref="ArgumentException">
+        <paramref name="fileName" />이 null이거나, 비어 있거나, 예약된 파일 이름 또는 잘못된 문자가 포함되어 있습니다.</exception>
+      <exception cref="InvalidOperationException">
+        <paramref name="stream" />을 읽을 수 없습니다.</exception>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendStreamAsync(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.IO.Stream,System.String,System.String,System.Boolean)">
+      <summary>이 메서드에 지정된 매개 변수를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 스트림을 보냅니다.</summary>
+      <param name="context">테스트가 실행되고 있는 컨텍스트에 대해 설명하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" />입니다.null일 수 없습니다.</param>
+      <param name="stream">보낼 System.IO.Stream입니다.</param>
+      <param name="fileName">클라이언트의 데이터에 사용할 파일 이름입니다.null이거나 비어 있을 수 없으며, 잘못된 문자를 포함할 수 없습니다.전체 경로를 포함하지 마십시오.</param>
+      <param name="description">파일에 대한 간단한 설명입니다.</param>
+      <param name="closeStream">보내기 완료 후 스트림을 자동으로 닫으려면 true이고, 그렇지 않으면 false입니다.</param>
+      <exception cref="ArgumentException">
+        <paramref name="fileName" />이 null이거나, 비어 있거나, 예약된 파일 이름 또는 잘못된 문자가 포함되어 있습니다.</exception>
+      <exception cref="InvalidOperationException">
+        <paramref name="stream" />을 읽을 수 없습니다.</exception>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendStreamAsync(Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation)">
+      <summary>이 메서드에 지정된 매개 변수를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 스트림을 보냅니다.</summary>
+      <param name="streamTransferInformation">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation" /> 개체입니다.</param>
+    </member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink.SendStreamCompleted">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink" />에 스트림을 보내면 발생합니다.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollector"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollector.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollector.Dispose"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollector.Dispose(System.Boolean)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollector.Initialize(System.Xml.XmlElement,Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents,Microsoft.VisualStudio.TestTools.Execution.DataCollectionSink,Microsoft.VisualStudio.TestTools.Execution.DataCollectionLogger,Microsoft.VisualStudio.TestTools.Execution.DataCollectionEnvironmentContext)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorAttribute"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorAttribute.#ctor(System.String)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorAttribute.HelpUri"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorAttribute.TypeUri"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorTypeUriAttribute">
+      <summary>진단 데이터 어댑터 구성 편집기를 URI(Uniform Resource Identifier) 형식으로 식별합니다. </summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorTypeUriAttribute.#ctor(System.String)">
+      <summary>제공된 진단 데이터 어댑터 구성 편집기의 형식에 대한 URI를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorTypeUriAttribute" />의 인스턴스를 초기화합니다.</summary>
+      <param name="typeUri">데이터 수집기 구성 편집기의 URI입니다.null일 수 없습니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorConfigurationEditorTypeUriAttribute.TypeUri">
+      <summary>진단 데이터 어댑터 구성 편집기의 형식을 고유하게 식별하는 URI를 가져옵니다.</summary>
+      <returns>진단 데이터 어댑터 구성 편집기의 형식에 대한 URI를 포함하는 string입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute">
+      <summary>사용자 지정 진단 데이터 어댑터에 대한 설명을 첨부합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute.#ctor(System.String)">
+      <summary>제공된 진단 데이터 어댑터에 대한 설명을 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute" />의 인스턴스를 초기화합니다.</summary>
+      <param name="description">진단 데이터 어댑터에 대한 설명을 포함하는 string입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute.#ctor(System.String,System.Boolean)">
+      <summary>데이터 수집기에 대한 설명을 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute" />를 초기화합니다.</summary>
+      <param name="description">진단 데이터 어댑터에 대한 설명이나 해당 설명을 포함하는 리소스 이름입니다.</param>
+      <param name="isResourceName">설명으로 제공된 문자열이 리소스 이름이면 true이고, 제공된 문자열이 데이터 수집기에 대한 설명으로 직접 사용되어야 하면 false입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute.Description">
+      <summary>진단 데이터 어댑터에 대한 설명을 가져옵니다.</summary>
+      <returns>진단 데이터 어댑터에 대한 설명을 포함하는 string입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorDescriptionAttribute.IsResourceName">
+      <summary>설명으로 제공된 string이 리소스 이름인지 아니면 진단 데이터 어댑터에 대한 실제 설명인지를 나타냅니다.</summary>
+      <returns>설명으로 제공된 string이 리소스 이름이면 true입니다.제공된 string이 진단 데이터 어댑터에 대한 설명으로 직접 사용되어야 하면 false입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorEnabledByDefaultAttribute">
+      <summary>진단 데이터 어댑터가 Test and Lab Manager UI(사용자 인터페이스)에 나열된 경우 진단 데이터 어댑터 클래스를 기본적으로 사용할 수 있게 지정합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorEnabledByDefaultAttribute.#ctor">
+      <summary>기본적으로 사용되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorEnabledByDefaultAttribute" /> 클래스의 인스턴스를 초기화합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorEnabledByDefaultAttribute.#ctor(System.Boolean)">
+      <summary>어댑터를 기본적으로 사용할 수 있는지 여부를 결정하는 제공된 값을 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorEnabledByDefaultAttribute" /> 클래스의 인스턴스를 초기화합니다.</summary>
+      <param name="isEnabledByDefault">기본적으로 수집기를 사용할 수 있게 설정하려면 true이고, 그렇지 않으면 false입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorEnabledByDefaultAttribute.IsEnabledByDefault">
+      <summary>기본적으로 사용 가능 상태를 가져오거나 설정합니다.</summary>
+      <returns>진단 데이터 어댑터를 기본적으로 사용할 수 있는지 여부를 나타내는 bool 값입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute">
+      <summary>진단 데이터 어댑터의 이름을 정의합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute.#ctor(System.String)">
+      <summary>제공된 진단 데이터 어댑터의 이름을 사용하여 <see cref="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute.#ctor(System.String)" /> 클래스의 인스턴스를 초기화합니다.</summary>
+      <param name="friendlyName">진단 데이터 어댑터의 이름입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute.#ctor(System.String,System.Boolean)">
+      <summary>이름을 사용하여 <see cref="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute.#ctor(System.String)" /> 클래스의 인스턴스를 초기화하고 string이 리소스 이름인지 여부를 나타냅니다.</summary>
+      <param name="friendlyName">진단 데이터 어댑터의 이름이나 해당 이름을 포함하는 리소스 이름입니다.</param>
+      <param name="isResourceName">이름으로 제공된 문자열이 리소스 이름이면 true이고,제공된 문자열이 어댑터의 이름으로 직접 사용되어야 하면 false입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute.FriendlyName">
+      <summary>진단 데이터 어댑터의 이름을 가져옵니다.</summary>
+      <returns>수집기 이름을 포함하는 string입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorFriendlyNameAttribute.IsResourceName">
+      <summary>해당 이름이 리소스 이름인지 여부를 나타내는 값을 가져옵니다.</summary>
+      <returns>이름으로 제공된 string이 리소스 이름이면 bool 값입니다.제공된 string을 데이터 수집기의 이름으로 직접 사용해야 하면 false 값이고, 그렇지 않으면 현재 언어 설정에 종속된 리소스에서 이름이 추출됩니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.#ctor"></member>
+    <member name="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.CustomEventCompleted"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.RaiseCustomEvent(Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.RaiseCustomEvent(Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs,Microsoft.VisualStudio.TestTools.Execution.NotificationBroadcastLevel)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.RaiseCustomEventAsync(Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.RaiseCustomEventAsync(Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs,Microsoft.VisualStudio.TestTools.Execution.NotificationBroadcastLevel)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.RaiseCustomEventAsync(Microsoft.VisualStudio.TestTools.Execution.CustomNotificationEventArgs,Microsoft.VisualStudio.TestTools.Execution.NotificationBroadcastLevel,System.Object)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorNotifications.RaiseTestFailedEvent(Microsoft.VisualStudio.TestTools.Common.ITestElement)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings">
+      <summary>진단 데이터 센터의 구성 설정과 정적 데이터를 읽고 업데이트합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings.#ctor(System.Xml.XmlElement,System.Xml.XmlElement,System.Boolean,Microsoft.VisualStudio.TestTools.Execution.RoleContext)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings.Configuration">
+      <summary>진단 데이터 어댑터의 구성을 가져오거나 설정합니다.</summary>
+      <returns>진단 데이터 어댑터의 구성을 포함하는 XML 요소입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings.DefaultConfiguration">
+      <summary>진단 데이터 어댑터의 기본 구성을 가져옵니다.</summary>
+      <returns>진단 데이터 어댑터의 기본 구성을 포함하는 XML 요소입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings.IsEnabled">
+      <summary>진단 데이터 어댑터를 사용하거나 사용하지 않도록 설정하는 값을 가져오거나 설정합니다.</summary>
+      <returns>진단 데이터 어댑터의 사용 여부를 나타내는 bool 값입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings.RoleContext"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorTypeUriAttribute">
+      <summary>URI를 사용하여 진단 데이터 어댑터의 형식을 고유하게 식별합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataCollectorTypeUriAttribute.#ctor(System.String)">
+      <summary>제공된 string을 진단 데이터 어댑터의 URI로 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorTypeUriAttribute" /> 클래스의 인스턴스를 만듭니다.</summary>
+      <param name="typeUri">진단 데이터 어댑터 형식의 URI입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataCollectorTypeUriAttribute.TypeUri">
+      <summary>진단 데이터 어댑터의 형식을 고유하게 식별하는 URI를 가져옵니다.</summary>
+      <returns>진단 데이터 어댑터의 형식을 고유하게 식별하는 URI를 포함하는 string입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.DataRequestEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.DataRequest" /> 이벤트의 이벤트 인수 클래스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.DataRequestEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation,System.TimeSpan)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataRequestEventArgs.RequestedDuration"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.DataRequestEventArgs.RequestId">
+      <summary>이 요청 컨텍스트를 고유하게 식별하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />를 가져오거나 설정합니다.</summary>
+      <returns>이 요청 컨텍스트를 고유하게 식별하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.ExecutionUtilities">
+      <summary>테스트 실행 및 디버그를 위한 유틸리티 메서드를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ExecutionUtilities.DebugTarget(Microsoft.VisualStudio.TestTools.Execution.IResultSink,System.Guid,Microsoft.VisualStudio.TestTools.Common.DebugTargetInfo,System.TimeSpan)">
+      <summary>테스트에 대한 디버그 작업을 요청합니다.</summary>
+      <returns>디버그 작업의 결과를 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Common.DebugOperationResult" /> 개체입니다.</returns>
+      <param name="sink">디버그 요청을 보낼 <see cref="T:Microsoft.VisualStudio.TestTools.Common.IResultSink" />입니다.</param>
+      <param name="runId">테스트 실행에 대한 GUID 식별자입니다.</param>
+      <param name="targetInfo">디버그 작업에 대한 정보를 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.DebugTargetInfo" /> 개체입니다.</param>
+      <param name="timeout">디버거에서 디버그 작업을 수행할 때까지 기다리는 <see cref="T:System.TimeSpan" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ExecutionUtilities.IsAuthenticatedUserInAdminGroup(System.Security.Principal.WindowsIdentity)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.String,System.Boolean)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation.ClientFileName"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation.DeleteFile"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation.Path"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.FileTransferInformation.PerformCleanup"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter">
+      <summary>사용자 지정 테스트 어댑터의 기본으로 사용할 인터페이스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.AbortTestRun">
+      <summary>테스트 실행 중 내부 오류가 발생할 때 호출됩니다.이 메서드는 <see cref="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.StopTestRun" /> 메서드와 비슷하게 동작해야 합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.Cleanup">
+      <summary>테스트 실행이 완료되면 호출됩니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.PauseTestRun">
+      <summary>사용자가 테스트 실행 일시 중지를 요청할 때 호출됩니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.ResumeTestRun">
+      <summary>사용자가 테스트 실행 다시 시작을 요청할 때 호출됩니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.Run(Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Execution.ITestContext)">
+      <summary>테스트 사례를 실행할 때 호출됩니다.</summary>
+      <param name="testElement">로드할 어댑터를 설명하는 테스트 요소입니다. </param>
+      <param name="testContext">어댑터에 대한 컨텍스트입니다. </param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseAdapter.StopTestRun">
+      <summary>사용자가 테스트 실행 중지를 요청할 때 호출됩니다.</summary>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext">
+      <summary>테스트 어댑터에서 테스트 실행 프레임워크와 통신하는 데 사용되는 인터페이스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext.PauseTestRun">
+      <summary>테스트 실행을 일시 중지하라는 요청을 보냅니다.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext.ResultSink">
+      <summary>테스트 실행 프레임워크에 테스트 결과를 보내는 데 사용되는 개체를 가져옵니다.</summary>
+      <returns>이 실행 컨텍스트에 대한 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" />를 반환합니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext.RunConfig">
+      <summary>테스트 실행에 대한 정보를 가져옵니다.</summary>
+      <returns>실행 구성을 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IExecutionRunConfiguration" />입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext.StopTestRun">
+      <summary>테스트 실행을 중지하라는 요청을 보냅니다.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IBaseRunContext.TestRunner">
+      <summary>테스트 어댑터에서 하나 이상의 내부 테스트를 실행하는 데 사용되는 인터페이스를 제공합니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.ITestRunner" /> 개체입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor">
+      <summary>컨텍스트의 값을 저장하고 검색하기 위해 도우미 클래스를 빌드하는 데 사용할 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.AddDoubleValue(System.String,System.Double)">
+      <summary>지정된 키와 값을 사용하여 요소를 추가합니다.</summary>
+      <param name="key">추가할 요소의 키를 나타내는 string입니다.</param>
+      <param name="value">추가할 double 값입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.AddIntValue(System.String,System.Int32)">
+      <summary>지정된 키와 값을 포함하는 요소를 추가합니다.</summary>
+      <param name="key">추가할 요소의 키를 나타내는 string입니다.</param>
+      <param name="value">추가할 int 값입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.AddObject(System.String,System.Object)">
+      <summary>지정된 키와 값을 포함하는 요소를 추가합니다.</summary>
+      <param name="key">추가할 요소의 키를 나타내는 string입니다.</param>
+      <param name="value">추가할 object 값입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.AddStringValue(System.String,System.String)">
+      <summary>지정된 키와 값을 포함하는 요소를 추가합니다.</summary>
+      <param name="key">추가할 요소의 키를 나타내는 string입니다.</param>
+      <param name="value">추가할 string 값입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.Count">
+      <summary>저장된 값의 총 개수를 가져옵니다.</summary>
+      <returns>저장된 값의 개수를 나타내는 int입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.GetDoubleValue(System.String)">
+      <summary>지정된 키와 연결된 값을 검색합니다.</summary>
+      <returns>검색된 double 값입니다.</returns>
+      <param name="key">검색할 요소의 키를 나타내는 string입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.GetEnumerator">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor" />를 반복하는 <see cref="T:System.Collections.IDictionaryEnumerator" />를 반환합니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor" />에 대한 <see cref="T:System.Collections.IDictionaryEnumerator" />입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.GetIntValue(System.String)">
+      <summary>지정된 키와 연결된 값을 검색합니다.</summary>
+      <returns>검색된 int 값입니다.</returns>
+      <param name="key">검색할 요소의 키를 나타내는 string입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.GetObject(System.String)">
+      <summary>지정된 키와 연결된 object를 검색합니다.</summary>
+      <returns>검색된 object 값입니다.</returns>
+      <param name="key">검색할 값의 키를 나타내는 string입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.GetStringValue(System.String)">
+      <summary>지정된 키와 연결된 string을 검색합니다.</summary>
+      <returns>검색한 string 값입니다.</returns>
+      <param name="key">검색할 string의 키입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor.RemoveValue(System.String)">
+      <summary>지정한 키를 가진 요소를 제거합니다.</summary>
+      <param name="key"> 제거할 요소의 키입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionAwareTestAdapter"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionAwareTestAdapter.DataCollectors"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext">
+      <summary>사용자 지정 진단 데이터 어댑터의 현재 환경을 캡슐화하는 개체의 인터페이스입니다.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext.ResultSink">
+      <summary>테스트 결과를 Test and Lab Manager 서버에 저장하는 개체를 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" /> 개체입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext.RunContextVariables">
+      <summary>컨텍스트의 각 값에 액세스할 수 있도록 하는 개체를 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor" /> 개체입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext.TestRun">
+      <summary>테스트 실행 개체에 대한 참조를 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" /> 개체입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectorConfigurationEditor">
+      <summary>진단 데이터 어댑터의 사용자 지정 구성 편집기를 만들기 위한 인터페이스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IDataCollectorConfigurationEditor.Initialize(System.IServiceProvider,Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings)">
+      <summary>서비스 공급자 및 진단 데이터 어댑터 구성 설정을 사용하여 구성 편집기를 초기화합니다.</summary>
+      <param name="serviceProvider">소비자가 부모에게 제공 가능한 서비스를 쿼리할 수 있게 하는 <see cref="T:System.IServiceProvider" />입니다.</param>
+      <param name="settings">진단 데이터 어댑터의 현재 설정을 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IDataCollectorConfigurationEditor.ResetToAgentDefaults">
+      <summary>구성 편집기를 기본 설정으로 다시 설정합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IDataCollectorConfigurationEditor.SaveData">
+      <summary>구성 편집기의 데이터를 저장합니다.</summary>
+      <returns>진단 데이터 어댑터에 대한 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectorSettings" /> 개체입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IDataCollectorConfigurationEditor.VerifyData">
+      <summary>오류가 발생했는지 여부를 확인합니다.일반적으로 데이터 수집기 구성 편집기를 닫기 전에 프레임워크에서 호출합니다.</summary>
+      <returns>오류가 발생하지 않았으면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IExecutionRunConfiguration">
+      <summary>테스트 실행 정보를 위한 인터페이스입니다.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IExecutionRunConfiguration.TestElements">
+      <summary>실행의 테스트 요소 목록을 가져옵니다.</summary>
+      <returns>테스트 실행의 테스트 요소 목록을 반환합니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IExecutionRunConfiguration.TestRun">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" /> 개체를 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" /> 개체를 반환합니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IHostAdapter">
+      <summary>호스트 응용 프로그램에서의 테스트 실행을 지원하는 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IHostAdapter.GetTestAdapter(Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Execution.IRunContext)">
+      <summary>지정된 테스트 요소와 실행 컨텍스트를 위한 테스트 어댑터를 로드하고 반환합니다.</summary>
+      <returns>현재 <see cref="T:Microsoft.VisualStudio.TestTools.TestAdapter.ITestAdapter" />입니다.</returns>
+      <param name="test">로드할 테스트 어댑터를 설명하는 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" />입니다.</param>
+      <param name="runContext">테스트 어댑터에 대한 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IRunContext" />입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IRegisterHostAdapter">
+      <summary>호스트 어댑터 에이전트에서 원격 채널에서 게시하기 위한 인터페이스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IRegisterHostAdapter.Ping">
+      <summary>이 메서드 호출에서 오류가 발생하지 않은 경우 연결을 확인합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IRegisterHostAdapter.Register(Microsoft.VisualStudio.TestTools.Execution.IHostAdapter)">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IHostAdapter" />를 등록합니다.</summary>
+      <param name="hostAdapter">등록할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IHostAdapter" />입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink">
+      <summary>메시지, 결과 및 알림을 보내는 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.IResultSink.AddResult(Microsoft.VisualStudio.TestTools.Common.TestMessage)">
+      <summary>결과 싱크에 메시지를 추가합니다.</summary>
+      <param name="testMessage">결과 싱크에 추가할 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestMessage" />입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.IRunContext">
+      <summary>테스트 어댑터에 테스트 실행에 대한 정보를 검색하기 위한 인터페이스를 제공합니다.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IRunContext.AgentName">
+      <summary>테스트를 실행하고 있는 컴퓨터의 이름을 가져옵니다. </summary>
+      <returns>테스트를 실행하고 있는 컴퓨터의 이름입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.IRunContext.RunContextVariables">
+      <summary>실행 컨텍스트 변수를 가져옵니다.</summary>
+      <returns>컨텍스트의 명명된 값을 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor" /> 개체입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.ITestContext">
+      <summary>테스트 실행 프로세스 중에 메서드에 전달되는 테스트 컨텍스트에 대한 컨텍스트 인터페이스 정의입니다.</summary>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ITestContext.Properties">
+      <summary>이 테스트 컨텍스트의 속성을 가져옵니다.</summary>
+      <returns>이 테스트의 컨텍스트의 속성을 포함하는 <see cref="T:System.Collections.Generic.IDictionary" /> 개체입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ITestContext.ResultSink">
+      <summary>이 테스트 컨텍스트에 대한 결과 싱크를 가져옵니다. 여기에는 테스트 통과 또는 실패 결과가 포함됩니다.</summary>
+      <returns>이 테스트 컨텍스트에 대한 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" /> 개체입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ITestContext.RunContextVariables">
+      <summary>실행 컨텍스트 변수를 가져옵니다.</summary>
+      <returns>실행 컨텍스트 변수를 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor" /> 개체입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.ITestContext.TestContextVariables">
+      <summary>테스트 컨텍스트 변수를 가져옵니다.</summary>
+      <returns>테스트 컨텍스트 변수를 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IContextAccessor" /> 개체입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.ITestExecutionPlugin">
+      <summary>테스트 실행 프레임워크에서 코드를 실행하는 데 사용되는 플러그형 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ITestExecutionPlugin.AfterExecutionCompleted(Microsoft.VisualStudio.TestTools.Common.TestRun,Microsoft.VisualStudio.TestTools.Execution.IResultSink,Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext)">
+      <summary>이 메서드는 모든 테스트가 완료된 후에 호출되며 테스트 실행이 완료되었음을 의미합니다.</summary>
+      <param name="run">현재 처리되고 있으며 특수 작업이 필요한 테스트 실행입니다.</param>
+      <param name="sink">데이터를 전송하는 데 사용되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" /> 개체입니다.</param>
+      <param name="runContext">테스트의 컨텍스트를 나타내는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ITestExecutionPlugin.AfterTestCompleted(Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext,Microsoft.VisualStudio.TestTools.Common.TestExecId)">
+      <summary>이 메서드는 테스트가 완료된 후에 호출됩니다.</summary>
+      <param name="runContext">테스트의 컨텍스트를 나타내는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext" /> 개체입니다.</param>
+      <param name="id">테스트 ID입니다. </param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ITestExecutionPlugin.BeforeExecutionStarted(Microsoft.VisualStudio.TestTools.Common.TestRun,Microsoft.VisualStudio.TestTools.Execution.IResultSink,Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext)">
+      <summary>이 메서드는 테스트 실행이 시작되기 전에 호출됩니다.</summary>
+      <param name="run">현재 처리되고 있으며 특수 작업이 필요한 테스트 실행입니다.</param>
+      <param name="sink">데이터를 전송하는 데 사용되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" /> 개체입니다.</param>
+      <param name="runContext">테스트의 컨텍스트를 나타내는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ITestExecutionPlugin.BeforeTestStarted(Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext,Microsoft.VisualStudio.TestTools.Common.TestExecId)">
+      <summary>이 메서드는 테스트가 시작되기 전에 호출됩니다.</summary>
+      <returns>에이전트에서 테스트를 계속 실행해야 하면 true이고, 에이전트에서 테스트를 실행하지 않아야 하면 false입니다.Notefalse가 반환되면 에이전트는 플러그 인에서 해당 테스트에 대해 테스트 실패를 보고한 것으로 가정하고 결과를 기록하지 않습니다.false가 반환되더라도 플러그 인에서는 해당 테스트에 대해 <see cref="F:Microsoft.VisualStudio.TestTools.Common.TestMessageKind.TestEnd" /> 이벤트를 발생시킵니다.</returns>
+      <param name="runContext">테스트의 컨텍스트를 나타내는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IDataCollectionRunContext" /> 개체입니다.</param>
+      <param name="id">테스트 ID입니다. </param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.ITestRunner">
+      <summary>도구 모음 어댑터에서 테스트 사례 목록을 콜백하고 실행할 수 있도록 하는 컨트롤러와 에이전트 간의 인터페이스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ITestRunner.LoadRun(Microsoft.VisualStudio.TestTools.Common.ITestElement[],Microsoft.VisualStudio.TestTools.Execution.IResultSink,System.Collections.Generic.IDictionary{System.String,System.Object})">
+      <summary>부하 테스트 사례를 실행합니다.</summary>
+      <returns>각 테스트의 성공 또는 실패를 나타내는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.AdapterRunResult" /> 열거형의 멤버입니다.</returns>
+      <param name="testElement">실행할 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체의 배열입니다.</param>
+      <param name="resultSink">테스트의 결과를 저장할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" />입니다.</param>
+      <param name="contextProperties">테스트의 컨텍스트 속성을 포함하는 <see cref="T:System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.ITestRunner.Run(Microsoft.VisualStudio.TestTools.Common.ITestElement[],Microsoft.VisualStudio.TestTools.Execution.IResultSink)">
+      <summary>테스트 사례를 실행합니다.</summary>
+      <returns>각 테스트의 성공 또는 실패를 나타내는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.AdapterRunResult" /> 열거형의 멤버입니다.</returns>
+      <param name="testElement">실행할 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체의 배열입니다.</param>
+      <param name="resultSink">테스트의 결과를 저장할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.IResultSink" />입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.NotificationBroadcastLevel"></member>
+    <member name="F:Microsoft.VisualStudio.TestTools.Execution.NotificationBroadcastLevel.LocalOnly">
+      <summary />
+    </member>
+    <member name="F:Microsoft.VisualStudio.TestTools.Execution.NotificationBroadcastLevel.All">
+      <summary />
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.RequestId">
+      <summary>요청을 고유하게 식별하며 메시지 및 이벤트와 함께 사용할 수 있습니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.CompareTo(Microsoft.VisualStudio.TestTools.Execution.RequestId)">
+      <summary>이 인스턴스를 제공된 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />와 비교합니다.</summary>
+      <returns>비교되는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />의 상대적 순서를 나타내는 부호 있는 32비트 정수입니다.반환 값에는 다음과 같은 의미가 있습니다.음수이 인스턴스는 <paramref name="other" />보다 작습니다.0이 인스턴스는 <paramref name="other" />와 같습니다.양수이 인스턴스는 <paramref name="other" />보다 큽니다.</returns>
+      <param name="other">비교할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.CompareTo(System.Object)">
+      <summary>이 인스턴스를 제공된 개체와 비교합니다.</summary>
+      <returns>비교되는 개체의 상대적 순서를 나타내는 부호 있는 32비트 정수입니다.반환 값에는 다음과 같은 의미가 있습니다.음수이 인스턴스는 <paramref name="obj" />보다 작습니다.0이 인스턴스는 <paramref name="obj" />와 같습니다.양수이 인스턴스는 <paramref name="obj" />보다 큽니다.</returns>
+      <param name="obj">비교할 개체입니다.</param>
+      <exception cref="ArgumentException">개체는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" /> 형식이 아닙니다.</exception>
+    </member>
+    <member name="F:Microsoft.VisualStudio.TestTools.Execution.RequestId.Empty">
+      <summary>빈 GUID를 포함하는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.Equals(Microsoft.VisualStudio.TestTools.Execution.RequestId)">
+      <summary>이 인스턴스의 값이 제공된 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />와 같은지 비교합니다.</summary>
+      <returns>같으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="other">비교할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.Equals(System.Object)">
+      <summary>이 인스턴스의 값이 제공된 개체와 같은지 비교합니다.</summary>
+      <returns>같으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="obj">비교할 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" /> 형식의 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.GetHashCode">
+      <summary>이 인스턴스의 해시 코드를 가져옵니다.</summary>
+      <returns>이 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />에 대한 기본 해시 코드입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.RequestId.Id">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />를 나타내는 기본 GUID를 가져오거나 설정합니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />를 나타내는 GUID입니다.</returns>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.op_Equality(Microsoft.VisualStudio.TestTools.Execution.RequestId,Microsoft.VisualStudio.TestTools.Execution.RequestId)">
+      <summary>두 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />의 값이 같은지 비교합니다.</summary>
+      <returns>같으면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="left">같음 연산자 왼쪽에 있는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</param>
+      <param name="right">같음 연산자 오른쪽에 있는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.op_Inequality(Microsoft.VisualStudio.TestTools.Execution.RequestId,Microsoft.VisualStudio.TestTools.Execution.RequestId)">
+      <summary>두 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />의 값이 다른지 비교합니다.</summary>
+      <returns>다르면 true이고, 그렇지 않으면 false입니다.</returns>
+      <param name="left">같지 않음 연산자 왼쪽에 있는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</param>
+      <param name="right">같지 않음 연산자 오른쪽에 있는 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RequestId.ToString">
+      <summary>인스턴스를 소문자 레지스트리 형식의 문자열로 변환합니다.</summary>
+      <returns>기본 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RequestId" />를 나타내는 소문자 레지스트리 형식의 문자열입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.RoleContext"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RoleContext.#ctor(System.Boolean,System.Boolean)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.RoleContext.IsExecutionRole"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.RoleContext.IsRemoteRole"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration">
+      <summary>테스트 실행 구성 데이터 및 개체를 관리하는 클래스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration.#ctor(Microsoft.VisualStudio.TestTools.Common.TestRun)">
+      <summary>새 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" />을 사용하여 새 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" /> 개체를 초기화합니다.</summary>
+      <param name="testRun">이 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />을 초기화하는 데 사용할 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" />입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration.IsValid">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />이 유효한지 여부를 보고합니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" />이 유효하고 이 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />에 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체가 포함되면 true이고, 그렇지 않으면 false입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration.TestCount">
+      <summary>이 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />의 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체 수를 가져옵니다.</summary>
+      <returns>이 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />의 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체 수입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration.TestElements">
+      <summary>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />의 모든 <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체를 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체의 배열입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration.TestRun">
+      <summary>이 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.RunConfiguration" />의 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" />을 가져옵니다.</summary>
+      <returns>
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestRun" /> 개체입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.SessionEndEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionEnd" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.SessionEndEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.SessionPauseEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionPause" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.SessionPauseEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.SessionResumeEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionResume" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.SessionResumeEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.SessionStartEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.SessionStart" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.SessionStartEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.IO.Stream,System.String,System.Boolean)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation.ClientFileName"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation.CloseStream"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation.FileName"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation.PerformCleanup"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.StreamTransferInformation.Stream"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseEndEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseEnd" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseEndEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation,Microsoft.VisualStudio.TestTools.Common.TestOutcome)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestCaseEndEventArgs.TestOutcome">
+      <summary>테스트의 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TestOutcome" />을 가져오거나 설정합니다.</summary>
+      <returns>테스트 결과입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs">
+      <summary>테스트 사례 이벤트에 사용되는 모든 이벤트 인수 클래스의 기본 클래스를 제공합니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation)">
+      <summary>제공된 정보를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="context">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" /> 개체입니다.</param>
+      <param name="testElement">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체가 나타내는 현재 테스트 요소입니다.</param>
+      <param name="tcmInformation">테스트에 대한 추가 데이터를 Test and Lab Manager에서 가져오는 데 사용되는 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TcmInformation" /> 개체입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.Guid,Microsoft.VisualStudio.TestTools.Common.TcmInformation,System.String,System.Boolean)">
+      <summary>지정된 정보를 사용하여 <see cref="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs" /> 클래스의 새 인스턴스를 초기화합니다.</summary>
+      <param name="context">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext" /> 개체입니다.</param>
+      <param name="testCaseId">
+        <see cref="T:Microsoft.VisualStudio.TestTools.Common.ITestElement" /> 개체가 나타내는 현재 테스트 요소를 식별하는 현재 테스트 사례 ID입니다.</param>
+      <param name="tcmInformation">테스트에 대한 추가 데이터를 Test and Lab Manager에서 가져오는 데 사용되는 <see cref="T:Microsoft.VisualStudio.TestTools.Common.TcmInformation" /> 개체입니다.</param>
+      <param name="testCaseName">테스트 사례의 이름입니다.</param>
+      <param name="isChildTestCase">현재 테스트 사례가 다른 테스트 사례의 자식이면 true입니다.</param>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.IsChildTestCase">
+      <summary>테스트 사례가 다른 테스트 사례의 자식인지 여부를 나타내는 값을 가져오거나 설정합니다.</summary>
+      <returns>자식 테스트 사례이면 true이고, 최상위 테스트 사례이면 false입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.TcmInformation">
+      <summary>테스트 사례에 대한 추가적인 정보를 Test and Lab Manager 서버에서 가져오는 데 사용할 수 있는 정보가 포함된 개체를 가져옵니다.</summary>
+      <returns>정보 개체이거나, Test and Lab Manager에서 시작된 테스트가 아니면 null입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.TestCaseId">
+      <summary>테스트 사례 식별자를 가져오거나 설정합니다.</summary>
+      <returns>테스트 사례 ID입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.TestCaseName">
+      <summary>테스트 사례 이름을 가져오거나 설정합니다.</summary>
+      <returns>테스트 사례의 이름입니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestCaseEventArgs.TestElement">
+      <summary>현재 테스트 사례 요소를 가져옵니다.</summary>
+      <returns>현재 테스트 사례 요소입니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseFailedEventArgs"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseFailedEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCasePauseEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCasePause" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCasePauseEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseResetEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseReset" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseResetEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseResumeEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseResume" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseResumeEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestCaseStartEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestCaseStart" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestCaseStartEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestExecutionSection"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestExecutionSection.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestExecutionSection.DeserializeElement(System.Xml.XmlReader,System.Boolean)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestExecutionSection.SerializeElement(System.Xml.XmlWriter,System.Boolean)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestExecutionSection.SerializeToXmlElement(System.Xml.XmlWriter,System.String)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestStepEndEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestStepEnd" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestStepEndEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation,System.Int32,System.String,Microsoft.VisualStudio.TestTools.Common.TestOutcome)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestStepEndEventArgs.TestStepOutcome"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestStepEventArgs">
+      <summary>모든 테스트 단계 이벤트 인수의 기본 클래스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestStepEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation,System.Int32,System.String)"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestStepEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,System.Guid,Microsoft.VisualStudio.TestTools.Common.TcmInformation,System.String,System.Boolean,System.Int32,System.String)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestStepEventArgs.TestStepDescription">
+      <summary>테스트 단계에 대한 설명을 가져오거나 설정합니다.</summary>
+      <returns>테스트 단계에 대한 설명을 반환합니다.</returns>
+    </member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.TestStepEventArgs.TestStepId">
+      <summary>테스트 단계의 ID를 가져오거나 설정합니다.</summary>
+      <returns>테스트 단계의 ID를 반환합니다.</returns>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.TestStepStartEventArgs">
+      <summary>
+        <see cref="E:Microsoft.VisualStudio.TestTools.Execution.DataCollectionEvents.TestStepStart" /> 이벤트에 대한 이벤트 인수를 나타냅니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.TestStepStartEventArgs.#ctor(Microsoft.VisualStudio.TestTools.Execution.DataCollectionContext,Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Common.TcmInformation,System.Int32,System.String)"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.Execution.Aggregation.AggregationSessionConfiguration"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.Aggregation.AggregationSessionConfiguration.#ctor"></member>
+    <member name="M:Microsoft.VisualStudio.TestTools.Execution.Aggregation.AggregationSessionConfiguration.#ctor(System.String)"></member>
+    <member name="P:Microsoft.VisualStudio.TestTools.Execution.Aggregation.AggregationSessionConfiguration.OutputDirectory"></member>
+    <member name="T:Microsoft.VisualStudio.TestTools.TestAdapter.ILoadTestAdapter">
+      <summary>로드 테스트 어댑터에서 구현할 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.TestAdapter.ILoadTestAdapter.LoadRun(Microsoft.VisualStudio.TestTools.Common.ITestElement,Microsoft.VisualStudio.TestTools.Execution.ITestContext)">
+      <summary>스레드로부터 안전한 Run 메서드입니다.</summary>
+      <param name="testElement">테스트 요소입니다.</param>
+      <param name="testContext">테스트 컨텍스트입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.TestAdapter.ITestAdapter">
+      <summary>모든 테스트 어댑터에서 구현할 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.TestAdapter.ITestAdapter.Initialize(Microsoft.VisualStudio.TestTools.Execution.IRunContext)">
+      <summary>테스트 실행을 위해 테스트 어댑터를 로드할 때 호출합니다.</summary>
+      <param name="runContext">이 테스트 실행의 컨텍스트입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.TestAdapter.ITestAdapter.PreTestRunFinished(Microsoft.VisualStudio.TestTools.Execution.IRunContext)">
+      <summary>테스트 실행이 완료되면 테스트 어댑터가 정리할 수 있도록 호출합니다.</summary>
+      <param name="runContext">이 테스트 실행의 컨텍스트입니다.</param>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.TestAdapter.ITestAdapter.ReceiveMessage(System.Object)">
+      <summary>사용자 인터페이스, 컨트롤러 또는 에이전트로부터 다운스트림 메시지를 수신합니다.</summary>
+      <param name="message">메시지입니다.</param>
+    </member>
+    <member name="T:Microsoft.VisualStudio.TestTools.TestAdapter.ITimeoutTestAdapter">
+      <summary>테스트 어댑터에서 테스트에 대해 시간 제한 알림을 요청하기 위한 인터페이스입니다.</summary>
+    </member>
+    <member name="M:Microsoft.VisualStudio.TestTools.TestAdapter.ITimeoutTestAdapter.TestTimeout(Microsoft.VisualStudio.TestTools.Common.ITestElement)">
+      <summary>에이전트가 전체 실행을 중지하지 않고 개별 테스트를 중지할 때 호출합니다.테스트 시간 초과 시 호출됩니다.</summary>
+      <param name="test">중지할 테스트입니다.</param>
+    </member>
+  </members>
+</doc>

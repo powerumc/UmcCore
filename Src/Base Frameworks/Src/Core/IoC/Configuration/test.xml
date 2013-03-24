@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<umc.core.ioc>
+	<containers>
+		<container key="Default">
+			<register typeOfContract="ILogger" typeOfDependency="Logger" key="a">
+				<lifetime flag="PerCall"/>
+				
+				<constructor>
+					<param name="logger" value="aaa" />
+					<param name="logger2" value="bbb" />
+				</constructor>
+
+				<property name="Settings" />
+				<property name="Settings2">
+					<dependency typeOfContract="ILogger" />
+				</property>
+
+				<method name="Execute">
+					<param name="init" value="init value" />
+					<param name="init1" value="init value1" />
+				</method>
+
+				<method name="Execute2">
+					<param name="init3">
+						<dependency typeOfContract="ILoggerExecute" />
+					</param>
+				</method>
+				
+				<interceptor type="asd" />
+				<interceptor type="bbb" />
+			</register>
+
+			<register typeOfContract="IExecute" typeOfDependency="Execute">
+				<lifetime flag="PerThread"/>
+			</register>
+
+
+			<container key="Container2">
+				<register typeOfContract="IA" typeOfDependency="A"/>
+			</container>
+			
+		</container>
+
+		<container>
+			<register typeOfContract="IB" typeOfDependency="B" />
+		</container>
+		
+	</containers>
+	
+</umc.core.ioc>

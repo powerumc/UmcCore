@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Witd:WITD application="Work item type editor" version="1.0" xmlns:Witd="http://schemas.microsoft.com/VisualStudio/2008/workitemtracking/typedef">
+  <WORKITEMTYPE name="Code Item">
+    <DESCRIPTION>Includes information about some code identified as needing work</DESCRIPTION>
+    <FIELDS>
+      <FIELD reportable="dimension" type="String" name="제목" refname="System.Title">
+        <REQUIRED />
+        <HELPTEXT>Short description of the Code Item used to differentiate it in a list or report</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="상황" refname="System.State">
+        <HELPTEXT>The workflow state of the Code Item</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="Integer" name="수정" refname="System.Rev" />
+      <FIELD reportable="dimension" type="String" name="변경한 사람" refname="System.ChangedBy">
+        <VALIDUSER />
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="이유" refname="System.Reason">
+        <HELPTEXT>The reason why the Code Item is in the current state</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="담당자" refname="System.AssignedTo">
+        <VALIDUSER />
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="작업 항목 형식" refname="System.WorkItemType" />
+      <FIELD reportable="dimension" type="String" name="통합 빌드" refname="Microsoft.VSTS.Build.IntegrationBuild">
+        <SUGGESTEDVALUES>
+          <LISTITEM value="&lt;None&gt;" />
+        </SUGGESTEDVALUES>
+        <HELPTEXT>The build in which the Code Item was completed</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="DateTime" name="만든 날짜" refname="System.CreatedDate" />
+      <FIELD reportable="dimension" type="String" name="만든 사람" refname="System.CreatedBy" />
+      <FIELD reportable="dimension" type="String" name="문제" refname="Microsoft.VSTS.Common.Issue">
+        <REQUIRED />
+        <ALLOWEDVALUES>
+          <LISTITEM value="No" />
+          <LISTITEM value="Yes" />
+        </ALLOWEDVALUES>
+        <DEFAULT from="value" value="No" />
+        <HELPTEXT>Used to highlight a Code Item, e.g., to mark it as an issue</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="DateTime" name="상황 변경 날짜" refname="Microsoft.VSTS.Common.StateChangeDate">
+        <WHENCHANGED field="System.State">
+          <SERVERDEFAULT from="clock" />
+        </WHENCHANGED>
+        <WHENNOTCHANGED field="System.State">
+          <READONLY />
+        </WHENNOTCHANGED>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="활성화한 사람" refname="Microsoft.VSTS.Common.ActivatedBy">
+        <WHENNOTCHANGED field="System.State">
+          <READONLY />
+        </WHENNOTCHANGED>
+      </FIELD>
+      <FIELD reportable="dimension" type="DateTime" name="활성화된 날짜" refname="Microsoft.VSTS.Common.ActivatedDate">
+        <WHENNOTCHANGED field="System.State">
+          <READONLY />
+        </WHENNOTCHANGED>
+      </FIELD>
+      <FIELD reportable="dimension" type="DateTime" name="닫힌 날짜" refname="Microsoft.VSTS.Common.ClosedDate">
+        <WHENNOTCHANGED field="System.State">
+          <READONLY />
+        </WHENNOTCHANGED>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="닫은 사람" refname="Microsoft.VSTS.Common.ClosedBy">
+        <WHENNOTCHANGED field="System.State">
+          <READONLY />
+        </WHENNOTCHANGED>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="순위" refname="Microsoft.VSTS.Common.Rank">
+        <HELPTEXT>Stack rank to prioritize work</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="Exit Criteria" refname="Microsoft.VSTS.Common.ExitCriteria">
+        <REQUIRED />
+        <ALLOWEDVALUES>
+          <LISTITEM value="No" />
+          <LISTITEM value="Yes" />
+        </ALLOWEDVALUES>
+        <DEFAULT from="value" value="No" />
+        <HELPTEXT>Flag to determine if this scenario should be tracked as an exit criteria for the iteration</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="Discipline" refname="Microsoft.VSTS.Common.Discipline">
+        <ALLOWEDVALUES>
+          <LISTITEM value="Development" />
+          <LISTITEM value="Test" />
+          <LISTITEM value="Project Management" />
+          <LISTITEM value="Requirements" />
+          <LISTITEM value="Architecture" />
+          <LISTITEM value="Release Management" />
+        </ALLOWEDVALUES>
+        <HELPTEXT>The discipline to which the Code Item belongs</HELPTEXT>
+      </FIELD>
+      <FIELD type="PlainText" name="설명" refname="System.Description" />
+      <FIELD reportable="measure" type="Double" name="Baseline Work" refname="Microsoft.VSTS.Scheduling.BaselineWork">
+        <HELPTEXT>The number of hours of work from the baseline plan</HELPTEXT>
+      </FIELD>
+      <FIELD type="History" name="기록" refname="System.History">
+        <HELPTEXT>Discussion thread and other historical information</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="DateTime" name="시작 날짜" refname="Microsoft.VSTS.Scheduling.StartDate">
+        <HELPTEXT>The date to start the Code Item</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="measure" type="Double" name="완료된 작업" refname="Microsoft.VSTS.Scheduling.CompletedWork">
+        <HELPTEXT>The number of hours that have been completed for this Code Item</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="DateTime" name="완료 날짜" refname="Microsoft.VSTS.Scheduling.FinishDate">
+        <HELPTEXT>The date to finish the Code Item</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="Task Hierarchy" refname="Microsoft.VSTS.Scheduling.TaskHierarchy">
+        <HELPTEXT>A string representing MS-Project context for the given Code Item</HELPTEXT>
+      </FIELD>
+      <FIELD reportable="measure" type="Double" name="남은 작업" refname="Microsoft.VSTS.Scheduling.RemainingWork">
+        <HELPTEXT>An estimate of the number of hours remaining to complete the Code Item</HELPTEXT>
+      </FIELD>
+      <FIELD type="Integer" name="관련 링크 개수" refname="System.RelatedLinkCount" />
+      <FIELD reportable="dimension" type="String" name="CodeMember" refname="CodeReviewAddIn.CodeMember" />
+      <FIELD reportable="dimension" type="String" name="CodeProject" refname="CodeReviewAddIn.CodeProject" />
+      <FIELD reportable="dimension" type="String" name="CodeFile" refname="CodeReviewAddIn.CodeFile" />
+      <FIELD reportable="detail" type="Integer" name="CodeStartLine" refname="CodeReviewAddIn.CodeStartLine" />
+      <FIELD reportable="detail" type="Integer" name="CodeEndLine" refname="CodeReviewAddIn.CodeEndLine" />
+      <FIELD reportable="dimension" type="String" name="CodeNamespace" refname="CodeReviewAddIn.CodeNamespace" />
+      <FIELD reportable="dimension" type="String" name="CodeClass" refname="CodeReviewAddIn.CodeClass" />
+      <FIELD type="PlainText" name="CodeSuggestedResolution" refname="CodeReviewAddIn.CodeResolution" />
+      <FIELD reportable="dimension" type="TreePath" name="반복 경로" refname="System.IterationPath">
+        <HELPTEXT>The iteration of the product with which this Code Item is associated</HELPTEXT>
+      </FIELD>
+      <FIELD type="Integer" name="반복 ID" refname="System.IterationId" />
+      <FIELD type="PlainText" name="CodeDescription" refname="CodeReviewAddIn.CodeDescription" />
+      <FIELD type="PlainText" name="CodeSnippet" refname="CodeReviewAddIn.CodeSnippet" />
+      <FIELD reportable="measure" type="Integer" name="외부 링크 개수" refname="System.ExternalLinkCount" />
+      <FIELD reportable="dimension" type="String" name="팀 프로젝트" refname="System.TeamProject" />
+      <FIELD reportable="measure" type="Integer" name="하이퍼링크 개수" refname="System.HyperLinkCount" />
+      <FIELD reportable="measure" type="Integer" name="연결된 파일 개수" refname="System.AttachedFileCount" />
+      <FIELD type="String" name="노드 이름" refname="System.NodeName" />
+      <FIELD reportable="dimension" type="TreePath" name="영역 경로" refname="System.AreaPath">
+        <HELPTEXT>The area of the product with which this Code Item is associated</HELPTEXT>
+      </FIELD>
+      <FIELD type="DateTime" name="수정된 날짜" refname="System.RevisedDate" />
+      <FIELD reportable="dimension" type="DateTime" name="변경한 날짜" refname="System.ChangedDate" />
+      <FIELD reportable="dimension" type="Integer" name="ID" refname="System.Id" />
+      <FIELD type="Integer" name="영역 ID" refname="System.AreaId" />
+      <FIELD type="String" name="승인한 사람" refname="System.AuthorizedAs" />
+      <FIELD reportable="dimension" type="String" name="Code Item Type" refname="CodeReviewAddin.CodeItemType">
+        <ALLOWEXISTINGVALUE />
+        <ALLOWEDVALUES>
+          <LISTITEM value="Review Request" />
+          <LISTITEM value="Review Response" />
+        </ALLOWEDVALUES>
+        <REQUIRED />
+        <DEFAULT from="value" value="Review Response" />
+      </FIELD>
+      <FIELD reportable="dimension" type="String" name="CodePriority" refname="CodeReviewAddIn.CodePriority">
+        <ALLOWEDVALUES>
+          <LISTITEM value="Critical" />
+          <LISTITEM value="High" />
+          <LISTITEM value="Medium" />
+          <LISTITEM value="Low" />
+          <LISTITEM value="None" />
+          <LISTITEM value="Recommendation" />
+        </ALLOWEDVALUES>
+        <DEFAULT from="value" value="Recommendation" />
+        <REQUIRED />
+      </FIELD>
+    </FIELDS>
+    <WORKFLOW>
+      <STATES>
+        <STATE value="Active">
+          <FIELDS>
+            <FIELD refname="Microsoft.VSTS.Common.ClosedDate">
+              <EMPTY />
+            </FIELD>
+            <FIELD refname="Microsoft.VSTS.Common.ClosedBy">
+              <EMPTY />
+            </FIELD>
+          </FIELDS>
+        </STATE>
+        <STATE value="Closed" />
+      </STATES>
+      <TRANSITIONS>
+        <TRANSITION from="" to="Active">
+          <REASONS>
+            <DEFAULTREASON value="New" />
+          </REASONS>
+          <FIELDS>
+            <FIELD refname="Microsoft.VSTS.Common.ActivatedBy">
+              <COPY from="currentuser" />
+              <VALIDUSER />
+              <REQUIRED />
+            </FIELD>
+            <FIELD refname="Microsoft.VSTS.Common.ActivatedDate">
+              <SERVERDEFAULT from="clock" />
+            </FIELD>
+            <FIELD refname="System.AssignedTo">
+              <DEFAULT from="currentuser" />
+            </FIELD>
+          </FIELDS>
+        </TRANSITION>
+        <TRANSITION from="Closed" to="Active">
+          <REASONS>
+            <DEFAULTREASON value="Reactivated" />
+          </REASONS>
+          <FIELDS>
+            <FIELD refname="Microsoft.VSTS.Common.ActivatedBy">
+              <COPY from="currentuser" />
+              <VALIDUSER />
+              <REQUIRED />
+            </FIELD>
+            <FIELD refname="Microsoft.VSTS.Common.ActivatedDate">
+              <SERVERDEFAULT from="clock" />
+            </FIELD>
+            <FIELD refname="System.AssignedTo">
+              <COPY from="field" field="Microsoft.VSTS.Common.ClosedBy" />
+            </FIELD>
+          </FIELDS>
+        </TRANSITION>
+        <TRANSITION from="Active" to="Closed">
+          <ACTIONS>
+            <ACTION value="Microsoft.VSTS.Actions.Checkin" />
+          </ACTIONS>
+          <REASONS>
+            <REASON value="Deferred" />
+            <REASON value="Obsolete" />
+            <REASON value="Cut" />
+            <DEFAULTREASON value="Completed" />
+          </REASONS>
+          <FIELDS>
+            <FIELD refname="Microsoft.VSTS.Common.ClosedDate">
+              <SERVERDEFAULT from="clock" />
+            </FIELD>
+            <FIELD refname="Microsoft.VSTS.Common.ClosedBy">
+              <COPY from="currentuser" />
+              <VALIDUSER />
+              <REQUIRED />
+            </FIELD>
+            <FIELD refname="Microsoft.VSTS.Common.ActivatedBy">
+              <READONLY />
+            </FIELD>
+            <FIELD refname="Microsoft.VSTS.Common.ActivatedDate">
+              <READONLY />
+            </FIELD>
+          </FIELDS>
+        </TRANSITION>
+      </TRANSITIONS>
+    </WORKFLOW>
+    <FORM>
+      <Layout>
+        <Group>
+          <Column PercentWidth="100">
+            <Control FieldName="System.Title" Type="FieldControl" Label="&amp;Title:" LabelPosition="Left" />
+          </Column>
+        </Group>
+        <Group Label="Classification">
+          <Column PercentWidth="100">
+            <Control FieldName="System.AreaPath" Type="WorkItemClassificationControl" Label="&amp;Area:" LabelPosition="Left" />
+            <Control FieldName="System.IterationPath" Type="WorkItemClassificationControl" Label="&amp;Iteration:" LabelPosition="Left" />
+          </Column>
+        </Group>
+        <Group Label="Status">
+          <Column PercentWidth="33">
+            <Control FieldName="System.AssignedTo" Type="FieldControl" Label="Assi&amp;gned to:" LabelPosition="Left" />
+            <Control FieldName="Microsoft.VSTS.Common.Rank" Type="FieldControl" Label="Ran&amp;k:" LabelPosition="Left" NumberFormat="WholeNumbers" MaxLength="10" />
+          </Column>
+          <Column PercentWidth="33">
+            <Control FieldName="System.State" Type="FieldControl" Label="&amp;State:" LabelPosition="Left" />
+            <Control FieldName="System.Reason" Type="FieldControl" Label="&amp;Reason:" LabelPosition="Left" />
+          </Column>
+          <Column PercentWidth="33">
+            <Control FieldName="CodeReviewAddIn.CodePriority" Type="FieldControl" Label="&amp;Priority:" LabelPosition="Left" />
+            <Control FieldName="CodeReviewAddin.CodeItemType" Type="FieldControl" Label="Type:" LabelPosition="Left" Dock="Fill" />
+          </Column>
+        </Group>
+        <TabGroup>
+          <Tab Label="Description">
+            <Control FieldName="CodeReviewAddIn.CodeDescription" Type="HtmlFieldControl" Label="Des&amp;cription:" LabelPosition="Top" Dock="Top" />
+            <Control FieldName="CodeReviewAddIn.CodeResolution" Type="HtmlFieldControl" Label="Suggested &amp;Resolution:" LabelPosition="Top" Dock="Bottom" />
+          </Tab>
+          <Tab Label="Code Snippet">
+            <Control FieldName="System.Description" Type="HtmlFieldControl" Label="Code:" LabelPosition="Top" Dock="Fill" ReadOnly="True" />
+          </Tab>
+          <Tab Label="Code Details">
+            <Group Label="">
+              <Column PercentWidth="50">
+                <Group Label="Code Member">
+                  <Column PercentWidth="100">
+                    <Control FieldName="CodeReviewAddIn.CodeProject" Type="FieldControl" Label="Project:" LabelPosition="Left" />
+                    <Control FieldName="CodeReviewAddIn.CodeNamespace" Type="FieldControl" Label="Namespace:" LabelPosition="Left" />
+                    <Control FieldName="CodeReviewAddIn.CodeClass" Type="FieldControl" Label="Class:" LabelPosition="Left" />
+                    <Control FieldName="CodeReviewAddIn.CodeMember" Type="FieldControl" Label="Name:" LabelPosition="Left" />
+                  </Column>
+                </Group>
+              </Column>
+              <Column PercentWidth="50">
+                <Group Label="Code File">
+                  <Column PercentWidth="100">
+                    <Control FieldName="CodeReviewAddIn.CodeFile" Type="FieldControl" Label="Path:" LabelPosition="Left" />
+                    <Group Label="Line Numbers">
+                      <Column PercentWidth="50">
+                        <Control FieldName="CodeReviewAddIn.CodeStartLine" Type="FieldControl" Label="Start:" LabelPosition="Left" />
+                      </Column>
+                      <Column PercentWidth="50">
+                        <Control FieldName="CodeReviewAddIn.CodeEndLine" Type="FieldControl" Label="End:" LabelPosition="Left" />
+                      </Column>
+                    </Group>
+                  </Column>
+                </Group>
+              </Column>
+            </Group>
+          </Tab>
+          <Tab Label="History">
+            <Control FieldName="System.History" Type="WorkItemLogControl" Label="&amp;History:" LabelPosition="Top" Dock="Fill" />
+          </Tab>
+          <Tab Label="Links">
+            <Control Type="LinksControl" LabelPosition="Top">
+              <LinksControlOptions>
+                <LinkColumns>
+                  <LinkColumn RefName="System.Id" />
+                  <LinkColumn RefName="System.Title" />
+                  <LinkColumn RefName="System.AssignedTo" />
+                  <LinkColumn RefName="System.State" />
+                  <LinkColumn LinkAttribute="System.Links.Comment" />
+                </LinkColumns>
+                <WorkItemLinkFilters FilterType="includeAll" />
+                <ExternalLinkFilters FilterType="includeAll" />
+                <WorkItemTypeFilters FilterType="includeAll" />
+              </LinksControlOptions>
+            </Control>
+          </Tab>
+          <Tab Label="File Attachments">
+            <Control Type="AttachmentsControl" LabelPosition="Top" />
+          </Tab>
+          <Tab Label="Details">
+            <Group>
+              <Column PercentWidth="50">
+                <Group Label="General">
+                  <Column PercentWidth="100">
+                    <Control FieldName="Microsoft.VSTS.Common.Issue" Type="FieldControl" Label="Iss&amp;ue:" LabelPosition="Left" />
+                    <Control FieldName="Microsoft.VSTS.Common.ExitCriteria" Type="FieldControl" Label="E&amp;xit criteria:" LabelPosition="Left" />
+                    <Control FieldName="Microsoft.VSTS.Build.IntegrationBuild" Type="FieldControl" Label="Integration &amp;build:" LabelPosition="Left" />
+                    <Control FieldName="Microsoft.VSTS.Scheduling.TaskHierarchy" Type="FieldControl" Label="Code Item C&amp;ontext:" LabelPosition="Left" ReadOnly="True" />
+                  </Column>
+                </Group>
+              </Column>
+              <Column PercentWidth="50">
+                <Group Label="Schedule">
+                  <Column PercentWidth="100">
+                    <Control FieldName="Microsoft.VSTS.Scheduling.RemainingWork" Type="FieldControl" Label="Remaining &amp;work (hours):" LabelPosition="Left" NumberFormat="DecimalNumbers" MaxLength="10" />
+                    <Control FieldName="Microsoft.VSTS.Scheduling.CompletedWork" Type="FieldControl" Label="Com&amp;pleted work (hours):" LabelPosition="Left" NumberFormat="DecimalNumbers" MaxLength="10" />
+                    <Control FieldName="Microsoft.VSTS.Scheduling.StartDate" Type="FieldControl" Label="Start Dat&amp;e:" LabelPosition="Left" ReadOnly="True" />
+                    <Control FieldName="Microsoft.VSTS.Scheduling.FinishDate" Type="FieldControl" Label="&amp;Finish Date:" LabelPosition="Left" ReadOnly="True" />
+                  </Column>
+                </Group>
+              </Column>
+            </Group>
+          </Tab>
+        </TabGroup>
+      </Layout>
+    </FORM>
+  </WORKITEMTYPE>
+</Witd:WITD>

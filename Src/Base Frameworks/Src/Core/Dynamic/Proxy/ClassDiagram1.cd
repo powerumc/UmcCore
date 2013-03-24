@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.AssemblyLambdaQualifiedNamePolicy" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\AssemblyLambdaQualifiedNamePolicy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.AccessorInvocation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAQABAQAAAAAAAIEAAAAAEAAAgAEEAAAMAAAASAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\AccessorInvocation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.FieldAccessor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAwAQAhQRAAAAAQAIEAAAAIECAAAQAEAAIKAAAASAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\FieldAccessor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.MethodAccessor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAwEQABQRAAAAAQAIEAAAAIECAAAQAEAAIKAAAASAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\MethodAccessor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.TypeAccessor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAwAQABQRAAEAAQAIEAAAAIECAAAQAEAAIKAAAASAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\TypeAccessor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.AssemblyLambda" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAcABAQACAACwAINhAAQCEgAAAIAMAEIIAQAByAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\AssemblyLambda.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.EnumLambda" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IEnumLambda.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.ModuleLambda" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACEAAAAEAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\ModuleLambda.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.CodeLambda" Collapsed="true">
+    <Position X="5.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAASIRAAIAgACAAAASEIBAAAABAAAAAEAAAkAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\ICodeLambda.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.TypeLambda" Collapsed="true">
+    <Position X="0.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAUARAQAAAAAwBINgAAAAEgAAAoAMAAIICQAAyAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\TypeLambda.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.TypeUnitLambda" Collapsed="true">
+    <Position X="0.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\TypeUnitLambda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.Operand" Collapsed="true">
+    <Position X="5.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAIAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\Operand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.AssignOperand" Collapsed="true">
+    <Position X="5.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\AssignOperand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.AssignValueOperand" Collapsed="true">
+    <Position X="7.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\AssignValueOperand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.FieldOperand" Collapsed="true">
+    <Position X="10" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\FieldOperand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.LocalOperand" Collapsed="true">
+    <Position X="1" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEAAAAAIAAAAAAAAAQAAAAAAAgAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\LocalOperand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Lambda.MethodOperand" Collapsed="true">
+    <Position X="3.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAKAAAAAAAAAAAAAAAAAIAAAAAAAAACQAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\MethodOperand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.AssemblyCriteria" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\AssemblyCriteria.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.CriteriaMetadata" Collapsed="true">
+    <Position X="23.5" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\CriteriaMetadata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.CriteriaMetadataInfo" Collapsed="true">
+    <Position X="18.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\CriteriaMetadataInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.ParameterCriteriaMetadataInfo" Collapsed="true">
+    <Position X="18.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\ParameterCriteriaMetadataInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.ModuleCriteria" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\ModuleCriteria.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Builder.BuilderExtensionBase" Collapsed="true">
+    <Position X="14" Y="16.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Builder\BuilderExtensionBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Builder.FieldBuilderExtension" Collapsed="true">
+    <Position X="12" Y="17.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Builder\FieldBuilderExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Builder.ModuleBuilderExtension" Collapsed="true">
+    <Position X="14.25" Y="17.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQEAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Builder\ModuleBuilderExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Builder.ParameterBuilderExtension" Collapsed="true">
+    <Position X="16.5" Y="17.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Builder\ParameterBuilderExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.Builder.TypeBuilderExtension" Collapsed="true">
+    <Position X="18.75" Y="17.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAIAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Builder\TypeBuilderExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicAssemblyContext&lt;T&gt;" Collapsed="true">
+    <Position X="18.75" Y="25.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAgIAAAACgAAgAAAAAAAACAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicAssemblyContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicContext" Collapsed="true">
+    <Position X="16.25" Y="24.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAADAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicModuleContext" Collapsed="true">
+    <Position X="13.75" Y="25.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicModuleContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicProxy&lt;T&gt;" Collapsed="true">
+    <Position X="10.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicProxyBase&lt;T&gt;" Collapsed="true">
+    <Position X="10.5" Y="21.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIAAAIACAABAAAAAAAAAAAACAAAAAAACAAAAAAAIACA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicAssemblyEventArgs" Collapsed="true">
+    <Position X="21.75" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicModuleEventArgs" Collapsed="true">
+    <Position X="23.5" Y="17.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicTypeEventArgs" Collapsed="true">
+    <Position X="25.25" Y="18.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicConstructorEventArgs" Collapsed="true">
+    <Position X="23.5" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicMethodEventArgs" Collapsed="true">
+    <Position X="21.75" Y="17.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicPropertyEventArgs" Collapsed="true">
+    <Position X="27" Y="17.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicFieldEventArgs" Collapsed="true">
+    <Position X="25.25" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicLocalFieldEventArgs" Collapsed="true">
+    <Position X="27" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicParameterEventArgs" Collapsed="true">
+    <Position X="25.25" Y="17.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicProxyException" Collapsed="true">
+    <Position X="21.75" Y="18.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicProxyToken" Collapsed="true">
+    <Position X="23.5" Y="18.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAIAAAAAAAAAAAAAAAAAAAAAAAABAiA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicProxyToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.DynamicTypeContext" Collapsed="true">
+    <Position X="16.25" Y="25.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\DynamicTypeContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.ILDelegate" Collapsed="true">
+    <Position X="27" Y="18.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\ILDelegate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.ILItem" Collapsed="true">
+    <Position X="21.75" Y="19.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\ILItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Dynamic.Proxy.ILItemCollection" Collapsed="true">
+    <Position X="23.5" Y="19.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\ILItemCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IAccessorConfirmLambda&lt;TReturn&gt;" Collapsed="true">
+    <Position X="3.5" Y="16.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAAAQBAAAAAQAAAAAAAIACAAAQAAAAICAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IAccessorConfirmLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IAccessorConfirmLambda" Collapsed="true">
+    <Position X="3.5" Y="17.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IAccessorConfirmLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IAccessorLambda&lt;TReturn&gt;" Collapsed="true">
+    <Position X="10.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQABAQAAAAAAAIEAAAAAEAAAAAAEAAAIAAAASAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IAccessorLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IAccessorLambda" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IAccessorLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IAssemblyLambda" Collapsed="true">
+    <Position X="0.75" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAABAAQAAAAAAIAAAEAAAAABAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IAssemblyLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IDelegateLambda" Collapsed="true">
+    <Position X="14.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IDelegateLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IEmitReadable" Collapsed="true">
+    <Position X="16" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IEmitReadable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IEmitWriteable" Collapsed="true">
+    <Position X="1" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IEmitWriteable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IEnumLambda" Collapsed="true">
+    <Position X="8.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IEnumLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IEventLambda" Collapsed="true">
+    <Position X="17.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IEventLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IMetadataLambda&lt;TReturn&gt;" Collapsed="true">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IMetadataLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IMetadataLambda" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IMetadataLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IModuleLambda" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAEAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IModuleLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.INativeLambda&lt;TGenerator&gt;" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\INativeLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IAssignLambda" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IAssignLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IBlockLambda" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IBlockLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.ICallLambda" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\ICallLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.ICodeLambda" Collapsed="true">
+    <Position X="10.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\ICodeLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IDefinitionLambda" Collapsed="true">
+    <Position X="1" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IDefinitionLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IExceptionHandleLambda" Collapsed="true">
+    <Position X="0.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IExceptionHandleLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IFieldLambda" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IFieldLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IIfLambda" Collapsed="true">
+    <Position X="3.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IIfLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IKeywordLambda" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IKeywordLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.ILocalLambda" Collapsed="true">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\ILocalLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IPropertyLambda" Collapsed="true">
+    <Position X="1" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\InType\IPropertyLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.IReleaseType" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\IReleaseType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.Lambda.ITypeLambda" Collapsed="true">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAEAAAAAAAAAwAAJgAAAAAgAAAAAMAAIAAQAAgAA=</HashCode>
+      <FileName>Dynamic\Proxy\Lambda\ITypeLambda.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.ICriteriaMetadataInfo" Collapsed="true">
+    <Position X="21" Y="12.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\ICriteriaMetadataInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Umc.Core.Dynamic.Proxy.IDynamicProxy&lt;T&gt;" Collapsed="true">
+    <Position X="21.75" Y="20.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\IDynamicProxy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Umc.Core.Dynamic.Proxy.CriteriaMetadataToken" Collapsed="true">
+    <Position X="21" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAgBAAIAEAQAACQAAgAA=</HashCode>
+      <FileName>Dynamic\Proxy\Internal\CriteriaMetadataToken.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Umc.Core.Dynamic.Proxy.DynamicAssemblyDelegate" Collapsed="true">
+    <Position X="21.75" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Umc.Core.Dynamic.Proxy.DynamicModuleDelegate" Collapsed="true">
+    <Position X="23.5" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Umc.Core.Dynamic.Proxy.DynamicTypeDelegate" Collapsed="true">
+    <Position X="25.25" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dynamic\Proxy\Delegates.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

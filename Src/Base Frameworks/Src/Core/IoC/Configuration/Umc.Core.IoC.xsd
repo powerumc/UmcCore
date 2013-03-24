@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POWERUMC"
+    targetNamespace="http://schema.powerumc.kr/umc/core/ioc"
+    elementFormDefault="qualified"
+		attributeFormDefault="unqualified"
+    xmlns="http://schema.powerumc.kr/umc/core/ioc"
+    xmlns:mstns="schema.powerumc.kr/umc/core"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="umc.core.ioc" type="Umc.Core.IoC" />
+
+
+
+
+	<xs:complexType name="Umc.Core.IoC">
+		<xs:sequence minOccurs="0">
+			<xs:element name="containers" type="Umc.Core.IoC.Containers" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="Umc.Core.IoC.Containers">
+		<xs:sequence>
+			<xs:element name="container" type="Umc.Core.IoC.Containers.Container" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container">
+		<xs:sequence>
+			<xs:element name="register" type="Umc.Core.IoC.Containers.Container.Register" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="dynamic" type="Umc.Core.IoC.Containers.Container.Dynamic" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="container" type="Umc.Core.IoC.Containers.Container" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="key" use="optional" />
+	</xs:complexType>
+
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Dynamic">
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="lifetime" type="LifetimeFlagType" use="optional" />
+	</xs:complexType>
+
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Register">
+		<xs:group ref="Umc.Core.IoC.Containers.Container.RegisterGroup" minOccurs="0" />
+		<xs:attribute name="contract" type="xs:string" />
+		<xs:attribute name="dependencyTo" type="xs:string" use="required" />
+		<xs:attribute name="key" type="KeyAttribute_Identity" use="optional" />
+	</xs:complexType>
+
+
+
+	<!-- Group -->
+	<xs:group name="Umc.Core.IoC.Containers.Container.RegisterGroup">
+		<xs:sequence>
+			<xs:element name="lifetime" type="Umc.Core.IoC.Containers.Container.LifeTime" maxOccurs="1"/>
+			<xs:element name="interceptor" type="Umc.Core.IoC.Containers.Container.Interceptor" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="constructor" type="Umc.Core.IoC.Containers.Container.Constructor" minOccurs="0" maxOccurs="1" />
+			<xs:element name="property" type="Umc.Core.IoC.Containers.Container.Property" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="method" type="Umc.Core.IoC.Containers.Container.Method" minOccurs="0" maxOccurs="unbounded" ></xs:element>
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="Umc.Core.IoC.Containers.Container.ParamGroup">
+		<xs:sequence>
+			<xs:element name="param" type="Umc.Core.IoC.Containers.Container.Param" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:group>
+
+
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.LifeTime">
+		<xs:attribute name="type" type="LifetimeFlagType" default="Default" />
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Interceptor">
+		<xs:attribute name="type" />
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Constructor">
+		<xs:sequence>
+			<xs:element name="param" type="Umc.Core.IoC.Containers.Container.Param" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Property">
+		<xs:choice minOccurs="0" maxOccurs="1">
+			<xs:element name="dependency" type="Umc.Core.IoC.Containers.Container.Dependency" minOccurs="0" maxOccurs="1" />
+			<xs:element name="value" type="Umc.Core.IoC.Containers.Container.Value" minOccurs="0" maxOccurs="1" />
+		</xs:choice>
+		<xs:attribute name="name" type="KeyAttribute_Identity" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Method">
+		<xs:group ref="Umc.Core.IoC.Containers.Container.ParamGroup" minOccurs="0" maxOccurs="unbounded" />
+		<xs:attribute name="name" type="KeyAttribute_Identity" use="required" />
+	</xs:complexType>
+
+
+	<!-- Common -->
+	<xs:simpleType name="KeyAttribute_Identity">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="LifetimeFlagType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="Default" />
+			<xs:enumeration value="PerCall" />
+			<xs:enumeration value="PerThread" />
+			<xs:enumeration value="Singleton" />
+			<xs:enumeration value="External" />
+			<xs:enumeration value="Hierarchy" />
+			<xs:enumeration value="Custom" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Param">
+		<xs:choice minOccurs="0" maxOccurs="1">
+			<xs:element name="dependency" type="Umc.Core.IoC.Containers.Container.Dependency" minOccurs="0" maxOccurs="1" />
+			<xs:element name="value" type="Umc.Core.IoC.Containers.Container.Value" minOccurs="0" maxOccurs="1" />
+		</xs:choice>
+		<xs:attribute name="name" type="KeyAttribute_Identity" />
+		<xs:attributeGroup ref="Umc.Core.IoC.Containers.Container.ValueGroup" />
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Dependency">
+		<xs:attribute name="typeOfContract" type="xs:string" use="required" />
+		<xs:attribute name="key" type="KeyAttribute_Identity" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.IoC.Containers.Container.Value">
+		<xs:attributeGroup ref="Umc.Core.IoC.Containers.Container.ValueGroup" />
+	</xs:complexType>
+
+	<xs:attributeGroup name="Umc.Core.IoC.Containers.Container.ValueGroup">
+		<xs:attribute name="value" type="xs:string" />
+		<xs:attribute name="type" type="xs:string" />
+	</xs:attributeGroup>
+
+
+</xs:schema>

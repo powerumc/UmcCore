@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+	<!--<PropertyGroup Condition="$(Configuration.EndsWith('Umc.Core'))">
+		<IsUmcCoreSolution>True</IsUmcCoreSolution>
+		
+	</PropertyGroup>-->
+
+
+	<PropertyGroup>
+    <!--<DefineConstants>$(DefineConstants);NET35</DefineConstants>-->
+
+    <ExcludeProjectEndsWithName>.Tests</ExcludeProjectEndsWithName>
+
+    <UmcCorePublicKeyPath>..\..\..\..\StrongKey\Umc.Core.Public.snk</UmcCorePublicKeyPath>
+		<UmcCoreKeypairKeyPath>..\..\..\..\StrongKey\Umc.Core.Keypair.snk</UmcCoreKeypairKeyPath>
+
+		<!-- 프로젝트에서 참조하는 어셈블리 위치 -->
+		<!--<ReferenceAssembliesPathForUmcCore>$(SolutionDir)ReferenceAssemblies</ReferenceAssembliesPathForUmcCore>-->
+
+		<UmcCoreSolutionVersion>1.0.0.0</UmcCoreSolutionVersion>
+		<UmcCorePath>$(APPDATA)\Umc.Core\v$(UmcCoreSolutionVersion)</UmcCorePath>
+	</PropertyGroup>
+
+
+
+	<!--<PropertyGroup Condition="'$(MSBuildBinPath)' == '$(WinDir)\Microsoft.NET\Framework\v3.5'">
+		<DefineConstants>$(DefineConstants);NET35</DefineConstants>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(MSBuildBinPath)' == '$(WinDir)\Microsoft.NET\Framework\v4.0.30319'">
+		<DefineConstants>$(DefineConstants);NET40</DefineConstants>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+	</PropertyGroup>-->
+
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);NET35</DefineConstants>
+  </PropertyGroup>
+
+  
+
+	<PropertyGroup>
+		<!--<UmcCoreBinPath>..\..\..\..\Bin\$(Configuration).$(Platform)</UmcCoreBinPath>-->
+		<UmcCoreBinPath>..\..\..\..\Bin\$(Configuration)</UmcCoreBinPath>
+
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(UmcCorePublicKeyPath)</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.EndsWith('Umc.Core'))">
+    <IsExcludeProject>$(ProjectName.EndsWith('$(ExcludeProjectEndsWithName)').ToString())</IsExcludeProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DelaySign>true</DelaySign>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+	
+	
+	<Target Name="StartImportBeforeOfUmcCore"
+					BeforeTargets="Build">
+
+		<Message Text="********************** BeforeTargets **********************" />
+		<Message Text="IsExcludeProject = $(IsExcludeProject)" />
+		<Message Text="IsFrameworkProject = $(IsFrameworkProject)" />
+		<Message Text="ProjectName = $(ProjectName)" />
+		<Message Text="IsUmcCoreSolution = $(IsUmcCoreSolution)" />
+		<Message Text="OutputPath = $(OutputPath)" />
+		<Message Text="OutDir = $(OutDir)" />
+		<Message Text="OutputType = $(OutputType)" />
+		<Message Text="ProjectTypeGuids = $(ProjectTypeGuids)" />
+
+		<Message Text="Configuration = $(Configuration)" />
+		<Message Text="Platform = $(Platform)" />
+
+		<Message Text="UmcCoreBinPath = $(UmcCoreBinPath)" />
+		<Message Text="UmcCoreDocumentationFileName = $(UmcCoreDocumentationFileName)" />
+		<Message Text="DocumentationFile = $(DocumentationFile)" />
+		<Message Text="------------------------------------------------------------------------------------------" />
+		<Message Text="Include ProjectTypeGuids = $(ProjectTypeGuids)" />
+    <Message Text="MSBuildBinPath = $(MSBuildBinPath)" />
+    <Message Text="DefineConstants = $(DefineConstants)" />
+
+	</Target>
+</Project>

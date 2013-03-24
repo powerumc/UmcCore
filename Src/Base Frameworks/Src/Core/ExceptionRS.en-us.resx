@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ILoadable_인터페이스는_해당_데이터소스를_로드할수없습니다" xml:space="preserve">
+    <value>ILoadable Interface can not load from anyting data sources.</value>
+  </data>
+  <data name="O_가_1_개_이상인경우_반드시_2_특성을_선언해야합니다" xml:space="preserve">
+    <value>You must define the {2} attribute(s), if {0} is more than {1}.</value>
+  </data>
+  <data name="O_값이_1_입니다" xml:space="preserve">
+    <value>{0} is {1}.</value>
+  </data>
+  <data name="O_는_1_로_변환할수_없습니다_O_형식이_잘못되었습니다" xml:space="preserve">
+    <value>{0} cannot convert to {1}. Because invalid format {0}.</value>
+  </data>
+  <data name="O_동적프락시_어셈블리는_저장할수없습니다" xml:space="preserve">
+    <value>{0} Dynamic Proxy is can not support saving.</value>
+  </data>
+  <data name="O_어셈블리는_강력한_이름의_서명이_되어있지않아_공개키토큰_값이_없습니다" xml:space="preserve">
+    <value>{0} Assembly is not found PublicToken but signed Strong Key.</value>
+  </data>
+  <data name="O_어셈블리에서_1_특성을_찾을_수_없습니다" xml:space="preserve">
+    <value>Can not found {1} Attribute(s) in the {0} Assembly.</value>
+  </data>
+  <data name="O_을_찾을_수_없습니다" xml:space="preserve">
+    <value>Can not found the {0}.</value>
+  </data>
+  <data name="O_의_개수가_맞지_않습니다_1_2" xml:space="preserve">
+    <value>{0} is not equals {0} count. {1} != {2}</value>
+  </data>
+  <data name="O_특성은_1_보다_많을수_없습니다" xml:space="preserve">
+    <value>{0} Attribute has not more then {0}.</value>
+  </data>
+  <data name="O_특성은_1_에_2_개만_선언할수있습니다" xml:space="preserve">
+    <value>{0} Attribute(s) can define only {2} at the {1}.</value>
+  </data>
+  <data name="매핑_속성의_개수가_일치하지_않습니다" xml:space="preserve">
+    <value>Mapping_Properties_not_matched_Between.</value>
+  </data>
+  <data name="정적_타입의_ITypeLambda는_개체를_생성할_수_없습니다" xml:space="preserve">
+    <value>Static ITypeLambda don't create new object.</value>
+  </data>
+  <data name="키_O는_매핑_대상_키가_없습니다" xml:space="preserve">
+    <value>KeyName {0} cannot found from target object.</value>
+  </data>
+  <data name="키_O는_필수_매핑키_입니다_이_매핑키가_대상_데이터소스에_존재하지않아_매핑할_수_없습니다" xml:space="preserve">
+    <value>Key {0} is required mapping key. It cannot mapping because not exists the target datasource.</value>
+  </data>
+</root>

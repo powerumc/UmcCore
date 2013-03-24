@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+	<Target Name="DelaySignDebugUmcCore"
+					AfterTargets="Build">
+
+		<Message Text="Enter DelaySignDebugUmcCore.................." />
+
+		<!--
+     공개키로 서명할 경우 주석을 풀어야 함 
+		 -->
+		<Exec Command='"$(TargetFrameworkSDKToolsDirectory)sn" -Vr "$(TargetPath)"'
+					Condition="$(IsExcludeProject) == 'False' and $(Configuration) == 'Debug.Umc.Core'"
+					ContinueOnError="false"
+					IgnoreExitCode="true"/>
+		<Message Text="Exit DelaySignDebugUmcCore.................." />
+		
+	</Target>
+
+
+
+	<Target Name="ResignTestUmcCore"
+				AfterTargets="DelaySignDebugUmcCore">
+
+		<Message Text="Enter ResignTestUmcCore..................." />
+
+		<Exec Command='"$(TargetFrameworkSDKToolsDirectory)sn" -R "$(TargetPath)" "$(UmcCoreKeypairKeyPath)"'
+					Condition="$(IsExcludeProject) == 'False' and $(Configuration) == 'Test.Umc.Core'"
+					ContinueOnError="true"
+					IgnoreExitCode="true"/>
+
+		<Message Text="Exit ResignTestUmcCore..................." />
+
+	</Target>
+
+
+
+
+	<!--
+
+
+	<Target Name="ResignReleaseUmcCore"
+					AfterTargets="ResignTestUmcCore">
+
+		<Message Text="Enter ResignReleaseUmcCore..................." />
+
+		--><!--<Exec Command='"$(TargetFrameworkSDKToolsDirectory)sn" -R "$(TargetPath)" "$(UmcCoreKeypairKeyPath)"'
+					Condition="$(IsExcludeProject) == 'False' and $(Configuration) == 'Release.Umc.Core'"
+					ContinueOnError="true"
+					IgnoreExitCode="true"/>--><!--
+
+		<Message Text="Exit ResignReleaseUmcCore..................." />
+		
+		
+	</Target>
+
+
+
+	
+	
+-->
+	<Target Name="CopyUmcCoreBinPath"
+					AfterTargets="Build">
+
+		<Message Text="Enter CopyUmcCoreBinPath......................" />
+		<MakeDir Directories='$(UmcCoreBinPath)'
+						 Condition="!EXISTS('$(UmcCoreBinPath)')" />
+		<Exec Command='xcopy.exe "$(OutputPath)*.*" "$(UmcCoreBinPath)" /s /y /c /r'
+					Condition=" !$(TargetName.EndsWith('.Tests')) "
+					ContinueOnError="true"
+					IgnoreExitCode="true"/>
+    
+    <Exec Command="del.exe $(UmcCoreBinPath)\*.tmp /q" />
+		<Message Text="Exit CopyUmcCoreBinPath......................" />
+	</Target>
+<!--
+
+
+
+
+
+
+
+
+	--><!-- 출력 파일 복사 --><!--
+	<Target Name="CopyToReleaseUmcCorePath"
+					AfterTargets="CopyUmcCoreBinPath">
+		<MakeDir Directories='$(UmcCorePath)' 
+						 Condition="!EXISTS('$(UmcCorePath)')" />
+		<Exec Command='xcopy.exe "$(OutputPath)*.*" "$(UmcCorePath)" /s /y /c /r'
+					Condition=" '$(IsFrameworkProject)' == 'True' and '$(IsExcludeProject)' == 'False' "
+					ContinueOnError="true"
+					IgnoreExitCode="true"/>
+		--><!--Condition=" '$(IsExcludeProject)' == 'False' "--><!--
+
+    <Exec Command="del.exe $(UmcCorePath)\*.tmp /q" />
+
+    <Exec Command='"$(TargetFrameworkSDKToolsDirectory)gacutil.exe" /i "$(UmcCorePath)\$(TargetFileName)"'
+					WorkingDirectory='$(UmcCorePath)'
+					Condition=" '$(IsFrameworkProject)' == 'True' and '$(IsExcludeProject)' == 'False' "
+					ContinueOnError="true"
+					IgnoreExitCode="true" />
+	</Target>
+	
+	
+	
+
+
+
+	--><!-- 참조 어셈블리 복사 --><!--
+	<Target Name="CopyReferenceAssembliesToUmcCorePath" 
+					AfterTargets="CopyToReleaseUmcCorePath">
+		<ItemGroup>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Caching.Database.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Caching.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Common.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapter.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapterV5.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Configuration.DesignTime.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Configuration.EnvironmentalOverrides.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Data.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Logging.Database.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Logging.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Security.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Validation.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.ServiceLocation.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.Unity.Configuration.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.Unity.*"/>
+			<ProjectReferencesAssembliesItem Include="$(ReferenceAssembliesPathForUmcCore)\Microsoft.Practices.Unity.Interception.*"/>
+		</ItemGroup>
+		
+		<MakeDir Directories='$(UmcCorePath)' 
+						 Condition="!EXISTS('$(UmcCorePath)')" />
+		
+		<Copy SourceFiles="@(ProjectReferencesAssembliesItem)" 
+					DestinationFolder="$(UmcCorePath)"
+					OverwriteReadOnlyFiles="true"
+					SkipUnchangedFiles="true"
+					Condition=" '$(IsFrameworkProject)' == 'True' and '$(IsExcludeProject)' == 'False' "/>
+
+
+
+
+
+		<Message Text="********************** AfterTargets **********************" />
+		<Message Text="DocumentationFile = $(DocumentationFile)" />
+	</Target>
+	
+	
+	
+	
+-->
+	</Project>
