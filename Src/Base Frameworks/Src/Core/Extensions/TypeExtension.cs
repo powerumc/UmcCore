@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Collections;
 
 namespace System
 {
@@ -28,9 +30,9 @@ namespace System
 
 		public static T GetCustomAttributeEx<T>(this Type type, bool inhert) where T : class
 		{
-			IEnumerable<T> attributes = GetCustomAttributesEx<T>(type, inhert);
+			var attributes = GetCustomAttributesEx<T>(type, inhert);
 
-			if( attributes == null || attributes.Count() == 0)
+			if( attributes == null || !attributes.Any())
 				return default(T);
 
 			return attributes.FirstOrDefault();
@@ -42,7 +44,7 @@ namespace System
 			return GetCustomAttributesEx<T>(type, false);
 		}
 
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
+		[SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
 		public static IEnumerable<T> GetCustomAttributesEx<T>(this Type type, bool inhert) where T : class
 		{
 			object[] attributes = type.GetCustomAttributes(typeof(T), inhert);
@@ -53,20 +55,35 @@ namespace System
 			return attributes.Cast<T>();
 		}
 
-		public static bool IsNumberType(this Type type)
+		public static void GetAllProperties(this Type type, IList<PropertyInfo> propertyInfos)
 		{
-			if (type.IsArray || type is ICollection) return false;
-
-			switch (Type.GetTypeCode(type))
+			foreach (var p in type.GetProperties())
 			{
-				case TypeCode.Boolean:
-				case TypeCode.DateTime:
-				case TypeCode.DBNull:
-				case TypeCode.Empty:
-				case TypeCode.String: return false;
+				propertyInfos.Add(p);
 			}
 
-			return true;
+			foreach (var i in type.GetInterfaces())
+			{
+				GetAllProperties(i, propertyInfos);
+			}
+		}
+
+		public static bool IsNullableType(this Type type)
+		{
+			return type.IsGenericType && type.GetGenericTypeDefinition() == typeof (Nullable<>);
+		}
+
+		public static string AbbreviationString(this Type type)
+		{
+			var str = type.FullName;
+			if (str.Length < 40) 
+				return str;
+
+			var arr = str.Split('.');
+			var sb = new StringBuilder(100);
+			var newString = String.Join(".", arr.Take(arr.Length - 1).Select(o => o.First().ToString(CultureInfo.InvariantCulture)).ToArray());
+
+			return string.Concat(newString, ".", arr[arr.Length - 1]);
 		}
 	}
 }

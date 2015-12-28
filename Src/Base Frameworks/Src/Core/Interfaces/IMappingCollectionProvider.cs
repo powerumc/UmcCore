@@ -7,8 +7,8 @@ namespace Umc.Core
 {
 	public interface IMappingCollectionProvider
 	{
-		IEnumerable<KeyValuePair<object, ObjectTypePair>> GetValues(object input);
-		void SetValues(object input, IEnumerable<KeyValuePair<object, ObjectTypePair>> args);
+		IEnumerable<KeyValuePair<object, object>> GetValues(object input);
+		void SetValues(object input, IEnumerable<KeyValuePair<object, object>> args);
 		bool MoveNext();
 	}
 }

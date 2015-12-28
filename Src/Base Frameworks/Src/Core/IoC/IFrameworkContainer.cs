@@ -111,6 +111,7 @@ namespace Umc.Core.IoC
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
 		IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TImplements : TContract;
 
+		bool IsRegisted(Type type);
 
 		/// <summary>
 		///		<see cref="IFrameworkContainer"/> 에 등록된 개체를 반환합니다.

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Umc.Core.Testing.UnitTest;
@@ -20,7 +21,7 @@ namespace Umc.Core.IoC.Catalog
 
 			foreach (var type in types)
 			{
-				TestContext.WriteLine(type.AssemblyQualifiedName);
+				Debug.WriteLine(type.AssemblyQualifiedName);
 			}
 
 			Assert.IsTrue(types.Count() > 0, "현재 테스트 어셈블리에 Mock개체가 1개 이상이지만 Mock DependencyContrac타입의 개수가 0개여서 실패");

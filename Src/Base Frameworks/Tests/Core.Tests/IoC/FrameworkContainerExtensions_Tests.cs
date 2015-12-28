@@ -28,5 +28,33 @@ namespace Umc.Core.IoC
 			}
 		}
 		
+		[TestCategory("BVT Function"), TestMethod]
+		public void LoadConfigurationFile_Test()
+		{
+			//FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(typeof(MockClass).ToEnumerable());
+			//var root = visitor.VisitTypes();
+
+			//using(StreamWriter writer = new StreamWriter(".\\ioc.config"))
+			//{
+			//	XmlSerializer xs = new XmlSerializer(typeof(UmcCoreIoCElement));
+			//	xs.Serialize(writer, root);
+			//}
+
+			//XDocument doc = XDocument.Load(".\\ioc.config");
+			//var elements = doc.Descendants(GlobalConstants_Accessor.NAMESPACE_OF_NCSOFT_FRAMEWORK_IOC + GlobalConstants_Accessor.ELEMENT_OF_NCSOFT_FRAMEWORK_IOC);
+			
+			//XmlSerializer x = new XmlSerializer(typeof(UmcCoreIoCElement));
+			//var r = x.Deserialize(new StringReader(elements.First().ToString())) as UmcCoreIoCElement;
+
+			//r.Verify();
+
+			//FrameworkContainerForUnity container = new FrameworkContainerForUnity();
+			//FrameworkCompositionResolverForUnity resolver = new FrameworkCompositionResolverForUnity(container, r);
+			//resolver.Compose();
+
+			//container.Resolve<MockClass>().Say();
+
+			//File.Delete(".\\ioc.config");
+		}
 	}
 }

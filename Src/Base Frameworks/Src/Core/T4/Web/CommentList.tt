@@ -1,0 +1,224 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Drawing" #>
+<#@ assembly name="EnvDTE" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data" #>
+<#@ output extension=".cs" #>
+
+<#
+	var PageSize = 10;
+	var ArticleId = 44;
+#>
+
+
+<# /****************************************************************** Ajax.aspx *******************************************************/ #>
+<# this.GenerationEnvironment.Clear(); #>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ajax.aspx.cs" Inherits="<#=GetNamespace()#>.Ajax" %>
+<# AddFile("Ajax.aspx"); #>
+
+
+<# /****************************************************************** Ajax.aspx.cs *******************************************************/ #>
+<# this.GenerationEnvironment.Clear(); #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using com.nexon.kart.BizLogic.Common;
+using com.nexon.kart.BizLogic.Kart.Community;
+
+namespace <#=GetNamespace()#>
+{
+    public partial class Ajax : ArticleAjaxPage
+    {
+        public override int n4BoardSN
+        {
+            get
+            {
+                if (Umc.Core.Platform.IsServicePlatform == true)
+                {
+					return GameInfo.oidBoard_EventsComment;
+                }
+                else
+                {
+					return GameInfo.oidBoard_EventsCommentTEST;
+                }
+            }
+        }
+    }
+}
+<# AddFile("Ajax.aspx.cs"); #>
+
+
+
+
+
+
+<# /****************************************************************** CommentList.aspx *******************************************************/ #>
+<# this.GenerationEnvironment.Clear(); #>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CommentList.aspx.cs" Inherits="<#=GetNamespace()#>.CommentList" %>
+                <div id="lblArticleSN" style="display:none;"><%=n4ArticleSN%></div>
+                    <div id="CommentList">
+				    <ul>
+			            <nexon:Repeater runat="server" ID="rpComment" EnableViewState="false">
+                        <ItemTemplate>
+							 <li>
+								 <img src="http://s.nx.com/S2/game/kart/2015/150701/ico_reple_bull.png" class="bull" />
+								<div class="module">
+									<strong><i><%# GameWebUtil.GetKartUserItem(DataBinder.Eval( Container.DataItem, "strWriterInfo" ).ToString(), string.Empty) %></i><%#DataBinder.Eval( Container.DataItem, "strWriterName" ).ToString() %> <em><%# ((DateTime)DataBinder.Eval(Container.DataItem, "dtWriteDate")).GetFormattedDate()%></em></strong>	
+									<span><%# ParseUtil.ReplaceTag( DataBinder.Eval( Container.DataItem, "strCommentContent" ).ToString() )%></span> <%# ((Umc.Core.GameWeb.Board.Comment2Info)DataBinder.GetDataItem(Container)).IsCommentOwner(this) ? "<a href='#' class='commentDel' title='댓글삭제' alt='" + DataBinder.Eval(Container.DataItem, "n4CommentSN") + "' ><img src='http://s.nx.com/S2/game/kart/2015/150701/btn_reple_x.gif' alt='댓글삭제'/></a>" : ""%>
+								</div>
+							</li>								
+                        </ItemTemplate>
+                        </nexon:Repeater>
+                    </ul>
+                    </div>
+
+                    <div class="paging">
+                        <div class="pageController">
+                            <gameweb:GameWebEventCommentPagingContainer runat="server" id="pagerCommentEvent" />
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        var n4ArticleSN = $('#lblArticleSN').html();
+
+                        $(document).ready(function () {
+                        	$('.pageController a').click(function () {
+                                var url = $(this).attr('href');
+                                if (url != undefined) {
+                                    var abc = url.match(/n4PageNo=[\d]+/i);
+                                    var n4PageNo = abc[0].substr(abc[0].indexOf('=') + 1, 100);
+
+                                    Comment.ReloadComment('<%=n4ArticleSN%>', n4PageNo);
+                                 }
+                                 return false;
+                            });
+                        });
+                    </script>
+<# AddFile("CommentList.aspx"); #>
+
+
+
+
+
+
+<# /****************************************************************** CommentList.aspx.cs *******************************************************/ #>
+<# this.GenerationEnvironment.Clear(); #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using com.nexon.kart.BizLogic.Common;
+using com.nexon.kart.BizLogic.Kart.Community;
+using Umc.Core.Web;
+
+namespace <#=GetNamespace()#>
+{
+    public partial class CommentList : ArticlePage
+    {
+        public override PageType emErrorPageType
+        {
+            get
+            {
+                return PageType.JSON;
+            }
+        }
+
+        public override int n4BoardSN
+        {
+            get
+            {
+                if (Umc.Core.Platform.IsServicePlatform == true)
+                {
+                    return GameInfo.oidBoard_EventsComment;
+                }
+                else
+                {
+                    return GameInfo.oidBoard_EventsCommentTEST;
+                }
+            }
+        }
+
+        public override ArticlePageType emArticlePageType
+        {
+            get
+            {
+                return ArticlePageType.CommentList;
+            }
+        }
+
+        public override byte n1CommentPageSize
+        {
+            get
+            {
+                return <#=PageSize#>;
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+<# AddFile("CommentList.aspx.cs"); #>
+
+
+
+<# /****************************************************************** Index.aspx.cs *******************************************************/ #>
+
+
+<#+
+
+	private EnvDTE.DTE GetDte() {
+		var provider = (IServiceProvider)this.Host;
+		return (EnvDTE.DTE)provider.GetService(typeof(EnvDTE.DTE));
+	}
+
+	private EnvDTE.Project GetProject() {
+		return GetDte().Solution.FindProjectItem(this.Host.TemplateFile).ContainingProject as EnvDTE.Project;
+	}
+
+	private EnvDTE.ProjectItem GetProjectItem(string path) {
+		return GetDte().Solution.FindProjectItem(path);
+	}
+
+	private string GetDefaultNamespace() {
+		return GetProject().Properties.Item("DefaultNamespace").Value.ToString();
+	}
+
+	private string GetNamespace() {
+		var dte = GetDte();
+		var projectPath = Path.GetDirectoryName(GetProject().FileName);
+		var filePath = Path.GetDirectoryName(GetProjectItem(this.Host.TemplateFile).FileNames[0]);
+		
+		var namespaceSuffix = filePath.Remove(0, projectPath.Length+1).Replace("\\",".");
+		return GetDefaultNamespace()+"."+namespaceSuffix;
+	}
+
+	private void AddFile(string file) {
+		var dte = GetDte();
+		var dir = Path.GetDirectoryName(this.Host.TemplateFile);
+		var path = Path.Combine(dir, file);
+		var projectItem = GetProjectItem(this.Host.TemplateFile);
+		if (File.Exists(path)) { 
+			var removeItem = dte.Solution.FindProjectItem(path);
+			if (removeItem != null) removeItem.Remove();
+			File.Delete(path); 
+		}
+		File.WriteAllText(path, this.GenerationEnvironment.ToString());
+
+		projectItem = projectItem.Collection.Parent as EnvDTE.ProjectItem;
+		projectItem.ProjectItems.AddFromFile(path);
+		
+	}
+#>

@@ -77,6 +77,16 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		/// </returns>
 		IPropertyLambda Property(Type returnType, string name);
 
+		/// <summary>
+		///		동적 타입에 속성을 생성합니다.
+		/// </summary>
+		/// <param name="returnType">리턴되는 타입입니다.</param>
+		/// <param name="name">Property의 이름입니다.</param>
+		/// <param name="callingConventions">메서드에 대한 유효한 호출 규칙을 정의합니다.</param>
+		/// <returns>
+		///		생성된 <see cref="IPropertyLambda"/> 를 구현하는 객체를 반환합니다.
+		/// </returns>
+		IPropertyLambda Property(Type returnType, string name, CallingConventions callingConventions);
 		
 		/// <summary>
 		///		동적 타입에 메서드를 생성합니다.

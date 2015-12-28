@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Umc.Core.DataModels;
 
-namespace Umc.Core
+namespace Umc.Core.Interfaces
 {
 	public interface IProcessable
 	{

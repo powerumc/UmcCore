@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace System
+namespace System.IO
 {
 	public delegate void ToBytesCallback(byte[] bytes);
 
@@ -83,5 +83,22 @@ namespace System
 
 			return (T)obj;
 		}
+
+		#region Base64
+		public static string ToBase64(this byte[] bytes)
+		{
+			return Convert.ToBase64String(bytes);
+		}
+
+		public static string ToBase64(this byte[] bytes, Base64FormattingOptions option)
+		{
+			return Convert.ToBase64String(bytes, option);
+		} 
+
+		public static byte[] FromBase64(this string base64String)
+		{
+			return Convert.FromBase64String(base64String);
+		}
+		#endregion
 	}
 }

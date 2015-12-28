@@ -70,8 +70,13 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 
 		public IPropertyLambda Property(Type returnType, string name)
 		{
+			return Property(returnType, name, 0);
+		}
+
+		public IPropertyLambda Property(Type returnType, string name, CallingConventions callingConventions)
+		{
 			var property = new TypeBuilderExtension(this.ModuleLambda.ModuleBuilder, this.TypeBuilder)
-													.CreateProperty(name, PropertyAttributes.HasDefault, returnType, null);
+													.CreateProperty(name, PropertyAttributes.HasDefault, returnType, null, callingConventions);
 
 			return new PropertyLambda(this, property);
 		}

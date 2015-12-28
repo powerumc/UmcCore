@@ -50,7 +50,6 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 
 		[TestCategory("BVT Function"), TestMethod]
 		[Description("동적, 인스턴스(Instance) 객체의 메서드 호출 테스트, 오류가 발생하지 않고 메서드 실행이 완료되면 통과")]
-		[ExpectedException(typeof(NotImplementedException), "테스트 미완료")]
 		public void Call_InstanceMethod_Test()
 		{
 			throw new NotImplementedException("객체를 생성하는 기능이 미완료됨");

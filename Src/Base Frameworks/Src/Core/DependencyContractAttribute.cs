@@ -12,7 +12,7 @@ namespace Umc.Core
 	/// <para>구현 클래스에 선언하십시오.</para>
 	/// <para>여러 계약 타입을 선언할 수 있지만, 중복된 계약/키값은 사용할 수 없습니다.</para>
 	/// </summary>
-	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1813:AvoidUnsealedAttributes"), AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1813:AvoidUnsealedAttributes"), AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
 	public class DependencyContractAttribute : Attribute, IDependencyAttribute
 	{
 		//public bool IsDefault { get; set; }

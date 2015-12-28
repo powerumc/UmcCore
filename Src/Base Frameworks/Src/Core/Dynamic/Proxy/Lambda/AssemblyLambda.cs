@@ -80,6 +80,11 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 			throw new NotImplementedException();
 		}
 
+		public IPropertyLambda Property(Type returnType, string name, CallingConventions callingConventions)
+		{
+			throw new NotImplementedException();
+		}
+
 		public ICodeLambda Method(string name)
 		{
 			throw new NotImplementedException();

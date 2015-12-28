@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace System
+namespace Umc.Core
 {
 	/// <summary>
 	///		<see cref="IEnumerable{T}"/> 타입의 확장 메서드 입니다.

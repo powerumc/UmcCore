@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<umc.core.ioc>
+<Umc.Core.ioc>
 	<containers>
 		<container key="Default">
 			<register typeOfContract="ILogger" typeOfDependency="Logger" key="a">
@@ -47,4 +47,4 @@
 		
 	</containers>
 	
-</umc.core.ioc>
+</Umc.Core.ioc>

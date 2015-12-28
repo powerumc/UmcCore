@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Umc.Core.mapping xmlns="http://schema.ncsoft.co.kr/Umc.Core/mapping">
+	<mappingSchemas>
+
+		<schema id="ObjectMappingSchema" generateType="auto">
+			<map id="Name" />
+			<map id="Age" />
+		</schema>
+			
+	</mappingSchemas>
+</Umc.Core.mapping>

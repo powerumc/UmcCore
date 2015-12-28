@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Reflection;
 using System.ComponentModel;
@@ -43,6 +45,8 @@ namespace Umc.Core.IoC.Configuration
 		{
 			foreach (var type in this.types)
 			{
+				if (Attribute.IsDefined(type, typeof(CompilerGeneratedAttribute), false) || type.Name.StartsWith("<>")) continue;
+
 				this.Visit(type);
 			}
 
@@ -160,6 +164,9 @@ namespace Umc.Core.IoC.Configuration
 
 		private void VisitProperty(PropertyInfo property, RegisterElement element)
 		{
+			if (element.property == null)
+				element.property = new List<PropertyElement>(); 
+			
 			var attribute = property.GetDependencyInjectionOnProperty();
 			var defaultValueAttribute = property.GetDefaultValueOnProperty();
 
@@ -172,6 +179,7 @@ namespace Umc.Core.IoC.Configuration
 					value = attribute.DefaultValue != null ? attribute.DefaultValue.ToString() : null,
 					type = attribute.DefaultValue.GetType().ToString()
 				};
+				element.property.Add(e);
 			}
 			else if( attribute != null )
 			{
@@ -182,6 +190,7 @@ namespace Umc.Core.IoC.Configuration
 					typeOfContract = property.PropertyType.AssemblyQualifiedName,
 					key = attribute.Key != null ? attribute.Key.ToString() : null
 				};
+				element.property.Add(e);
 			}
 			else if (defaultValueAttribute != null && defaultValueAttribute.Value != null )
 			{
@@ -189,16 +198,8 @@ namespace Umc.Core.IoC.Configuration
 					value = defaultValueAttribute.Value != null ? defaultValueAttribute.Value.ToString() : null,
 					type = defaultValueAttribute.Value.GetType().ToString()
 				};
+				element.property.Add(e);
 			}
-			else
-			{
-				return;
-			}
-
-			if( element.property == null )
-				element.property = new List<PropertyElement>();
-
-			element.property.Add(e);
 		}
 
 		private void VisitConstructor(ConstructorInfo constructor, RegisterElement element)
@@ -230,7 +231,7 @@ namespace Umc.Core.IoC.Configuration
 		private void VisitType(Type type, IList<RegisterElement> registers)
 		{
 			var attributes = type.GetDependencyContractsOfType();
-			if( attributes == null ) return;
+			if (attributes == null) attributes = new[] {new DependencyContractAttribute(type, LifetimeFlag.PerThread)};
 
 			foreach (var attribute in attributes)
 			{

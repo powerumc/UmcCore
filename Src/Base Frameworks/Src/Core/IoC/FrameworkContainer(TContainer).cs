@@ -189,7 +189,7 @@ namespace Umc.Core.IoC
 		/// </returns>
 		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TImplements : TContract;
 
-
+		public abstract bool IsRegisted(Type type);
 
 		/// <summary>	
 		/// 	<see cref="IFrameworkContainer"/> 에 등록된 개체를 반환합니다. 

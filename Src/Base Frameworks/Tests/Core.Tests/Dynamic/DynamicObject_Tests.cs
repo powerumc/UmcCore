@@ -76,7 +76,6 @@ namespace Umc.Core.Dynamic
 		int Age { get; set; }
 	}
 
-	[DependencyContract(typeof(IEntity))]
 	public class Entity : IEntity
 	{
 		private string _name;

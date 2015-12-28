@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://nexon.co.kr/LiveWeb</licenseUrl>
+    <projectUrl>http://nexon.co.kr/LiveWeb</projectUrl>
+    <iconUrl>http://ncsr.nexon.co.kr/Content/img/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>넥슨 라이브웹개발팀 프레임워크</releaseNotes>
+    <copyright>Copyright 2010</copyright>
+    <tags>Nexon Framework LiveWeb</tags>
+  </metadata>
+</package>

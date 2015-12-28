@@ -129,20 +129,20 @@ namespace Umc.Core.IoC
 
 		protected void ResolveDynamic(List<DynamicElement> elements)
 		{
-//			if ( elements == null || elements.Count() == 0 ) return;
-//
-//			foreach ( var e in elements )
-//			{
-//				LifetimeFlag lifetime;
-//				if ( e.lifetime != null ) lifetime = (LifetimeFlag)Enum.Parse(typeof(LifetimeFlag), e.lifetime.ToString());
-//				else lifetime = LifetimeFlag.Default;
-//
-//				var contractType  = Type.GetType(e.type);
-//				var implementType = DynamicObject.InterfaceImplementationType(Type.GetType(e.type));
-//				container.RegisterType(contractType, implementType, lifetime);
-//
-//				this.ResolveRegisterProcessor(null, contractType, implementType, lifetime);
-//			}
+			if ( elements == null || elements.Count() == 0 ) return;
+
+			foreach ( var e in elements )
+			{
+				LifetimeFlag lifetime;
+				if ( e.lifetime != null ) lifetime = (LifetimeFlag)Enum.Parse(typeof(LifetimeFlag), e.lifetime.ToString());
+				else lifetime = LifetimeFlag.Default;
+
+				var contractType  = Type.GetType(e.type);
+				var implementType = DynamicObject.InterfaceImplementationType(Type.GetType(e.type));
+				container.RegisterType(contractType, implementType, lifetime);
+
+				this.ResolveRegisterProcessor(null, contractType, implementType, lifetime);
+			}
 		}
 
 
@@ -198,13 +198,18 @@ namespace Umc.Core.IoC
 		{
 			if (element != null)
 			{
-				if (element is ValueElement) 
-					return this.ResolveParamOfValueElement(reflectionName, (ValueElement)element);
-				else if (element is DependencyElement) 
-					return this.ResolveParamOfDependencyElement(reflectionName, (DependencyElement)element);
+				var valueElement = element as ValueElement;
+				if (valueElement != null) 
+					return this.ResolveParamOfValueElement(reflectionName, valueElement);
+				else
+				{
+					var dependencyElement = element as DependencyElement;
+					if (dependencyElement != null && dependencyElement.typeOfContract != null) 
+						return this.ResolveParamOfDependencyElement(reflectionName, dependencyElement);
+				}
 			}
 
-			throw new NotSupportedException(element.GetType().ToString());
+			throw new NotSupportedException(string.Format("Property {0}, {1}", reflectionName, (element ?? "").GetType()));
 		}
 
 
@@ -217,7 +222,9 @@ namespace Umc.Core.IoC
 		{
 			foreach (var p in element)
 			{
-				yield return this.ResolveProperty(p);
+				var resolveProperties = this.ResolveProperty(p);
+				if (resolveProperties != null)
+					yield return resolveProperties;
 			}
 		}
 

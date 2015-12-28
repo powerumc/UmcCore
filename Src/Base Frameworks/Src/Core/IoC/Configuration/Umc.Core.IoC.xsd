@@ -7,7 +7,7 @@
     xmlns:mstns="schema.powerumc.kr/umc/core"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<xs:element name="umc.core.ioc" type="Umc.Core.IoC" />
+	<xs:element name="Umc.Core.ioc" type="Umc.Core.IoC" />
 
 
 

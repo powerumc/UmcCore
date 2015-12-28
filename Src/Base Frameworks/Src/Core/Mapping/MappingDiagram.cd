@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Umc.Core.Mapping.Mapping&lt;TInput, TReturn&gt;" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEABAMAAAACAAAAAABAAAAAAAQAAAgAAkABAA=</HashCode>
+      <FileName>Mapping\Mapping.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Mapping.Mapping&lt;TReturn&gt;" Collapsed="true">
+    <Position X="5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\Mapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.Mapping" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\Mapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.KeyValueMapping&lt;TInput, TReturn&gt;" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\KeyValueMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.KeyValueMapping&lt;TReturn&gt;" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\KeyValueMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.KeyValueMapping" Collapsed="true">
+    <Position X="7.5" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\KeyValueMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.LazyMapping&lt;TInput, TReturn&gt;" Collapsed="true">
+    <Position X="5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAA=</HashCode>
+      <FileName>Mapping\LazyMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.LazyMapping&lt;TReturn&gt;" Collapsed="true">
+    <Position X="5" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\LazyMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.PropertyMapping&lt;TInput, TReturn&gt;" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\PropertyMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.MappingException" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\MappingException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.MappingProvider&lt;TInput, TReturn&gt;" Collapsed="true">
+    <Position X="13" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQgAAAQAAAEAIQAAAoACAAAAAAAAggAAAAgASAAAAAI=</HashCode>
+      <FileName>Mapping\MappingProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Umc.Core.Mapping.MappingProviderForDataRow" Collapsed="true">
+    <Position X="11.75" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQgAAABAAAEgIQAAAoACAAAAAAAAAAAAAAAACAAAAAI=</HashCode>
+      <FileName>Mapping\MappingProviderForDataRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.MappingProviderForProperty" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAIQAAAoACAEAAAAAAAAAAAAAACAQAAAI=</HashCode>
+      <FileName>Mapping\MappingProviderForProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.MappingReturn&lt;TInput, TReturn&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAEAAAAAAAAAAAAAAAAACAAAAAgEAgAAAA=</HashCode>
+      <FileName>Mapping\MappingReturn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Umc.Core.Mapping.ReflectionMapping" Collapsed="true">
+    <Position X="2.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAQAAAAAQAAAACAAAAAAAAIAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\ReflectionMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.ReflectionMappingOption" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\ReflectionMappingOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.InvocationMapping&lt;TInput, TReturn&gt;" Collapsed="true">
+    <Position X="13" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAA=</HashCode>
+      <FileName>Mapping\InvocationMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.ParamPropertyAttribute" Collapsed="true">
+    <Position X="12.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Mapping\Specificity\ParamPropertyAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Umc.Core.Mapping.ParamPropertyMappingProvider" Collapsed="true">
+    <Position X="14.5" Y="8.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAQAAIQAAAIACAAAAABAEAgAAAAAACAEAAAI=</HashCode>
+      <FileName>Mapping\Specificity\ParamPropertyMappingProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Umc.Core.Mapping.ParamAction" Collapsed="true">
+    <Position X="10.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Mapping\Specificity\ParamAction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

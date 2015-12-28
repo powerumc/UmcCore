@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<umc.core.ioc xmlns="http://schema.powerumc.kr/umc/core/ioc">
+<Umc.Core.ioc xmlns="http://schema.powerumc.kr/umc/core/ioc">
 	<containers>
 		<container>
 			
 		</container>
 	</containers>
-</umc.core.ioc>
+</Umc.Core.ioc>

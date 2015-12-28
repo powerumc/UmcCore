@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="POWERUMC"
+    targetNamespace="http://schema.powerumc.kr/umc/core/mapping"
+    elementFormDefault="qualified"
+		attributeFormDefault="unqualified"
+    xmlns="http://schema.powerumc.kr/umc/core/mapping"
+    xmlns:mstns="schema.powerumc.kr/umc/core"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+	
+	<!-- XML Definition Mapping Provider - 추후에 사용할 계획 -->
+
+	<xs:element name="Umc.Core.mapping" type="Umc.Core.Mapping.Definition" />
+
+
+	<xs:complexType name="Umc.Core.Mapping.Definition">
+		<xs:sequence>
+			<xs:element name="mappingSchemas" type="Umc.Core.Mapping.MappingSchemas" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.Mapping.MappingSchemas">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="schema" type="Umc.Core.Mapping.MappingSchema" />
+			<xs:element name="include" type="Umc.Core.Mapping.Include" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Umc.Core.Mapping.MappingSchema">
+		<xs:sequence minOccurs="1">
+			<xs:element name="map" type="Umc.Core.Mapping.Map" maxOccurs="unbounded" />
+			<xs:element name="include" type="Umc.Core.Mapping.Include" maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+		<xs:attributeGroup ref="Umc.Core.Mapping.Element.Attribute" />
+		<xs:attribute name="generateType" type="Umc.Core.Mapping.MappingSchema.AutoGenerate" />
+	</xs:complexType>
+
+
+	<xs:complexType name="Umc.Core.Mapping.Map">
+		<xs:attributeGroup ref="Umc.Core.Mapping.Element.Attribute" />
+		<xs:attribute name="type" type="xs:string" use="optional" />
+		<xs:attribute name="cannotMapping" />
+	</xs:complexType>
+
+
+	<xs:complexType name="Umc.Core.Mapping.Include">
+		<xs:attribute name="path" type="xs:string" use="required" />
+	</xs:complexType>
+	
+
+	<xs:attributeGroup name="Umc.Core.Mapping.Element.Attribute">
+		<xs:attribute name="id" type="xs:ID"/>
+		<xs:attribute name="description" type="xs:string" use="optional" />
+	</xs:attributeGroup>
+
+
+
+	<xs:simpleType name="Umc.Core.Mapping.MappingSchema.AutoGenerate">
+		<xs:restriction base="xs:string">
+			<xs:enumeration id="Auto" value="auto" />
+			<xs:enumeration id="Manual" value="manual" />
+			<xs:enumeration id="MappingProvider" value="mappingProvider" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Umc.Core.Mapping.MappingSchema.CannotMapping">
+		<xs:restriction base="xs:string">
+			<xs:enumeration id="Continue" value="continue" />
+			<xs:enumeration id="Throw" value="throw" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+</xs:schema>
+

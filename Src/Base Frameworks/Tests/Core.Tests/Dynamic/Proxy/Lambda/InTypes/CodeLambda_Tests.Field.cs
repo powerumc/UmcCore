@@ -38,7 +38,6 @@ namespace Umc.Core.Dynamic.Proxy.Lambda.InTypes
 
 		[TestCategory("BVT Function"), TestMethod]
 		[Description("동적 필드 타입을 선언하여 필드간의 값을 Assign 하는 테스트, 오류가 발생하지 않고 값이 유효하면통과")]
-		[ExpectedException(typeof(NotImplementedException), "테스트 미완료")]
 		public void Define_Field_And_Assign_Test()
 		{
 			throw new NotImplementedException("동적 필드 타입을 선언하여 값을 Assign");

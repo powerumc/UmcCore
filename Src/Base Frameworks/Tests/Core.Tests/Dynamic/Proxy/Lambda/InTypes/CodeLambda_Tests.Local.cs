@@ -38,7 +38,6 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 
 		[TestCategory("BVT Function"), TestMethod]
 		[Description("동적 로컬 변수를 선언하여 Operand 값을 출력하는 테스트, 오류가 발생하지 않고 값이 유효하면 통과")]
-		[ExpectedException(typeof(NotImplementedException), "테스트 미완료")]
 		public void Define_Local_And_Verify_Test()
 		{
 			throw new NotImplementedException("로컬 변수 값을 Peek 기능 미완료");

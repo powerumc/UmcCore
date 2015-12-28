@@ -83,7 +83,7 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 			else
 			{
 				il.Emit(OpCodes.Ldarg_0);
-				il.Emit(OpCodes.Call, typeof(object).GetConstructors()[0]);
+				il.Emit(OpCodes.Call, this.TypeBuilder.BaseType.GetConstructors()[0]);
 			}
 
 
@@ -125,13 +125,17 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 			return methodBuilder;
 		}
 
-
 		public PropertyBuilder CreateProperty(string name, PropertyAttributes attribute, Type returnType, Type[] parameterTypes)
+		{
+			return CreateProperty(name, attribute, returnType, parameterTypes, 0);
+		}
+
+		public PropertyBuilder CreateProperty(string name, PropertyAttributes attribute, Type returnType, Type[] parameterTypes, CallingConventions callingConventions)
 		{
 			if ( this.TypeBuilder == null )
 				throw new NullReferenceException(this.TypeBuilder.GetType().Name);
 
-			PropertyBuilder builder = this.TypeBuilder.DefineProperty(name, attribute, returnType, parameterTypes);
+			PropertyBuilder builder = this.TypeBuilder.DefineProperty(name, attribute, callingConventions, returnType, null, null, parameterTypes, null, null);
 
 			return builder;
 		}

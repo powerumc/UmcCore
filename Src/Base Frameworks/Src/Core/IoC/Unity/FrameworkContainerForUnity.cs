@@ -143,6 +143,10 @@ namespace Umc.Core.IoC
 			return this;
 		}
 
+		public override bool IsRegisted(Type type)
+		{
+			return ContainerObject.IsRegistered(type);
+		}
 
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다. 

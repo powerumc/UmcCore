@@ -61,7 +61,9 @@ namespace Umc.Core.IoC
 		/// <returns><see cref="IDependencyAttribute"/> 인터페이스가 구연되었으면 True, 그렇지 않으면 False</returns>
 		public static bool IsDependencyAttribute(this Type type)
 		{
-			return type.GetCustomAttributes(false).Any( o => o is IDependencyAttribute);
+			return true;
+			//return type.GetCustomAttributes(false).Any(o => o is IDependencyAttribute) ||
+			//	   type.GetProperties().Any(o => o.GetCustomAttributes(true).Any(_ => _ is IDependencyAttribute));
 		}
 
 
@@ -83,7 +85,7 @@ namespace Umc.Core.IoC
 		/// <returns>생성자에 선언된 <see cref="DependencyInjectionAttribute"/> 를 반환합니다.</returns>
 		public static IEnumerable<DependencyInjectionAttribute> GetDependencyInjectionOnConstructor(this ConstructorInfo constructor)
 		{
-			var attributes = constructor.GetCustomAttributes(typeof(DependencyInjectionAttribute), false).Cast<DependencyInjectionAttribute>();
+			var attributes = constructor.GetCustomAttributes(typeof(DependencyInjectionAttribute), true).Cast<DependencyInjectionAttribute>();
 			return attributes;
 		}
 
@@ -95,7 +97,7 @@ namespace Umc.Core.IoC
 		/// <returns>속성(Property)에 선언된 <see cref="DependencyInjectionAttribute"/> 를 반환합니다.</returns>
 		public static DependencyInjectionAttribute GetDependencyInjectionOnProperty(this PropertyInfo property)
 		{
-			var attributes = property.GetCustomAttributes(typeof(DependencyInjectionAttribute), false).Cast<DependencyInjectionAttribute>();
+			var attributes = property.GetCustomAttributes(typeof(DependencyInjectionAttribute), true).Cast<DependencyInjectionAttribute>();
 			return attributes.FirstOrDefault();
 		}
 
@@ -104,7 +106,7 @@ namespace Umc.Core.IoC
 		/// 	속성(Property)에 선언된 <see cref="DefaultValueAttribute"/> 특성을 반환합니다.
 		/// </summary>
 		/// <param name="property">	리플랙션 수준의 속성(Property) 정보입니다. </param>
-		/// <returns>속성(Property)에 선언된 <see cref="DefaaultValueAttribute"/> 특성을 반환합니다.</returns>
+		/// <returns>속성(Property)에 선언된 <see cref="DefaultValueAttribute"/> 특성을 반환합니다.</returns>
 		public static DefaultValueAttribute GetDefaultValueOnProperty(this PropertyInfo property)
 		{
 			var attributes = property.GetCustomAttributes(typeof(DefaultValueAttribute), false).Cast<DefaultValueAttribute>();
@@ -119,7 +121,7 @@ namespace Umc.Core.IoC
 		/// <returns>메서드에 선언된 <see cref="DependencyInjectionAttribute"/> 를 반환합니다.</returns>
 		public static DependencyInjectionAttribute GetDependencyInjectionOnMethod(this MethodInfo method)
 		{
-			var attributes = method.GetCustomAttributes(typeof(DependencyInjectionAttribute), false).Cast<DependencyInjectionAttribute>();
+			var attributes = method.GetCustomAttributes(typeof(DependencyInjectionAttribute), true).Cast<DependencyInjectionAttribute>();
 			return attributes.FirstOrDefault();
 		}
 
@@ -131,7 +133,7 @@ namespace Umc.Core.IoC
 		/// <returns>매개 변수에에 선언된 <see cref="DependencyInjectionAttribute"/> 를 반환합니다.</returns>
 		public static DependencyInjectionAttribute GetDependencyInjectionOnParameter(this ParameterInfo parameter)
 		{
-			var attributes = parameter.GetCustomAttributes(typeof(DependencyInjectionAttribute), false).Cast<DependencyInjectionAttribute>();
+			var attributes = parameter.GetCustomAttributes(typeof(DependencyInjectionAttribute), true).Cast<DependencyInjectionAttribute>();
 			return attributes.FirstOrDefault();
 		}
 

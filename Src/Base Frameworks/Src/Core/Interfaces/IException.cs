@@ -8,6 +8,6 @@ namespace Umc.Core
 	public interface IException
 	{
 		bool HasException { get; }
-		Exception Exception { get; }
+
 	}
 }

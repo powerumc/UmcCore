@@ -9,7 +9,7 @@ namespace Umc.Core
 	/// <summary>
 	///		<see cref="IFrameworkContainer"/> 의 객체를 주입하기 위한 특성입니다.
 	/// </summary>
-	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1813:AvoidUnsealedAttributes"), AttributeUsage(AttributeTargets.Property | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1813:AvoidUnsealedAttributes"), AttributeUsage(AttributeTargets.Property | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
 	public class DependencyInjectionAttribute : Attribute, IDependencyAttribute
 	{
 

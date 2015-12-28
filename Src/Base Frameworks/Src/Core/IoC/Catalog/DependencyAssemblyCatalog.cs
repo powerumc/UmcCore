@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 
 #if NET40
-using System.Threading.Tasks;
+
 using System.Collections.Concurrent;
 #endif
 

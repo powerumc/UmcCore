@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Microsoft.Practices.Unity;
 using Umc.Core.IoC.Configuration;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using Umc.Core.Logger;
 
 namespace Umc.Core.IoC.Unity
 {
@@ -14,6 +18,7 @@ namespace Umc.Core.IoC.Unity
 	/// </summary>
 	public class FrameworkCompositionResolverForUnity : FrameworkCompositionResolver<FrameworkContainerForUnity>
 	{
+		private static IFrameworkLogger logger = FrameworkLogger.GetLogger(typeof (FrameworkCompositionResolverForUnity));
 		private UmcCoreIoCElement rootElement;
 
 		public FrameworkCompositionResolverForUnity(FrameworkContainerForUnity container, UmcCoreIoCElement rootElement)
@@ -64,6 +69,7 @@ namespace Umc.Core.IoC.Unity
 		/// <returns>IoC 컨테이너가 제공하는 매개 변수에 대한 객체 입니다.</returns>
 		protected override object ResolveParamOfDependencyElement(string reflectionName, DependencyElement element)
 		{
+			Debug.WriteLine(element.typeOfContract);
 			return new ResolvedParameter(Type.GetType(element.typeOfContract), element.key);
 		}
 
@@ -75,7 +81,12 @@ namespace Umc.Core.IoC.Unity
 		/// <returns>IoC 컨테이너가 제공하는 값(Value)에 대한 객체 입니다.</returns>
 		protected override object ResolveParamOfValueElement(string reflectionName, ValueElement element)
 		{
-			var obj = TypeDescriptor.GetConverter(Type.GetType(element.type)).ConvertTo(element.value, Type.GetType(element.type));
+			var type = Type.GetType(element.type);
+			if (type == null) 
+				return null;
+
+			//var obj = TypeDescriptor.GetConverter(type).ConvertTo(element.value, type);
+			var obj = TypeDescriptor.GetConverter(type).ConvertFrom(element.value);
 
 			return new InjectionParameter(obj);
 		}
@@ -98,7 +109,12 @@ namespace Umc.Core.IoC.Unity
 		/// <returns>IoC 컨테이너가 제공하는 속성(Property)에 대한 객체 입니다.</returns>
 		protected override object ResolveProperty(PropertyElement element)
 		{
-			return new InjectionProperty(element.name, this.ResolveParam(element.name, element.Item));
+			var propertyValue = this.ResolveParam(element.name, element.Item);
+			if (propertyValue == null)
+				return null;
+
+			var injectionProperty = new InjectionProperty(element.name, propertyValue);
+			return injectionProperty;
 		}
 
 		/// <summary>	
@@ -119,12 +135,19 @@ namespace Umc.Core.IoC.Unity
 			var contractType   = Type.GetType(element.contract);
 			var dependencyType = Type.GetType(element.dependencyTo);
 
-			container.ContainerObject.RegisterType(
-				contractType,
-				dependencyType,
-				element.key,
-				container.LifetimeMapping.GetLifetimeObject(lifetime),
-				concat.ToArray());
+			try
+			{
+				container.ContainerObject.RegisterType(
+						contractType,
+						dependencyType,
+						element.key,
+						container.LifetimeMapping.GetLifetimeObject(lifetime),
+						concat.ToArray());
+			}
+			catch (Exception e)
+			{
+				logger.Error(e);
+			}
 		}
 
 		protected override void ResolveRegisterProcessor(string key, Type contractType, Type implementType, LifetimeFlag lifetime)

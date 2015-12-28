@@ -12,7 +12,6 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 	{
 		[TestCategory("BVT Function"), TestMethod]
 		[Description("Operand 의 New 메서드 테스트, 오류가 발생하지 않으면 통과")]
-		[ExpectedException(typeof(NotImplementedException))]
 		public void TestMethod1()
 		{
 			string typeName   = Guid.NewGuid().ToString("N");
