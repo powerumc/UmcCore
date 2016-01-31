@@ -25,6 +25,7 @@ namespace Umc.Core.T4.Internals
 				case "nchar":
 					return typeof(string);
 
+                case "date":
 				case "datetime":
 					return isNullable ? typeof(DateTime?) : typeof(DateTime);
 

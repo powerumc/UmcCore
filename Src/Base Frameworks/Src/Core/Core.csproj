@@ -109,6 +109,10 @@
     <AssemblyOriginatorKeyFile>..\..\..\..\StrongKey\Umc.Core.Public.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\log4net.2.0.5\lib\net35-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\ReferenceAssemblies\Enterprise Library\5.0.414.0\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
@@ -119,6 +123,16 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -131,7 +145,36 @@
     <Compile Include="..\..\..\..\CommonCode\GlobalConstants.cs">
       <Link>GlobalConstants.cs</Link>
     </Compile>
+    <Compile Include="Application\CrossAppDomain.cs" />
+    <Compile Include="Application\CrossApplication.cs" />
+    <Compile Include="Application\CrossApplicationCommand.cs" />
+    <Compile Include="Application\CrossApplicationException.cs" />
+    <Compile Include="Application\ICrossAppDomain.cs" />
+    <Compile Include="Application\ICrossApplication.cs" />
+    <Compile Include="Cache\Cached.cs" />
+    <Compile Include="Cache\CachedAttribute.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Data\DatabaseAttribute.cs" />
+    <Compile Include="Data\DataExtension.cs" />
+    <Compile Include="Data\FrameworkDataAccessException.cs" />
+    <Compile Include="Data\InputAttribute.cs" />
+    <Compile Include="Data\Interfaces\IDatabaseAttribute.cs" />
+    <Compile Include="Data\Interfaces\ITableAttribute.cs" />
+    <Compile Include="Data\Interfaces\ITableColumnAttribute.cs" />
+    <Compile Include="Data\IStoredProcedureDataModelAttribute.cs" />
+    <Compile Include="Data\OutputAttribute.cs" />
+    <Compile Include="Data\SqlDbTypeMap.cs" />
+    <Compile Include="Data\StoredProcedureDataModelAttribute.cs" />
+    <Compile Include="Data\TableAttribute.cs" />
+    <Compile Include="Data\TableColumnAttribute.cs" />
+    <Compile Include="Data\TypeMap.cs" />
+    <Compile Include="DB\Interfaces\DbTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ISPResult.cs" />
+    <Compile Include="DB\SP.cs" />
     <Compile Include="DependencyInjectionAttribute.cs" />
     <Compile Include="Dynamic\DynamicAttribute.cs">
       <SubType>Code</SubType>
@@ -286,10 +329,15 @@
     </Compile>
     <Compile Include="Dynamic\Proxy\Lambda\TypeLambda.cs" />
     <Compile Include="Dynamic\Proxy\Lambda\TypeUnitLambda.cs" />
+    <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Extensions\EncodingExtension.cs" />
+    <Compile Include="Extensions\InterfaceExtension.cs" />
+    <Compile Include="Extensions\MappingExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\SerializationExtension.cs" />
     <Compile Include="Extensions\StreamExtension.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interfaces\EventArgs{T}.cs" />
     <Compile Include="Interfaces\IDestroyable.cs" />
     <Compile Include="Interfaces\IDone.cs" />
@@ -299,6 +347,7 @@
     <Compile Include="Interfaces\IException.cs" />
     <Compile Include="Interfaces\IExecutable.cs" />
     <Compile Include="Interfaces\IFrameworkException.cs" />
+    <Compile Include="Interfaces\IFrameworkLogger.cs" />
     <Compile Include="Interfaces\IGetable.cs" />
     <Compile Include="Interfaces\IInitializable.cs" />
     <Compile Include="Interfaces\IMappingCollectionProvider.cs" />
@@ -337,6 +386,20 @@
     <Compile Include="IoC\Interceptor\IFrameworkInterceptionReturn.cs" />
     <Compile Include="IoC\Interceptor\IFrameworkInterceptorInvocation.cs" />
     <Compile Include="IoC\Unity\FrameworkContainerForUnityExtension.cs" />
+    <Compile Include="Lambda\If\LambdaAndIfObject.cs" />
+    <Compile Include="Lambda\If\LambdaElseIfObject.cs" />
+    <Compile Include="Lambda\If\LambdaElseObject.cs" />
+    <Compile Include="Lambda\If\LambdaIfObject.cs" />
+    <Compile Include="Lambda\If\LambdaOrIfObject.cs" />
+    <Compile Include="Lambda\If\LambdaThenObject.cs" />
+    <Compile Include="Lambda\LambdaContextObject.cs" />
+    <Compile Include="Lambda\LambdaInvokeObject.cs" />
+    <Compile Include="Lambda\LambdaObject.cs" />
+    <Compile Include="Logger\EventStreamAppender.cs" />
+    <Compile Include="Logger\FrameworkFileLogListener.bak.cs" />
+    <Compile Include="Logger\FrameworkLogger.bak.cs" />
+    <Compile Include="Logger\FrameworkLogger.cs" />
+    <Compile Include="Logger\LoggerBootstrap.cs" />
     <Compile Include="Mapping\InvocationMapping.cs">
       <DependentUpon>Mapping.cs</DependentUpon>
       <SubType>Code</SubType>
@@ -352,6 +415,12 @@
     <Compile Include="Mapping\Mapping.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Mapping\MappingException.cs" />
+    <Compile Include="Mapping\MappingProvider.cs" />
+    <Compile Include="Mapping\MappingProviderForCollection.cs" />
+    <Compile Include="Mapping\MappingProviderForDataRow.cs" />
+    <Compile Include="Mapping\MappingProviderForDataTable.cs" />
+    <Compile Include="Mapping\MappingProviderForProperty.cs" />
     <Compile Include="Mapping\MappingReturn.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -362,6 +431,12 @@
       <DependentUpon>Mapping.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Mapping\ReflectionMapping.cs" />
+    <Compile Include="Mapping\ReflectionMappingOption.cs" />
+    <Compile Include="Mapping\Specificity\ParamAction.cs" />
+    <Compile Include="Mapping\Specificity\ParamPropertyAttribute.cs" />
+    <Compile Include="Mapping\Specificity\ParamPropertyMappingProvider.cs" />
+    <Compile Include="NameAttribute.cs" />
     <Compile Include="Reflection\AttributeConstants.cs" />
     <Compile Include="Extensions\IEnumerableExtension.cs" />
     <Compile Include="Interfaces\IDirtiable.cs" />
@@ -450,6 +525,41 @@
     <Compile Include="Security\FrameworkPermission.cs" />
     <Compile Include="Security\FrameworkPermissionAttribute.cs" />
     <Compile Include="Serialization\Formatter\CsvFormatter.cs" />
+    <Compile Include="System\DateTimeBetween.cs" />
+    <Compile Include="T4\Data\SPWrapperGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPWrapperGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Data\Table_Generator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Table_Generator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Internals\SPSchemaT.cs" />
+    <Compile Include="T4\Internals\SPTemplates.cs" />
+    <Compile Include="T4\Internals\SqlTypeConverter.cs" />
+    <Compile Include="T4\Web\CommentList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommentList.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Web\ResourcesT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Extensions\RequestExtensions.cs" />
+    <Compile Include="Web\Extensions\WebFormExtensions.cs" />
+    <Compile Include="Web\FormBuilderResources.cs" />
+    <Compile Include="Web\FrameworkContainerPageHandlerFactory.cs" />
+    <Compile Include="Web\Listeners\JavaScriptTraceListner.cs" />
+    <Compile Include="Web\MappingProviderForWeb.cs" />
+    <Compile Include="Web\Modules\JavaScriptTraceModule.cs" />
+    <Compile Include="Web\ResourcesT.cs" />
+    <Compile Include="Web\Script\DateTimeJavaScriptConverter.cs" />
+    <Compile Include="Web\WebForm.cs" />
+    <Compile Include="Web\WebFormHtmlString.cs" />
     <Compile Include="Xml\Facets.cs" />
     <Compile Include="Xml\Generator.cs" />
     <Compile Include="Xml\InstanceAttribute.cs" />
@@ -459,6 +569,26 @@
     <Compile Include="Xml\XmlGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB\Interfaces\DbTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DbTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4\Data\SPWrapperGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SPWrapperGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4\Data\Table_Generator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Table_Generator.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4\Web\CommentList.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommentList.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4\Web\ResourcesT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ResourcesT.cs</LastGenOutput>
+    </Content>
     <None Include="..\..\..\..\StrongKey\Umc.Core.Public.snk">
       <Link>Umc.Core.Public.snk</Link>
     </None>
@@ -469,6 +599,12 @@
       </SubType>
     </None>
     <None Include="IoC\IoCDiagram.cd" />
+    <None Include="Lambda\LambdaDiagram.cd" />
+    <None Include="Mapping\MappingDiagram.cd" />
+    <None Include="Mapping\MappingSchemaDefinition.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
     <None Include="Reflection\ReflectionDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
@@ -492,7 +628,9 @@
   <ItemGroup>
     <Content Include="IoC\Configuration\test.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\..\..\CommonCode\Umc.Core.ImportBefore.targets" />
   <Import Project="..\..\..\..\CommonCode\Umc.Core.ImportAfter.targets" />
