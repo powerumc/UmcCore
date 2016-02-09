@@ -50,7 +50,7 @@ namespace <#=GetCurrentNamespace()#>.Tables
 	using System.Web;
 	using Umc.Core;
 	using Umc.Core;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 
 	public partial class TableNames { public const string <#=GetClassName(table).ToUpper()#> = "<#=catalog.TABLE_CATELOG_NAME#>.<#=schema.TABLE_SCHEMA_NAME#>.<#=table.TABLENAME#>"; }
 
@@ -97,7 +97,7 @@ namespace <#=GetCurrentNamespace()#>.SP
 	using Umc.Core;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 
 	public partial class SPNames { public const string <#=sp.SP_NAME.ToUpper()#> = "<#=sp.SP_NAME#>"; }
 
@@ -140,7 +140,7 @@ namespace <#=GetCurrentNamespace()#>
 	using Umc.Core;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 	using <#=GetCurrentNamespace()#>.Tables;
 	using <#=GetCurrentNamespace()#>.SP;
 

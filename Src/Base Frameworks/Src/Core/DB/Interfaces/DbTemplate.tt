@@ -36,7 +36,7 @@ namespace <#=GetCurrentNamespace()#>.Tables
 	using System.ComponentModel.DataAnnotations;
 	using Umc.Core;
 	using Umc.Core;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 
 	public partial class TableNames { public const string <#=GetClassName(table).ToUpper()#> = "<#=catalog.TABLE_CATELOG_NAME#>.<#=schema.TABLE_SCHEMA_NAME#>.<#=table.TABLENAME#>"; }
 
@@ -85,7 +85,7 @@ namespace <#=GetCurrentNamespace()#>.StoredProcedures
 	using Umc.Core;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 
 	public partial class SPNames { public const string <#=sp.SP_NAME.ToUpper()#> = "<#=sp.SP_NAME#>"; }
 
@@ -134,7 +134,7 @@ namespace <#=GetCurrentNamespace()#>.Models
 	using Umc.Core.DAO;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 
 	/// <summary>
 	/// <#=sp.SP_NAME#> 프로시저의 결과를 반환하는 인터페이스 모델입니다.
@@ -177,7 +177,7 @@ namespace <#=GetCurrentNamespace()#>
 	using Umc.Core.DAO;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.Games.DB;
+	using Umc.Core.DB;
 	using <#=GetCurrentNamespace()#>.Models;
 <# if(tables.TABLE_CATALOGS.Count > 0) { #>using <#=GetCurrentNamespace()#>.Tables;<#}#>
 	using <#=GetCurrentNamespace()#>.StoredProcedures;

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Umc.Core.Games.DB;
+using Umc.Core.DB;
 
 namespace Umc.Core.Web.Tests
 {

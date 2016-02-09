@@ -7,7 +7,7 @@ using System.Text;
 using System.Web;
 using Umc.Core.Mapping;
 
-namespace Umc.Core.Games.Web
+namespace Umc.Core.Web
 {
 	public class MappingProviderForWeb : MappingProvider<string, string>
 	{

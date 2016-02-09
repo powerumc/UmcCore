@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Umc.Core.Games.DB
+namespace Umc.Core.DB
 {
 	public interface ISPResult
 	{

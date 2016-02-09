@@ -14,7 +14,7 @@ using Umc.Core.IoC;
 using Umc.Core.Logger;
 using Umc.Core.Mapping;
 
-namespace Umc.Core.Games.DB
+namespace Umc.Core.DB
 {
 	/// <summary>
 	/// <para>
