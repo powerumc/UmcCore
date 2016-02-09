@@ -219,7 +219,7 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockSimple),
 			};
 
-			DependencyTypeCatalog catalog = new DependencyTypeCatalog(mockTypes);
+			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(mockTypes);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 

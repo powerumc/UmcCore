@@ -48,7 +48,7 @@ namespace Umc.Core.Dynamic
 		{
 			var container = new FrameworkContainerForUnity();
 
-			var catalog = new DependencyTypeCatalog(new Type[] { typeof(IEntity), typeof(Entity), typeof(DynamicObject_Tests), typeof(Unity_Component_Tests) });
+			var catalog = new FrameworkTypeCatalog(new Type[] { typeof(IEntity), typeof(Entity), typeof(DynamicObject_Tests), typeof(Unity_Component_Tests) });
 			var visitor = new FrameworkDependencyVisitor(catalog);
 
 			

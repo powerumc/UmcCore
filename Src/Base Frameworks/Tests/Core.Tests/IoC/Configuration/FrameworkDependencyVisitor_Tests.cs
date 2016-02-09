@@ -47,7 +47,7 @@ namespace Umc.Core.IoC.Configuration
 		[Description("DependencyTypeCatalog를 이용하여 종속성 관계를 분석하여 XML 형태로 출력 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_By_DependencyTypeCatalog()
 		{
-			DependencyTypeCatalog catalog = new DependencyTypeCatalog(this.mockTypes);
+			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(this.mockTypes);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 
@@ -58,7 +58,7 @@ namespace Umc.Core.IoC.Configuration
 		[Description("DependencyAssemblyCatalog를 이용하여 종속성 관계를 분석하여 XML 형태로 출력 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_By_DependencyAssemblyCatalog()
 		{
-			DependencyAssemblyCatalog catalog = new DependencyAssemblyCatalog(Assembly.GetExecutingAssembly());
+			FrameworkAssemblyCatalog catalog = new FrameworkAssemblyCatalog(Assembly.GetExecutingAssembly());
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 
@@ -69,7 +69,7 @@ namespace Umc.Core.IoC.Configuration
 		[Description("DependencyDirectoryCatalog를 이용하여 종속성 관계를 분석하여 XML 형태로 출력 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_By_DependencyDirectoryCatalog()
 		{
-			DependencyDirectoryCatalog catalog = new DependencyDirectoryCatalog(TestContext.TestDeploymentDir);
+			FrameworkDirectoryCatalog catalog = new FrameworkDirectoryCatalog(TestContext.TestDeploymentDir);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 

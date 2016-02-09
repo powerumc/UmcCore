@@ -35,7 +35,7 @@ namespace Umc.Core.IoC.Configuration
 				typeof(MockClass_Must_Success2)
 			};
 
-			DependencyTypeCatalog catalog = new DependencyTypeCatalog(mockTypes);
+			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(mockTypes);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 
@@ -62,7 +62,7 @@ namespace Umc.Core.IoC.Configuration
 				typeof(MockClass_Must_Success_With_Key2)
 			};
 
-			DependencyTypeCatalog catalog = new DependencyTypeCatalog(mockTypes);
+			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(mockTypes);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 
@@ -89,7 +89,7 @@ namespace Umc.Core.IoC.Configuration
 				typeof(MockClass_Must_Fail2)
 			};
 
-			DependencyTypeCatalog catalog = new DependencyTypeCatalog(mockTypes);
+			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(mockTypes);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 
@@ -120,7 +120,7 @@ namespace Umc.Core.IoC.Configuration
 				typeof(MockClass_NonTypeOfContractName_But_Success2)
 			};
 
-			DependencyTypeCatalog catalog = new DependencyTypeCatalog(mockTypes);
+			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(mockTypes);
 			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
 			var root = visitor.VisitTypes();
 

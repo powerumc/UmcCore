@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // 어셈블리와 관련된 정보를 수정하려면
 // 이 특성 값을 변경하십시오.
 [assembly: AssemblyTitle("Umc.Core")]
-[assembly: AssemblyDescription("LiveWeb Framework")]
+[assembly: AssemblyDescription("Umc.Core Framework")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Nexon")]
+[assembly: AssemblyCompany("Umc.Core")]
 [assembly: AssemblyProduct("Umc.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("Nexon")]
+[assembly: AssemblyTrademark("Umc.Core")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 

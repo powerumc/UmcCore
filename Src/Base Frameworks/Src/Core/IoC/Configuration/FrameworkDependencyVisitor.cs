@@ -35,7 +35,7 @@ namespace Umc.Core.IoC.Configuration
 			this.types = types;
 		}
 
-		public FrameworkDependencyVisitor(DependencyCatalog catalog)
+		public FrameworkDependencyVisitor(FrameworkCatalog catalog)
 			: this()
 		{
 			this.types = catalog.GetMatchingTypes();
