@@ -73,14 +73,19 @@ namespace System
 			return type.IsGenericType && type.GetGenericTypeDefinition() == typeof (Nullable<>);
 		}
 
-		public static string AbbreviationString(this Type type)
-		{
-			var str = type.FullName;
-			if (str.Length < 40) 
-				return str;
 
-			var arr = str.Split('.');
-			var sb = new StringBuilder(100);
+		public static string AbbreviationString(this Type type, int limitLength = 40)
+		{
+			return AbbreviationString(type.FullName, limitLength);
+		}
+
+		public static string AbbreviationString(this string type, int limitLength = 40)
+		{
+			if (type.Length < limitLength)
+				return type;
+
+			var arr = type.Split('.');
+			var sb = new StringBuilder((int)(limitLength / 1.5));
 			var newString = String.Join(".", arr.Take(arr.Length - 1).Select(o => o.First().ToString(CultureInfo.InvariantCulture)).ToArray());
 
 			return string.Concat(newString, ".", arr[arr.Length - 1]);

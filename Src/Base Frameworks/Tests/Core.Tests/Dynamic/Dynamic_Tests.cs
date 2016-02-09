@@ -3,7 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NCsoft.Managed.Framework.IoC;
+using Umc.Core.Dynamic;
+using Umc.Core.IoC;
 
 namespace NCsoft.Managed.Framework.Dynamic
 {
@@ -13,14 +14,14 @@ namespace NCsoft.Managed.Framework.Dynamic
 		[TestMethod]
 		public void DynamicEntity_Test()
 		{
-			var type = Dynamic.InterfaceImplementationType<IEntity>();
+			var type = DynamicObject.InterfaceImplementationType<IEntity>();
 			Console.WriteLine(type.AssemblyQualifiedName);
 		}
 
 		[TestMethod]
 		public void DynamicEntity_With_FrameworkContainer_Test()
 		{
-			var type = Dynamic.InterfaceImplementationType<IEntity>();
+			var type = DynamicObject.InterfaceImplementationType<IEntity>();
 			var obj  = (IEntity)Activator.CreateInstance(type);
 
 			IFrameworkContainer container = new FrameworkContainerForUnity();
@@ -49,6 +50,7 @@ namespace NCsoft.Managed.Framework.Dynamic
 	{
 		private string _name;
 		private int _age;
+
 		#region IEntity 멤버
 
 		public string Name

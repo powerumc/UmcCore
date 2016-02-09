@@ -152,8 +152,13 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CrossAppDomain_Test.cs" />
+    <Compile Include="AssertExtension.cs" />
+    <Compile Include="AssertionDescriptionAttribute.cs" />
+    <Compile Include="BVT.cs" />
     <Compile Include="Dynamic\DynamicExtensibilityObject_Tests.cs" />
     <Compile Include="Dynamic\DynamicObject_Tests.cs" />
+    <Compile Include="Dynamic\Dynamic_Tests.cs" />
     <Compile Include="Dynamic\Proxy\DynamicProxyToken_Tests.cs" />
     <Compile Include="Dynamic\Proxy\Lambda\AccessorInvocation_Tests.cs" />
     <Compile Include="Dynamic\Proxy\Lambda\AssemblyLambda_Tests.cs" />
@@ -166,6 +171,9 @@
     <Compile Include="Dynamic\Proxy\Lambda\ModuleLambda_Tests.cs" />
     <Compile Include="Dynamic\Proxy\Lambda\Operand_Tests.cs" />
     <Compile Include="Dynamic\Proxy\Lambda\TypeLambda_Tests.cs" />
+    <Compile Include="Extensions\DateTimeExtenion_Tests.cs" />
+    <Compile Include="Extensions\TypeExtensionTests.cs" />
+    <Compile Include="ImplicitStructures\Time_Tests.cs" />
     <Compile Include="IoC\Catalog\FrameworkDynamicTypeCatalog_Tests.cs" />
     <Compile Include="IoC\Unity\FrameworkInterceptor_Tests.cs" />
     <Compile Include="IoC\Catalog\FrameworkAssemblyCatalog_Tests.cs" />
@@ -182,7 +190,26 @@
     <Compile Include="IoC\MockLifetimeMappingForUnity_Tests.cs" />
     <Compile Include="IoC\Unity\Mock\MockClass_FrameworkContainerAndResolver.cs" />
     <Compile Include="IoC\Unity\Unity_Component_Tests.cs" />
+    <Compile Include="Lambda\LambdaObject_Test.cs" />
+    <Compile Include="Logger\FrameworkFileLogListener_Tests.cs" />
+    <Compile Include="Mapping\KeyValueMapping_Tests.cs" />
+    <Compile Include="Mapping\LazyMapping_Tests.cs" />
+    <Compile Include="Mapping\MappingProvider_Tests.cs" />
+    <Compile Include="Mapping\ReflectionMapping_Tests.cs" />
+    <Compile Include="Mapping\Specificity\ParamPropertyMappingProvider_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\AssemblyUtil_Tests.cs" />
+    <Compile Include="Reflection\AttributeConstants_Tests.cs" />
+    <Compile Include="Reflection\Emit\Builder_Tests.cs" />
+    <Compile Include="Reflection\Emit\MethodRental_Tests.cs" />
+    <Compile Include="Reflection\Emit\OpCodeMap_Tests.cs" />
+    <Compile Include="Reflection\ReflectionUtil_Tests.cs" />
+    <Compile Include="ShowObject.cs" />
+    <Compile Include="TestContextExtension.cs" />
+    <Compile Include="TestOwner.cs" />
+    <Compile Include="UnitTestBase.cs" />
+    <Compile Include="Web\Extensions\WebFormExtensions_Tests.cs" />
+    <Compile Include="Web\WebFormHtmlString_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -191,7 +218,9 @@
     <None Include="Umc.Core.Keypair.snk" />
     <Shadow Include="테스트 참조\Umc.Core.accessor" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Mapping\MappingSchema1.xml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Test Frameworks\Src\Testing.UnitTest\Testing.UnitTest.csproj">
       <Project>{df4f853f-b415-494b-8b59-5561f3f4beff}</Project>

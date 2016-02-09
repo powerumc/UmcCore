@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using System.Web.Mvc;
 using Umc.Core.Web;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
