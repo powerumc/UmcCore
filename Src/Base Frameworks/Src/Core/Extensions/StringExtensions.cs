@@ -29,7 +29,7 @@ namespace Umc.Core
 			return encoding.GetBytes(str);
 		}
 
-		public static string ToSafeString(this string str)
+		public static string ToSafeHtmlString(this string str)
 		{
 			return HttpUtility.HtmlEncode(str);
 		}
