@@ -8,7 +8,7 @@ namespace System
 {
 	public static class MappingExtensions
 	{
-		public static void MapTo<TSource, TTarget>(this TSource source, TTarget dest)
+		public static void MappingTo<TSource, TTarget>(this TSource source, TTarget dest)
 		{
 			var srcMapping = new MappingProviderForProperty(source);
 			var destMapping = new MappingProviderForProperty(dest);
