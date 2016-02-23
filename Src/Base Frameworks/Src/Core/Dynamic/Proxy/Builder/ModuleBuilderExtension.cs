@@ -89,9 +89,9 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 			var delegateTypeBuilder = this.CreateType(name, AttributeConstants.TypeAttribute.Delegate);
 			delegateTypeBuilder.SetParent(typeof(MulticastDelegate));
 
-			TypeBuilderExtension typeBuilderExtension = new TypeBuilderExtension(this.ModuleBuilder, delegateTypeBuilder);
+			var typeBuilderExtension = new TypeBuilderExtension(this.ModuleBuilder, delegateTypeBuilder);
 
-			var constructorBuilder = typeBuilderExtension.CreateConstructor(AttributeConstants.MethodAttribute.Public | AttributeConstants.MethodAttribute.Constructor,
+            var constructorBuilder = typeBuilderExtension.CreateConstructor(AttributeConstants.MethodAttribute.Public | AttributeConstants.MethodAttribute.Constructor,
 																			CallingConventions.Standard,
 																			new Type[] { typeof(string), typeof(IntPtr) });
 			constructorBuilder.DefineParameter(0, ParameterAttributes.None, "object");
@@ -99,9 +99,9 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 
 			constructorBuilder.SetImplementationFlags(MethodImplAttributes.Runtime | MethodImplAttributes.Managed);
 
-			Type[] delegateParameters = new Type[invokeMethodParameters.Length];
+			var delegateParameters = new Type[invokeMethodParameters.Length];
 
-			for (int i = 0; i < invokeMethodParameters.Length; i++)
+            for (int i = 0; i < invokeMethodParameters.Length; i++)
 			{
 				delegateParameters[i] = invokeMethodParameters[i];
 			}

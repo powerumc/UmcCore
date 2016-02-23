@@ -57,8 +57,8 @@ namespace Umc.Core
 
 		private static void convertToTime(string time, out TimeSpan datetime)
 		{
-			string[] strTimes = time.Split(':');
-			if( strTimes.Length != 3 )
+			var strTimes = time.Split(':');
+            if ( strTimes.Length != 3 )
 				throw new FrameworkException(ExceptionRS.O_는_1_로_변환할수_없습니다_O_형식이_잘못되었습니다, 
 												String.Concat(MessageRS.문자열, " ", time),
 												String.Concat(MessageRS.구조체, " ", "Time"));
@@ -78,9 +78,9 @@ namespace Umc.Core
 			}
 
 
-			int[] intTimes = new int[3];
+			var intTimes = new int[3];
 
-			for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
 			{
 				if (Int32.TryParse(strTimes[i], out intTimes[i]) == false)
 				{

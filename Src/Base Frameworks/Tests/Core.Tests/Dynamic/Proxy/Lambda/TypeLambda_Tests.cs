@@ -23,10 +23,10 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("동적 메서드가 올바르게 생성이 되는지 테스트, 오류가 발생하지 않으면 통과")]
 		public void TypeLambda_Define_Method()
 		{
-			string typeName = Guid.NewGuid().ToString("N");
-			string methodName = Guid.NewGuid().ToString("N");
+			var typeName = Guid.NewGuid().ToString("N");
+            var methodName = Guid.NewGuid().ToString("N");
 
-			var assembly = new AssemblyLambda().Assembly();
+            var assembly = new AssemblyLambda().Assembly();
 			{
 				var module = assembly.Module();
 				{
@@ -72,9 +72,9 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("동적 구조체가 올바르게 생성되는지 테스트, 오류가 발생하지 않으면 통과")]
 		public void TypeLambda_Define_Struct()
 		{
-			string typeName = Guid.NewGuid().ToString("N");
+			var typeName = Guid.NewGuid().ToString("N");
 
-			var module = new AssemblyLambda().Assembly().Module();
+            var module = new AssemblyLambda().Assembly().Module();
 			{
 				var type = module.Public.Struct(typeName);
 				{
@@ -92,9 +92,9 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("동적 인터페이스가 올바르게 생성되는지 테스트, 오류가 발생하지 않으면 통과")]
 		public void TypeLambda_Define_Interface()
 		{
-			string typeName = Guid.NewGuid().ToString("N");
+			var typeName = Guid.NewGuid().ToString("N");
 
-			var module = new AssemblyLambda().Assembly().Module();
+            var module = new AssemblyLambda().Assembly().Module();
 			{
 				var type = module.Public.Interface(typeName);
 				{
@@ -113,9 +113,9 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("동적 열거형 타입이 올바르게 생성되었는지 테스트, 오류가 발생하지 않으면 통과")]
 		public void TypeLambda_Define_Enum()
 		{
-			string typeName = Guid.NewGuid().ToString("N");
+			var typeName = Guid.NewGuid().ToString("N");
 
-			var module = new AssemblyLambda().Assembly().Module();
+            var module = new AssemblyLambda().Assembly().Module();
 			{
 				var type = module.Public.Enum(typeName);
 				{

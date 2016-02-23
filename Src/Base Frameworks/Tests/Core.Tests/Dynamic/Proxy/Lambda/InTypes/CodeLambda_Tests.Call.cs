@@ -14,11 +14,11 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("동적, 정적(Static) 메서드의 호출 테스트, 오류가 발생하지 않고 메서드 실행이 완료하면 통과")]
 		public void Call_StaticMethod_Test()
 		{
-			string typeName    = Guid.NewGuid().ToString("N");
-			string methodName1 = Guid.NewGuid().ToString("N");
-			string methodName2 = Guid.NewGuid().ToString("N");
+			var typeName    = Guid.NewGuid().ToString("N");
+            var methodName1 = Guid.NewGuid().ToString("N");
+            var methodName2 = Guid.NewGuid().ToString("N");
 
-			var assembly = new AssemblyLambda().Assembly();
+            var assembly = new AssemblyLambda().Assembly();
 			{
 				var module = assembly.Module();
 				{

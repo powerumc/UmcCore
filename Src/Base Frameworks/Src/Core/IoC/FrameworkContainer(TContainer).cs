@@ -54,9 +54,9 @@ namespace Umc.Core.IoC
 		/// <returns>자식 <see cref="IFrameworkContainer"/> 를 추가한 후, 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		public IFrameworkContainer AddChildContainer(IFrameworkContainer parentContainer)
 		{
-			FrameworkContainer<TContainer> container = (FrameworkContainer<TContainer>)parentContainer;
+			var container = (FrameworkContainer<TContainer>)parentContainer;
 
-			if (container.ChildContainers == null)
+            if (container.ChildContainers == null)
 			{
 				container.ChildContainers = new Dictionary<object, List<IFrameworkContainer>>();
 				container.ChildContainers.Add(this.Key, new List<IFrameworkContainer>() { this });

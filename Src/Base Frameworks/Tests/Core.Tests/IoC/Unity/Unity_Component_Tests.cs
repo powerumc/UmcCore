@@ -37,19 +37,21 @@ namespace Umc.Core.IoC.Unity
 		[TestCategory("BVT Function"), TestMethod]
 		public void Unity_Injection_Basic_Test()
 		{
-			IUnityContainer container = new UnityContainer();
-			container.RegisterType<MockA>()
-				.RegisterType<MockB>( new InjectionProperty("MockA"), new InjectionProperty("Name", "Junil, Um"));
+            using (IUnityContainer container = new UnityContainer())
+            {
+                container.RegisterType<MockA>()
+                        .RegisterType<MockB>(new InjectionProperty("MockA"), new InjectionProperty("Name", "Junil, Um"));
 
-			var obj = container.Resolve<MockB>();
+                var obj = container.Resolve<MockB>();
 
-			obj.Say();
-			obj.MockA.Say();
+                obj.Say();
+                obj.MockA.Say();
 
-			Assert.IsNotNull(obj.Name, "MockB 개체의 Injection 된 프로퍼티의 값이 NULL 여서 오류가 발생");
+                Assert.IsNotNull(obj.Name, "MockB 개체의 Injection 된 프로퍼티의 값이 NULL 여서 오류가 발생");
 
-			Console.WriteLine("MockB.Name = {0}",obj.Name);
-		}
+                Console.WriteLine("MockB.Name = {0}", obj.Name);
+            }
+        }
 
 
 
@@ -123,32 +125,36 @@ namespace Umc.Core.IoC.Unity
 		[TestCategory("BVT Function"), TestMethod]
 		public void Unity_Interceptor_By_ContextBoundObject_Test()
 		{
-			IUnityContainer container = new UnityContainer();
-			container.AddNewExtension<Interception>();
-			container.RegisterType<MockClassForContextboundObject>(
-				new Interceptor<TransparentProxyInterceptor>(), 
-				new InterceptionBehavior<MockClassForContextboundObjectBehavior>());
+            using (IUnityContainer container = new UnityContainer())
+            {
+                container.AddNewExtension<Interception>();
+                container.RegisterType<MockClassForContextboundObject>(
+                    new Interceptor<TransparentProxyInterceptor>(),
+                    new InterceptionBehavior<MockClassForContextboundObjectBehavior>());
 
-			var obj = container.Resolve<MockClassForContextboundObject>();
-			obj.Say();
-			obj.Say();
-			obj.Say2();
-			obj.Say2();
-		}
+                var obj = container.Resolve<MockClassForContextboundObject>();
+                obj.Say();
+                obj.Say();
+                obj.Say2();
+                obj.Say2();
+            }
+        }
 
 		[TestCategory("BVT Function"), TestMethod]
 		public void Unity_Interceptor_By_InterfaceInterceptor_Test()
 		{
-			IUnityContainer container = new UnityContainer();
-			container.AddNewExtension<Interception>()
-					.RegisterType<IMockClass, MockClassForInterfaceInterceptor>(new Interceptor<InterfaceInterceptor>(), 
-																				new InterceptionBehavior<MockClassForContextboundObjectBehavior>());
+            using (IUnityContainer container = new UnityContainer())
+            {
+                container.AddNewExtension<Interception>()
+                        .RegisterType<IMockClass, MockClassForInterfaceInterceptor>(new Interceptor<InterfaceInterceptor>(),
+                new InterceptionBehavior<MockClassForContextboundObjectBehavior>());
 
-			var obj = container.Resolve<IMockClass>();
-			obj.Say();
+                var obj = container.Resolve<IMockClass>();
+                obj.Say();
 
-			TestContext.WriteLine(obj.GetType().AssemblyQualifiedName);
-		}
+                TestContext.WriteLine(obj.GetType().AssemblyQualifiedName);
+            }
+        }
 
 
 
@@ -164,11 +170,13 @@ namespace Umc.Core.IoC.Unity
 		[TestCategory("BVT Function"), TestMethod]
 		public void Mock_ConstructorInjection_Test()
 		{
-			IUnityContainer container = new UnityContainer();
-			container.RegisterType<Mock_ConstructorInjection>(new InjectionConstructor(
-				new InjectionParameter("Junil, Um"), new InjectionParameter(100)));
+            using (IUnityContainer container = new UnityContainer())
+            {
+                container.RegisterType<Mock_ConstructorInjection>(
+                    new InjectionConstructor(new InjectionParameter("Junil, Um"), new InjectionParameter(100)));
 
-			container.Resolve<Mock_ConstructorInjection>();
-		}
+                container.Resolve<Mock_ConstructorInjection>();
+            }
+        }
 	}
 }

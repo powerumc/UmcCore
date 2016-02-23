@@ -39,9 +39,9 @@ namespace Umc.Core.Reflection
 			if (tokenBytes == null || tokenBytes.Length == 0)
 				throw new FrameworkException(ExceptionRS.O_어셈블리는_강력한_이름의_서명이_되어있지않아_공개키토큰_값이_없습니다, assembly.FullName);
 
-			StringBuilder sb = new StringBuilder(50);
+			var sb = new StringBuilder(50);
 
-			foreach (byte b in tokenBytes)
+            foreach (byte b in tokenBytes)
 			{
 				sb.Append(b.ToString("x"));
 			}

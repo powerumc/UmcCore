@@ -32,17 +32,17 @@ namespace Umc.Core.Reflection.Emit
 
 		private static void Init()
 		{
-			Type type = typeof(OpCodes);
+			var type = typeof(OpCodes);
 
-			var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
+            var fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
 
 			foreach (var f in fields)
 			{
 				if (f.FieldType == typeof(OpCode))
 				{
-					OpCode opcode = (OpCode)f.GetValue(null);
+					var opcode = (OpCode)f.GetValue(null);
 
-					dicFromOpCodeValue.Add(opcode.Value, opcode);
+                    dicFromOpCodeValue.Add(opcode.Value, opcode);
 					dicFromOpCode.Add(opcode, opcode.Value);
 				}
 			}

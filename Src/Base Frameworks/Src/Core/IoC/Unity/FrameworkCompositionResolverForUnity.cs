@@ -127,7 +127,7 @@ namespace Umc.Core.IoC.Unity
         /// <param name="methods">역직렬화된 메서드 요소입니다.</param>
         protected override void ResolveRegisterProcessor(RegisterElement element, LifetimeFlag lifetime, IEnumerable<object> constructor, IEnumerable<object> properties, IEnumerable<object> methods)
         {
-            IEnumerable<InjectionMember> concat = Enumerable.Empty<InjectionMember>();
+            var concat = Enumerable.Empty<InjectionMember>();
             if (constructor != null) concat = concat.Concat(constructor.Cast<InjectionMember>());
             if (properties != null) concat = concat.Concat(properties.Cast<InjectionMember>());
             if (methods != null) concat = concat.Concat(methods.Cast<InjectionMember>());

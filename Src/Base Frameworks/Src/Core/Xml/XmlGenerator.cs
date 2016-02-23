@@ -194,22 +194,22 @@ namespace Umc.Core.Xml
 
 		private bool GenerateElement (XmlSchemaElement e, bool root, InstanceGroup parentElem, XmlSchemaAny any)
 		{
-			XmlSchemaElement eGlobalDecl = e;
+			var eGlobalDecl = e;
 
-			if ( !e.RefName.IsEmpty )
+            if ( !e.RefName.IsEmpty )
 			{
 				eGlobalDecl = (XmlSchemaElement)schemaSet.GlobalElements[e.QualifiedName];
 			}
 			if ( !eGlobalDecl.IsAbstract )
 			{
-				InstanceElement elem = (InstanceElement)elementTypesProcessed[eGlobalDecl];
-				if ( elem != null )
+				var elem = (InstanceElement)elementTypesProcessed[eGlobalDecl];
+                if ( elem != null )
 				{
 					Debug.Assert(!root);
 					if ( any == null && e.MinOccurs > 0 )
 					{ //If not generating for any or optional ref to cyclic global element
-						decimal occurs = e.MaxOccurs;
-						if ( e.MaxOccurs >= maxThreshold )
+						var occurs = e.MaxOccurs;
+                        if ( e.MaxOccurs >= maxThreshold )
 						{
 							occurs = maxThreshold;
 						}
@@ -253,8 +253,8 @@ namespace Umc.Core.Xml
 				}
 				else
 				{
-					XmlSchemaComplexType ct = eGlobalDecl.ElementSchemaType as XmlSchemaComplexType;
-					if ( ct != null )
+					var ct = eGlobalDecl.ElementSchemaType as XmlSchemaComplexType;
+                    if ( ct != null )
 					{
 						elementTypesProcessed.Add(eGlobalDecl, elem);
 						if ( !ct.IsAbstract )
@@ -264,8 +264,8 @@ namespace Umc.Core.Xml
 						}
 						else
 						{ // Ct is abstract, need to generate instance elements with xsi:type
-							XmlSchemaComplexType dt = GetDerivedType(ct);
-							if ( dt != null )
+							var dt = GetDerivedType(ct);
+                            if ( dt != null )
 							{
 								elem.XsiType = dt.QualifiedName;
 								ProcessComplexType(dt, elem);
@@ -313,8 +313,8 @@ namespace Umc.Core.Xml
 		{ //To get derived type of an abstract type for xsi:type value in the instance
 			foreach ( XmlSchemaType type in schemaSet.GlobalTypes.Values )
 			{
-				XmlSchemaComplexType ct = type as XmlSchemaComplexType;
-				if ( ct != null && !ct.IsAbstract && XmlSchemaType.IsDerivedFrom(ct, baseType, XmlSchemaDerivationMethod.None) )
+				var ct = type as XmlSchemaComplexType;
+                if ( ct != null && !ct.IsAbstract && XmlSchemaType.IsDerivedFrom(ct, baseType, XmlSchemaDerivationMethod.None) )
 				{
 					return ct;
 				}
@@ -324,15 +324,15 @@ namespace Umc.Core.Xml
 
 		private void GenerateAttributeWildCard (XmlSchemaComplexType ct, InstanceElement elem)
 		{
-			char[] whitespace = new char[] { ' ', '\t', '\n', '\r' };
-			InstanceAttribute attr = null;
+			var whitespace = new char[] { ' ', '\t', '\n', '\r' };
+            InstanceAttribute attr = null;
 			XmlSchemaAttribute anyAttr = null;
 
-			XmlSchemaAnyAttribute attributeWildCard = ct.AttributeWildcard;
-			XmlSchemaObjectTable attributes = ct.AttributeUses;
+			var attributeWildCard = ct.AttributeWildcard;
+            var attributes = ct.AttributeUses;
 
-			string namespaceList = attributeWildCard.Namespace;
-			if ( namespaceList == null )
+            var namespaceList = attributeWildCard.Namespace;
+            if ( namespaceList == null )
 			{
 				namespaceList = "##any";
 			}
@@ -365,8 +365,8 @@ namespace Umc.Core.Xml
 					break;
 
 				case "##other":
-					XmlSchema anySchema = GetParentSchema(attributeWildCard);
-					anyAttr = GetAttributeFromNS(anySchema.TargetNamespace, true, attributes);
+					var anySchema = GetParentSchema(attributeWildCard);
+                    anyAttr = GetAttributeFromNS(anySchema.TargetNamespace, true, attributes);
 					break;
 
 				case "##local": //Shd get local elements in some schema
@@ -440,8 +440,8 @@ namespace Umc.Core.Xml
 
 		private void GenerateAttribute (XmlSchemaObjectTable attributes, InstanceElement elem)
 		{
-			IDictionaryEnumerator ienum = attributes.GetEnumerator();
-			while ( ienum.MoveNext() )
+			var ienum = attributes.GetEnumerator();
+            while ( ienum.MoveNext() )
 			{
 				if ( ienum.Value is XmlSchemaAttribute )
 				{
@@ -456,8 +456,8 @@ namespace Umc.Core.Xml
 			{
 				return;
 			}
-			InstanceAttribute iAttr = new InstanceAttribute(attr.QualifiedName);
-			iAttr.DefaultValue = attr.DefaultValue;
+			var iAttr = new InstanceAttribute(attr.QualifiedName);
+            iAttr.DefaultValue = attr.DefaultValue;
 			iAttr.FixedValue = attr.FixedValue;
 			iAttr.AttrUse = attr.Use;
 			iAttr.ValueGenerator = XmlValueGenerator.CreateGenerator(attr.AttributeSchemaType.Datatype, listLength);
@@ -477,24 +477,24 @@ namespace Umc.Core.Xml
 
 			if ( particle is XmlSchemaSequence )
 			{
-				XmlSchemaSequence seq = (XmlSchemaSequence)particle;
-				InstanceGroup grp = new InstanceGroup();
-				grp.Occurs = max;
+				var seq = (XmlSchemaSequence)particle;
+                var grp = new InstanceGroup();
+                grp.Occurs = max;
 				iGrp.AddChild(grp);
 				GenerateGroupBase(seq, grp);
 			}
 			else if ( particle is XmlSchemaChoice )
 			{
-				XmlSchemaChoice ch = (XmlSchemaChoice)particle;
-				if ( ch.MaxOccurs == 1 )
+				var ch = (XmlSchemaChoice)particle;
+                if ( ch.MaxOccurs == 1 )
 				{
-					XmlSchemaParticle pt = (XmlSchemaParticle)( ch.Items[0] );
-					GenerateParticle(pt, false, iGrp);
+					var pt = (XmlSchemaParticle)( ch.Items[0] );
+                    GenerateParticle(pt, false, iGrp);
 				}
 				else
 				{
-					InstanceGroup grp = new InstanceGroup();
-					grp.Occurs = max;
+					var grp = new InstanceGroup();
+                    grp.Occurs = max;
 					grp.IsChoice = true;
 					iGrp.AddChild(grp);
 					GenerateGroupBase(ch, grp);
@@ -506,8 +506,8 @@ namespace Umc.Core.Xml
 			}
 			else if ( particle is XmlSchemaElement )
 			{
-				XmlSchemaElement elem = particle as XmlSchemaElement;
-				XmlSchemaChoice ch = null;
+				var elem = particle as XmlSchemaElement;
+                XmlSchemaChoice ch = null;
 				if ( !elem.RefName.IsEmpty )
 				{
 					ch = GetSubstitutionChoice(elem);
@@ -549,12 +549,12 @@ namespace Umc.Core.Xml
 
 		private void GenerateAny (XmlSchemaAny any, InstanceGroup grp)
 		{
-			InstanceElement parentElem = grp as InstanceElement;
-			char[] whitespace = new char[] { ' ', '\t', '\n', '\r' };
-			InstanceElement elem = null;
+			var parentElem = grp as InstanceElement;
+            var whitespace = new char[] { ' ', '\t', '\n', '\r' };
+            InstanceElement elem = null;
 			XmlSchemaElement anyElem = null;
-			string namespaceList = any.Namespace;
-			if ( namespaceList == null )
+			var namespaceList = any.Namespace;
+            if ( namespaceList == null )
 			{ //no namespace defaults to "##any"
 				namespaceList = "##any";
 			}
@@ -590,8 +590,8 @@ namespace Umc.Core.Xml
 					break;
 
 				case "##other":
-					XmlSchema anySchema = GetParentSchema(any);
-					anyElem = GetElementFromNS(anySchema.TargetNamespace, true);
+					var anySchema = GetParentSchema(any);
+                    anyElem = GetElementFromNS(anySchema.TargetNamespace, true);
 					break;
 
 				case "##local": //Shd get local elements in some schema
@@ -683,8 +683,8 @@ namespace Umc.Core.Xml
 
 		private InstanceElement GetParentInstanceElement (InstanceGroup grp)
 		{
-			InstanceElement elem = grp as InstanceElement;
-			while ( elem == null && grp != null )
+			var elem = grp as InstanceElement;
+            while ( elem == null && grp != null )
 			{
 				grp = grp.Parent;
 				elem = grp as InstanceElement;
@@ -696,22 +696,22 @@ namespace Umc.Core.Xml
 		{
 			foreach ( XmlSchemaElement element in schemaSet.GlobalElements.Values )
 			{
-				XmlQualifiedName head = element.SubstitutionGroup;
-				if ( !head.IsEmpty )
+				var head = element.SubstitutionGroup;
+                if ( !head.IsEmpty )
 				{
 					if ( substitutionGroupsTable == null )
 					{
 						substitutionGroupsTable = new Hashtable();
 					}
-					SubstitutionGroupWrapper substitutionGroup = (SubstitutionGroupWrapper)substitutionGroupsTable[head];
-					if ( substitutionGroup == null )
+					var substitutionGroup = (SubstitutionGroupWrapper)substitutionGroupsTable[head];
+                    if ( substitutionGroup == null )
 					{
 						substitutionGroup = new SubstitutionGroupWrapper();
 						substitutionGroup.Head = head;
 						substitutionGroupsTable.Add(head, substitutionGroup);
 					}
-					ArrayList members = substitutionGroup.Members;
-					if ( !members.Contains(element) )
+					var members = substitutionGroup.Members;
+                    if ( !members.Contains(element) )
 					{ //Members might contain element if the same schema is included and imported through different paths. Imp, hence will be added to set directly
 						members.Add(element);
 					}
@@ -729,16 +729,16 @@ namespace Umc.Core.Xml
 		private void ResolveSubstitutionGroup (SubstitutionGroupWrapper substitutionGroup)
 		{
 			ArrayList newMembers = null;
-			XmlSchemaElement headElement = (XmlSchemaElement)schemaSet.GlobalElements[substitutionGroup.Head];
-			if ( substitutionGroup.Members.Contains(headElement) )
+			var headElement = (XmlSchemaElement)schemaSet.GlobalElements[substitutionGroup.Head];
+            if ( substitutionGroup.Members.Contains(headElement) )
 			{// already checked
 				return;
 			}
 			foreach ( XmlSchemaElement element in substitutionGroup.Members )
 			{
 				//Chain to other head's that are members of this head's substGroup
-				SubstitutionGroupWrapper g = (SubstitutionGroupWrapper)substitutionGroupsTable[element.QualifiedName];
-				if ( g != null )
+				var g = (SubstitutionGroupWrapper)substitutionGroupsTable[element.QualifiedName];
+                if ( g != null )
 				{
 					ResolveSubstitutionGroup(g);
 					foreach ( XmlSchemaElement element1 in g.Members )
@@ -772,16 +772,16 @@ namespace Umc.Core.Xml
 			}
 			if ( substitutionGroupsTable != null )
 			{
-				SubstitutionGroupWrapper substitutionGroup = (SubstitutionGroupWrapper)substitutionGroupsTable[element.QualifiedName];
-				if ( substitutionGroup != null )
+				var substitutionGroup = (SubstitutionGroupWrapper)substitutionGroupsTable[element.QualifiedName];
+                if ( substitutionGroup != null )
 				{ //Element is head of a substitutionGroup
-					XmlSchemaChoice choice = new XmlSchemaChoice();
-					foreach ( XmlSchemaElement elem in substitutionGroup.Members )
+					var choice = new XmlSchemaChoice();
+                    foreach ( XmlSchemaElement elem in substitutionGroup.Members )
 					{
 						choice.Items.Add(elem);
 					}
-					XmlSchemaElement headElement = (XmlSchemaElement)schemaSet.GlobalElements[element.QualifiedName];
-					if ( headElement.IsAbstract )
+					var headElement = (XmlSchemaElement)schemaSet.GlobalElements[element.QualifiedName];
+                    if ( headElement.IsAbstract )
 					{ //Should not generate the abstract element
 						choice.Items.Remove(headElement);
 					}
@@ -820,8 +820,8 @@ namespace Umc.Core.Xml
 				}
 				else
 				{
-					InstanceGroup group = rootElement.Child;
-					while ( group != null )
+					var group = rootElement.Child;
+                    while ( group != null )
 					{
 						ProcessGroup(group);
 						group = group.Sibling;
@@ -847,8 +847,8 @@ namespace Umc.Core.Xml
 				{
 					for ( int i = 0; i < grp.Occurs; i++ )
 					{
-						InstanceGroup childGroup = grp.Child;
-						while ( childGroup != null )
+						var childGroup = grp.Child;
+                        while ( childGroup != null )
 						{
 							ProcessGroup(childGroup);
 							childGroup = childGroup.Sibling;
@@ -915,8 +915,8 @@ namespace Umc.Core.Xml
 				}
 				else
 				{
-					InstanceGroup childGroup = elem.Child;
-					while ( childGroup != null )
+					var childGroup = elem.Child;
+                    while ( childGroup != null )
 					{
 						ProcessGroup(childGroup);
 						childGroup = childGroup.Sibling;
@@ -965,8 +965,8 @@ namespace Umc.Core.Xml
 				}
 			}
 
-			InstanceAttribute attr = elem.FirstAttribute;
-			while ( attr != null )
+			var attr = elem.FirstAttribute;
+            while ( attr != null )
 			{
 				if ( attr.AttrUse != XmlSchemaUse.Prohibited )
 				{

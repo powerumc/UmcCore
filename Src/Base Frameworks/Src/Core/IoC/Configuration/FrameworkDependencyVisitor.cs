@@ -82,20 +82,20 @@ namespace Umc.Core.IoC.Configuration
 
 			foreach (var param in @params)
 			{
-				ParamElement paramElement = new ParamElement()
+				var paramElement = new ParamElement()
 				{
 					name = param.Name
 				};
 
-				var paramAttribute = param.GetDependencyDefaultValueOnParameter();
+                var paramAttribute = param.GetDependencyDefaultValueOnParameter();
 				if (paramAttribute != null)
 				{
-					ValueElement valueElement = new ValueElement()
+					var valueElement = new ValueElement()
 					{
 						value = paramAttribute.Value != null ? paramAttribute.Value.ToString() : null,
 						type = paramAttribute.Value.GetType().ToString()
 					};
-					paramElement.Item = valueElement;
+                    paramElement.Item = valueElement;
 
 					elements.Add(paramElement);
 					continue;
@@ -104,35 +104,35 @@ namespace Umc.Core.IoC.Configuration
 				var dependencyAttribute = param.GetDependencyInjectionOnParameter();
 				if (dependencyAttribute != null && dependencyAttribute.DefaultValue != null)
 				{
-					ValueElement valueElement = new ValueElement()
+					var valueElement = new ValueElement()
 					{
 						value = dependencyAttribute.DefaultValue != null ? dependencyAttribute.DefaultValue.ToString() : null,
 						type = dependencyAttribute.DefaultValue.GetType().ToString()
 					};
 
-					paramElement.Item = valueElement;
+                    paramElement.Item = valueElement;
 					elements.Add(paramElement);
 				}
 				else if (dependencyAttribute != null)
 				{
-					DependencyElement dependencyElement = new DependencyElement()
+					var dependencyElement = new DependencyElement()
 					{
 						key = dependencyAttribute.Key != null ? dependencyAttribute.Key.ToString() : null,
 						typeOfContract = param.ParameterType.AssemblyQualifiedName
 					};
 
-					paramElement.Item = dependencyElement;
+                    paramElement.Item = dependencyElement;
 					elements.Add(paramElement);
 				}
 				else
 				{
-					DependencyElement dependencyElement = new DependencyElement()
+					var dependencyElement = new DependencyElement()
 					{
 						key = null,
 						typeOfContract = param.ParameterType.AssemblyQualifiedName
 					};
 
-					paramElement.Item = dependencyElement;
+                    paramElement.Item = dependencyElement;
 					elements.Add(paramElement);
 				}
 			}
@@ -146,12 +146,12 @@ namespace Umc.Core.IoC.Configuration
 			var attribute = method.GetDependencyInjectionOnMethod();
 			if( attribute == null ) return;
 
-			MethodElement methodElement = new MethodElement()
+			var methodElement = new MethodElement()
 			{
 				name = method.Name
 			};
 
-			var param = this.VisitParam(method.GetParameters());
+            var param = this.VisitParam(method.GetParameters());
 
 			methodElement.param = new List<ParamElement>();
 			methodElement.param.AddRange(param);
@@ -170,8 +170,8 @@ namespace Umc.Core.IoC.Configuration
 			var attribute = property.GetDependencyInjectionOnProperty();
 			var defaultValueAttribute = property.GetDefaultValueOnProperty();
 
-			PropertyElement e = new PropertyElement();
-			e.name            = property.Name;
+			var e = new PropertyElement();
+            e.name            = property.Name;
 
 			if (attribute != null && attribute.DefaultValue != null)
 			{
@@ -221,8 +221,8 @@ namespace Umc.Core.IoC.Configuration
 			var attribute = type.GetDynamicAttribute();
 			if ( attribute == null ) return;
 
-			DynamicElement e = new DynamicElement();
-			e.type = type.AssemblyQualifiedName;
+			var e = new DynamicElement();
+            e.type = type.AssemblyQualifiedName;
 			e.lifetime = attribute.Lifetime;
 
 			dynamics.Add(e);
@@ -235,8 +235,8 @@ namespace Umc.Core.IoC.Configuration
 
 			foreach (var attribute in attributes)
 			{
-				RegisterElement e = new RegisterElement();
-				e.contract        = attribute.TypeOfContract != null ? attribute.TypeOfContract.AssemblyQualifiedName : type.AssemblyQualifiedName;
+				var e = new RegisterElement();
+                e.contract        = attribute.TypeOfContract != null ? attribute.TypeOfContract.AssemblyQualifiedName : type.AssemblyQualifiedName;
 				e.key             = attribute.Key != null ? attribute.Key : null;
 				e.dependencyTo    = type.AssemblyQualifiedName;
 				if (attribute.LifetimeFlag == LifetimeFlag.Default)

@@ -47,8 +47,8 @@ namespace Umc.Core.Reflection.Emit
 
 		private void CloneMethodBody(byte[] newMethodBytes)
 		{
-			GCHandle handle        = GCHandle.Alloc((Object)newMethodBytes, GCHandleType.Pinned);
-			IntPtr addressOfHandle = handle.AddrOfPinnedObject();
+			var handle        = GCHandle.Alloc((Object)newMethodBytes, GCHandleType.Pinned);
+            IntPtr addressOfHandle = handle.AddrOfPinnedObject();
 			int methodSize         = newMethodBytes.Length;
 
 			MethodRental.SwapMethodBody(this.ReleasedType,

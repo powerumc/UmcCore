@@ -14,21 +14,21 @@ namespace Umc.Core.IoC.Unity
 	{
 		private void WriteToSerialization(object root)
 		{
-			XmlSerializer xs = new XmlSerializer(typeof(UmcCoreIoCElement));
-			xs.Serialize(Console.Out, root);
+			var xs = new XmlSerializer(typeof(UmcCoreIoCElement));
+            xs.Serialize(Console.Out, root);
 		}
 
 		private FrameworkContainerForUnity CompositionTheTypes(Type[] types)
 		{
-			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(types);
-			var root = visitor.VisitTypes();
+			var visitor = new FrameworkDependencyVisitor(types);
+            var root = visitor.VisitTypes();
 
 			WriteToSerialization(root);
 
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			FrameworkCompositionResolverForUnity resolver = new FrameworkCompositionResolverForUnity(container, root);
+			var container = new FrameworkContainerForUnity();
+            var resolver = new FrameworkCompositionResolverForUnity(container, root);
 
-			resolver.Compose();
+            resolver.Compose();
 			return container;
 		}
 
@@ -42,9 +42,9 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_Basic_Contract)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
+			var container = CompositionTheTypes(types);
 
-			container.Resolve<IMockClass_Basic_Contract>().Say();
+            container.Resolve<IMockClass_Basic_Contract>().Say();
 		}
 
 		#region PropertyInjection Test
@@ -52,9 +52,9 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkCompositionResolverForUnity의 DefaultValueAttribute 을 통해 ProertyInjection 테스트, 오류가 발생하지 않고 DefaultValue 값과 동일하면 통과")]
 		public void FrameworkCompositionResolverForUnity_PropertyInjection_By_DefaultValue()
 		{
-			FrameworkContainerForUnity container = CompositionTheTypes(typeof(MockClass_PropertyInjection_DefaultValue).ToEnumerable().ToArray());
+			var container = CompositionTheTypes(typeof(MockClass_PropertyInjection_DefaultValue).ToEnumerable().ToArray());
 
-			var name = container.Resolve<MockClass_PropertyInjection_DefaultValue>().Name;
+            var name = container.Resolve<MockClass_PropertyInjection_DefaultValue>().Name;
 			var age = container.Resolve<MockClass_PropertyInjection_DefaultValue>().Age;
 			TestContext.WriteLine("Name={0}", name);
 			TestContext.WriteLine("Age={0}", age);
@@ -67,9 +67,9 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkCompositionResolverForUnity의 DependencyInjectionAttribute.DefaultValue를 통해 PropertyInjection 테스트, 오류가 발생하지 않고 DefaultValue 값과 동일하면 통과")]
 		public void FrameworkCompositionResolverForUnity_PropertyInjection_By_DependencyInjection_DefaultValue()
 		{
-			FrameworkContainerForUnity container = CompositionTheTypes(typeof(MockClass_PropertyInjection_DependencyContract_DefaultValueProperty).ToEnumerable().ToArray());
+			var container = CompositionTheTypes(typeof(MockClass_PropertyInjection_DependencyContract_DefaultValueProperty).ToEnumerable().ToArray());
 
-			var name = container.Resolve<MockClass_PropertyInjection_DependencyContract_DefaultValueProperty>().Name;
+            var name = container.Resolve<MockClass_PropertyInjection_DependencyContract_DefaultValueProperty>().Name;
 			var age = container.Resolve<MockClass_PropertyInjection_DependencyContract_DefaultValueProperty>().Age;
 			TestContext.WriteLine("Name={0}", name);
 			TestContext.WriteLine("Age={0}", age);
@@ -88,9 +88,9 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_PropertyInjection_By_Contract_Dependency)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
+			var container = CompositionTheTypes(types);
 
-			container.Resolve<MockClass_PropertyInjection_By_Contract_Dependency>().Depend();
+            container.Resolve<MockClass_PropertyInjection_By_Contract_Dependency>().Depend();
 		}
 
 		[TestCategory("BVT Function"), TestMethod]
@@ -103,9 +103,9 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_PropertyInjection_By_Key_b)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
+			var container = CompositionTheTypes(types);
 
-			var keya = container.Resolve<IMockClass_PropertyInjection_By_Key>("a").Key;
+            var keya = container.Resolve<IMockClass_PropertyInjection_By_Key>("a").Key;
 			var keyb = container.Resolve<IMockClass_PropertyInjection_By_Key>("b").Key;
 
 			TestContext.WriteLine("Key A = " + keya);
@@ -126,9 +126,9 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_PropertyInjection_By_Key_Type_b)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
+			var container = CompositionTheTypes(types);
 
-			container.Resolve<MockClass_PropertyInjection_By_Key_Type_b>("b").Say();
+            container.Resolve<MockClass_PropertyInjection_By_Key_Type_b>("b").Say();
 		}
 		#endregion
 
@@ -142,9 +142,9 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_ConstructorInjection_By_DefaultValue)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
+			var container = CompositionTheTypes(types);
 
-			var obj = container.Resolve<MockClass_ConstructorInjection_By_DefaultValue>();
+            var obj = container.Resolve<MockClass_ConstructorInjection_By_DefaultValue>();
 
 			Assert.IsTrue(obj.Name == "Junil, Um", "MockClass_ConstructorInjection_By_DefaultValue.Name 값이 DefaultValue 값과 달라서 오류");
 			Assert.IsTrue(obj.Age == 100, "MockClass_ConstructorInjection_By_DefaultValue.Age 가 DefaultValue 값과 달라서 오류");
@@ -159,9 +159,9 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_ConstructorInjection_By_DependencyInjection_DefaultValue)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
+			var container = CompositionTheTypes(types);
 
-			var obj = container.Resolve<MockClass_ConstructorInjection_By_DependencyInjection_DefaultValue>();
+            var obj = container.Resolve<MockClass_ConstructorInjection_By_DependencyInjection_DefaultValue>();
 
 			Assert.IsTrue(obj.Name == "Junil, Um", "MockClass_ConstructorInjection_By_DefaultValue.Name 값이 DefaultValue 값과 달라서 오류");
 			Assert.IsTrue(obj.Age == 100, "MockClass_ConstructorInjection_By_DefaultValue.Age 가 DefaultValue 값과 달라서 오류");
@@ -177,8 +177,8 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_ConstructorInjection_DependencyClass)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
-			var obj = container.Resolve<MockClass_ConstructorInjection_DependencyClass>();
+			var container = CompositionTheTypes(types);
+            var obj = container.Resolve<MockClass_ConstructorInjection_DependencyClass>();
 
 			Assert.IsTrue(obj.Name == "Junil, Um", "ConstructorInjection 이 올바르게 되지 않아 값이 틀려서 오류가 발생");
 		}
@@ -193,8 +193,8 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_ConstructorInjection_By_key_b)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
-			var obj = container.Resolve<MockClass_ConstructorInjection_By_key_b>("b");
+			var container = CompositionTheTypes(types);
+            var obj = container.Resolve<MockClass_ConstructorInjection_By_key_b>("b");
 
 			Assert.IsTrue(obj.UniqueKey=="a", "ConstructorInjection된 키가 a인데 key 값이 a가 아니어서 오류가 발생");
 		}
@@ -211,8 +211,8 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_MethodInjection_By_DefaultValue)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
-			var obj = container.Resolve<MockClass_MethodInjection_By_DefaultValue>();
+			var container = CompositionTheTypes(types);
+            var obj = container.Resolve<MockClass_MethodInjection_By_DefaultValue>();
 
 			Assert.IsTrue(obj.Name=="Junil, Um", "MethodInjection의 DefaultValue로 초기화된 값이 달라서 오류가 발생");
 			Assert.IsTrue(obj.Age==100, "MethodInjection의 DefaultValue로 초기화된 값이 달라서 오류가 발생");
@@ -227,8 +227,8 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_MethodInjection_By_DependencyInjection)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
-			var obj = container.Resolve<MockClass_MethodInjection_By_DependencyInjection>();
+			var container = CompositionTheTypes(types);
+            var obj = container.Resolve<MockClass_MethodInjection_By_DependencyInjection>();
 
 			Assert.IsTrue(obj.Name == "Junil, Um", "MethodInjection의 DefaultValue로 초기화된 값이 달라서 오류가 발생");
 			Assert.IsTrue(obj.Age == 100, "MethodInjection의 DefaultValue로 초기화된 값이 달라서 오류가 발생");
@@ -244,8 +244,8 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_MethodInjection_By_Dependency)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
-			var obj = container.Resolve<MockClass_MethodInjection_By_Dependency>();
+			var container = CompositionTheTypes(types);
+            var obj = container.Resolve<MockClass_MethodInjection_By_Dependency>();
 
 			Assert.IsTrue( obj.Key == "Contract", "Execute메서드에 Injection된 값이 틀려서 오류가 발생");
 		}
@@ -260,8 +260,8 @@ namespace Umc.Core.IoC.Unity
 				typeof(MockClass_MethodInjection_By_Key_b)
 			};
 
-			FrameworkContainerForUnity container = CompositionTheTypes(types);
-			var obj = container.Resolve<MockClass_MethodInjection_By_Key_b>("b");
+			var container = CompositionTheTypes(types);
+            var obj = container.Resolve<MockClass_MethodInjection_By_Key_b>("b");
 
 			Assert.IsTrue(obj.Key == "a", "MethodInjection된 키값이 a여야 하는데 키 값이 달라서 오류가 발생");
 		}

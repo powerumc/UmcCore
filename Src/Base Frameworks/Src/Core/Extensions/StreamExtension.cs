@@ -23,9 +23,9 @@ namespace System
 		{
 			if (stream == null) throw new ArgumentNullException("stream");
 
-			XmlSerializer xs = new XmlSerializer(type);
+			var xs = new XmlSerializer(type);
 
-			var obj = xs.Deserialize(stream);
+            var obj = xs.Deserialize(stream);
 
 			return obj;
 		}

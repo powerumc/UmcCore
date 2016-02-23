@@ -42,9 +42,9 @@ namespace Umc.Core.Mapping
 		[AssertionDescription(0, "Mapping 클래스에 키값 {0} 이/가 존재해야 하는데, 존재하지 않습니다")]
 		public void LazyMapping_Test()
 		{
-			PersonMapping mapping = new PersonMapping();
+			var mapping = new PersonMapping();
 
-			AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 0);
+            AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 0);
 			AssertExtension.IsTrue(mapping.GetMappingValue(2).Name == "B", 0, 1);
 		}
 
@@ -53,9 +53,9 @@ namespace Umc.Core.Mapping
 		[Description("LazyMapping 으로 존재하지 않는 키값 테스트, 오류가 발생해야 통과")]
 		public void Expected_LazyMapping_Test()
 		{
-			PersonMapping mapping = new PersonMapping();
+			var mapping = new PersonMapping();
 
-			Assert.IsTrue(mapping.GetMappingValue(3).Name == String.Empty, "Mapping 클래스에 키값 3이 존재하지 않는데 오류가 발생하지 않았습니다");
+            Assert.IsTrue(mapping.GetMappingValue(3).Name == String.Empty, "Mapping 클래스에 키값 3이 존재하지 않는데 오류가 발생하지 않았습니다");
 		}
 
 		public class PersonMappingAndDefaultMapping : LazyMapping<int, Person>
@@ -72,9 +72,9 @@ namespace Umc.Core.Mapping
 		[Description("LazyMapping 으로 Default 값을 설정한 테스트, 키 값이 없을 때 기본 값을 리턴하면 통과")]
 		public void LazyMapping_And_DefaultMapped_Test()
 		{
-			PersonMappingAndDefaultMapping mapping = new PersonMappingAndDefaultMapping();
+			var mapping = new PersonMappingAndDefaultMapping();
 
-			Assert.IsTrue(mapping.GetMappingValue(3).Name == "DEFAULT");
+            Assert.IsTrue(mapping.GetMappingValue(3).Name == "DEFAULT");
 		}
 
 
@@ -97,9 +97,9 @@ namespace Umc.Core.Mapping
 		[AssertionDescription(0, "매핑된 키 값이 {0} 의 객체가 {1} 가 아닙니다.")]
 		public void LazyMapping_MultiMapping_Test()
 		{
-			PersonMultiMapping mapping = new PersonMultiMapping();
+			var mapping = new PersonMultiMapping();
 
-			AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 1, "A");
+            AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 1, "A");
 			AssertExtension.IsTrue(mapping.GetMappingValue(2).Name == "A", 0, 2, "A");
 			AssertExtension.IsTrue(mapping.GetMappingValue(3).Name == "A", 0, 3, "A");
 			AssertExtension.IsTrue(mapping.GetMappingValue(4).Name == "B", 0, 4, "B");
@@ -128,9 +128,9 @@ namespace Umc.Core.Mapping
 		[Description("생성자 초기화한 매핑 테스트, 모든 값이 유효하면 통과")]
 		public void LazyMapping_After_Initialize_Constructor_Mapping_Test()
 		{
-			ConstructorInitPersonMapping mapping = new ConstructorInitPersonMapping(1);
+			var mapping = new ConstructorInitPersonMapping(1);
 
-			TestContext.WriteLine("Mapping 1's Age is {0}", mapping.GetMappingValue(1).Age);
+            TestContext.WriteLine("Mapping 1's Age is {0}", mapping.GetMappingValue(1).Age);
 			TestContext.WriteLine("Mapping 2's Age is {0}", mapping.GetMappingValue(2).Age);
 
 			Assert.IsTrue(mapping.GetMappingValue(1).Age == 1);

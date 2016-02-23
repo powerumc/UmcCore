@@ -31,9 +31,9 @@ namespace Umc.Core.Mapping
 		[AssertionDescription(0, "Mapping 클래스에 키값 {0} 이/가 존재해야 하는데, 존재하지 않습니다")]
 		public void KeyValueMapping_Test()
 		{
-			PersonMapping mapping = new PersonMapping();
+			var mapping = new PersonMapping();
 
-			AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 0);
+            AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 0);
 			AssertExtension.IsTrue(mapping.GetMappingValue(2).Name == "B", 0, 1);
 		}
 
@@ -42,9 +42,9 @@ namespace Umc.Core.Mapping
 		[Description("KeyValueMapping 으로 존재하지 않는 키값 테스트, 오류가 발생해야 통과")]
 		public void Expected_KeyValueMapping_Test()
 		{
-			PersonMapping mapping = new PersonMapping();
+			var mapping = new PersonMapping();
 
-			Assert.IsTrue(mapping.GetMappingValue(3).Name == String.Empty, "Mapping 클래스에 키값 3이 존재하지 않는데 오류가 발생하지 않았습니다");
+            Assert.IsTrue(mapping.GetMappingValue(3).Name == String.Empty, "Mapping 클래스에 키값 3이 존재하지 않는데 오류가 발생하지 않았습니다");
 		}
 
 
@@ -62,9 +62,9 @@ namespace Umc.Core.Mapping
 		[Description("KeyValueMapping 으로 Default 값을 설정한 테스트, 키 값이 없을 때 기본 값을 리턴하면 통과")]
 		public void KeyValueMapping_And_DefaultMapped_Test()
 		{
-			PersonMappingAndDefaultMapping mapping = new PersonMappingAndDefaultMapping();
+			var mapping = new PersonMappingAndDefaultMapping();
 
-			Assert.IsTrue(mapping.GetMappingValue(3).Name == "DEFAULT");
+            Assert.IsTrue(mapping.GetMappingValue(3).Name == "DEFAULT");
 		}
 
 
@@ -88,9 +88,9 @@ namespace Umc.Core.Mapping
 		[AssertionDescription(0, "매핑된 키 값이 {0} 의 객체가 {1} 가 아닙니다.")]
 		public void KeyValueMapping_MultiMapping_Test()
 		{
-			PersonMultiMapping mapping = new PersonMultiMapping();
+			var mapping = new PersonMultiMapping();
 
-			AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 1, "A");
+            AssertExtension.IsTrue(mapping.GetMappingValue(1).Name == "A", 0, 1, "A");
 			AssertExtension.IsTrue(mapping.GetMappingValue(2).Name == "A", 0, 2, "A");
 			AssertExtension.IsTrue(mapping.GetMappingValue(3).Name == "A", 0, 3, "A");
 			AssertExtension.IsTrue(mapping.GetMappingValue(4).Name == "B", 0, 4, "B");
@@ -102,9 +102,9 @@ namespace Umc.Core.Mapping
 		public void KeyValueMaping_When_Runtime_Test()
 		{
 			// 입력 값, 출력 값 모두 Object 타입인 경우
-			Mapping mapping = new Mapping();
+			var mapping = new Mapping();
 
-			mapping.Map(1).Return("Level 1")
+            mapping.Map(1).Return("Level 1")
 				   .Map(2).Return("Level 2");
 
 			var value = mapping.GetMappingValue(1);
@@ -118,9 +118,9 @@ namespace Umc.Core.Mapping
 		{
 			// 잘 알고있는 타입으로 매핑하는 경우
 
-			Mapping<Int32, Person> mapping = new Mapping<int, Person>();
+			var mapping = new Mapping<int, Person>();
 
-			mapping.Map(1).Return(new Person() { Name = "NCsoft 1" })
+            mapping.Map(1).Return(new Person() { Name = "NCsoft 1" })
 				   .Map(2).Return(new Person() { Name = "NCsoft 2" });
 
 			var value = mapping.GetMappingValue(1);

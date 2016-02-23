@@ -15,8 +15,8 @@ namespace Umc.Core.IoC.Catalog
 		[Description("폴더의 모든 DLL에서 올바르게 DependencyContractAttribute타입을 가져오는지 검사, 테스트 객체 내의 여러 Mock 객체가 1개 이상이므로, 개수가 1개 이상이면 통과")]
 		public void DependencyDirectoryCatalog_Basic_Test()
 		{
-			FrameworkDirectoryCatalog catalog = new FrameworkDirectoryCatalog(TestContext.TestDeploymentDir);
-			var types = catalog.GetMatchingTypes();
+			var catalog = new FrameworkDirectoryCatalog(TestContext.TestDeploymentDir);
+            var types = catalog.GetMatchingTypes();
 
 			types.ToList().ForEach( o => Debug.WriteLine(o.AssemblyQualifiedName));
 		}

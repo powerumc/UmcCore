@@ -55,14 +55,14 @@ namespace Umc.Core.Reflection.Emit
 
 
 
-			byte[] bMSILBytes = this.GetType().GetMethod("SimpleMockMethod").GetMethodBody().GetILAsByteArray();
+			var bMSILBytes = this.GetType().GetMethod("SimpleMockMethod").GetMethodBody().GetILAsByteArray();
 
-			List<OpCode> opcodeList = new List<OpCode>();
+            var opcodeList = new List<OpCode>();
 
-			foreach(var b in bMSILBytes)
+            foreach (var b in bMSILBytes)
 			{
-				OpCode opcode = OpCodeMap.Current[b];
-				opcodeList.Add(opcode);
+				var opcode = OpCodeMap.Current[b];
+                opcodeList.Add(opcode);
 				TestContext.WriteLine("{0}	{1}", opcode.Name, opcode.Value);
 			}
 		}

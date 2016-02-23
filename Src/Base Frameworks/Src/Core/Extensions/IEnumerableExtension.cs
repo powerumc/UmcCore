@@ -20,9 +20,9 @@ namespace Umc.Core
 		/// </returns>
 		public static IEnumerable<TReturn> ToEnumerable<TReturn>(this TReturn @object)
 		{
-			List<TReturn> list = new List<TReturn>();
+			var list = new List<TReturn>();
 
-			if( @object == null )
+            if ( @object == null )
 				return list.AsEnumerable();
 
 			list.Add(@object);

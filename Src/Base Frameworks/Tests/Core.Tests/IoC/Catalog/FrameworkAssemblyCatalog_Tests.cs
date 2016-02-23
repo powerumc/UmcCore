@@ -16,8 +16,8 @@ namespace Umc.Core.IoC.Catalog
 		[Description("현재 테스트 어셈블리의 DependencyContractAttribute 타입을 올바르게 가져오는지 테스트, Mock객체를 올바르게 1개 이상 가져오면 성공")]
 		public void DependencyAssemblyCatalog_Basic_Test()
 		{
-			FrameworkAssemblyCatalog assembly = new FrameworkAssemblyCatalog(Assembly.GetExecutingAssembly());
-			var types = assembly.GetMatchingTypes();
+			var assembly = new FrameworkAssemblyCatalog(Assembly.GetExecutingAssembly());
+            var types = assembly.GetMatchingTypes();
 
 			foreach (var type in types)
 			{

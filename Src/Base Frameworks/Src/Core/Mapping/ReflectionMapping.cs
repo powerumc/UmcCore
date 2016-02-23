@@ -70,10 +70,10 @@ namespace Umc.Core.Mapping
 		/// <exception cref="MappingException">매핑 속성의 개수가 일치하지 않을 경우 발생합니다.</exception>
 		protected virtual void LazyInitializeMapping()
 		{
-			PropertyInfo[] sourceMembers = this.SourceObject.GetType().GetProperties(this.Option.BindingFlags);
-			PropertyInfo[] targetMembers = this.TargetObject.GetType().GetProperties(this.Option.BindingFlags);
+			var sourceMembers = this.SourceObject.GetType().GetProperties(this.Option.BindingFlags);
+            var targetMembers = this.TargetObject.GetType().GetProperties(this.Option.BindingFlags);
 
-			if (this.Option.ThrowIfNotMatched &&
+            if (this.Option.ThrowIfNotMatched &&
 				sourceMembers.Length != targetMembers.Length)
 			{
 				throw new MappingException(ExceptionRS.매핑_속성의_개수가_일치하지_않습니다);

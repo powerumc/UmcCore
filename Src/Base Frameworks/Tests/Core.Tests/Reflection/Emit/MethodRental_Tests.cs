@@ -15,20 +15,20 @@ namespace Umc.Core.Reflection.Emit
 		[TestCategory("BVT Function"), TestMethod]
 		public void TestMethod1()
 		{
-			Guid g = Guid.NewGuid();
-			AssemblyName asmname = new AssemblyName();
-			asmname.Name = "tempfile" + g;
-			AssemblyBuilder asmbuild = System.Threading.Thread.GetDomain().
+			var g = Guid.NewGuid();
+            var asmname = new AssemblyName();
+            asmname.Name = "tempfile" + g;
+			var asmbuild = System.Threading.Thread.GetDomain().
 				DefineDynamicAssembly(asmname, AssemblyBuilderAccess.Run);
 
 
-			// Add a dynamic module that contains one type that has one method that// has no arguments.
-			ModuleBuilder modbuild = asmbuild.DefineDynamicModule(
+            // Add a dynamic module that contains one type that has one method that// has no arguments.
+            var modbuild = asmbuild.DefineDynamicModule(
 						"test");
-			
-			TypeBuilder tb = modbuild.DefineType(
+
+            var tb = modbuild.DefineType(
 					"name of the Type");
-			MethodBuilder somemethod = tb.DefineMethod
+            var somemethod = tb.DefineMethod
 				(
 					"My method Name",
 				 MethodAttributes.Public | MethodAttributes.Static,
@@ -38,16 +38,16 @@ namespace Umc.Core.Reflection.Emit
 
 					new Type[] { });
 
-			// Define the body of the method to return 0.
-			ILGenerator ilg = somemethod.GetILGenerator();
-			ilg.Emit(OpCodes.Ldc_I4_0);
+            // Define the body of the method to return 0.
+            var ilg = somemethod.GetILGenerator();
+            ilg.Emit(OpCodes.Ldc_I4_0);
 			ilg.Emit(OpCodes.Ret);
 
 
 			// Complete the type and verify that it returns 0.
-			Type tbBaked = tb.CreateType();
+			var tbBaked = tb.CreateType();
 
-			int res1 = (int)tbBaked.GetMethod("My method Name").Invoke(null,new Object[] { });
+            int res1 = (int)tbBaked.GetMethod("My method Name").Invoke(null,new Object[] { });
 
 			if (res1 != 0)
 			{
@@ -81,12 +81,12 @@ namespace Umc.Core.Reflection.Emit
 
 
 			// Get the token for the method whose body you are replacing.
-			MethodToken somemethodToken = somemethod.GetToken();
+			var somemethodToken = somemethod.GetToken();
 
 
-			// Get the pointer to the method body.
-			GCHandle hmem = GCHandle.Alloc((Object)newMethodBytes, GCHandleType.Pinned);
-			IntPtr addr = hmem.AddrOfPinnedObject();
+            // Get the pointer to the method body.
+            var hmem = GCHandle.Alloc((Object)newMethodBytes, GCHandleType.Pinned);
+            IntPtr addr = hmem.AddrOfPinnedObject();
 
 			int cbSize = newMethodBytes.Length;
 

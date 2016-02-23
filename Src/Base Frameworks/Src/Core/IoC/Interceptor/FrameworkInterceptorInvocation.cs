@@ -10,9 +10,9 @@ namespace Umc.Core.IoC.Interceptor
 	{
 		public IFrameworkInterceptionReturn Invoker(IFrameworkInterceptionInput input)
 		{
-			FrameworkInterceptionReturn @return = new FrameworkInterceptionReturn();
+			var @return = new FrameworkInterceptionReturn();
 
-			object invokeResult = null;
+            object invokeResult = null;
 			Exception exception = null;
 
 			try

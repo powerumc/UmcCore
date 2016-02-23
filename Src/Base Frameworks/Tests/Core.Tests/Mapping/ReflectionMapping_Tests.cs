@@ -24,12 +24,12 @@ namespace Umc.Core.Mapping
 		[Description("ReflectionMapping 으로 대소문자가 틀린 객체간의 속성을 매핑 테스트, 오류가 발생하지 않고 매핑이 정상적이면 통과")]
 		public void ReflectionMapping_Test()
 		{
-			PersonSource source = new PersonSource() { Name = "Junil, Um" };
-			PersonTarget target = new PersonTarget();
+			var source = new PersonSource() { Name = "Junil, Um" };
+            var target = new PersonTarget();
 
-			ReflectionMapping mapping = new ReflectionMapping(source, target);
+            var mapping = new ReflectionMapping(source, target);
 
-			TestContext.WriteLine("SourcePerson's name is {0}", source.Name);
+            TestContext.WriteLine("SourcePerson's name is {0}", source.Name);
 			TestContext.WriteLine("TargetPerson's name is {0} after Mapped ReflectionMapping", target.name);
 			TestContext.WriteLine("{0} = {1}", source.Name, target.name);
 
@@ -48,11 +48,11 @@ namespace Umc.Core.Mapping
 		[ExpectedException(typeof(MappingException))]
 		public void Expected_Not_Matched_PropertyCount()
 		{
-			PersonSource source = new PersonSource() { Name = "Junil, Um" };
-			PersonTarget2 target = new PersonTarget2();
+			var source = new PersonSource() { Name = "Junil, Um" };
+            var target = new PersonTarget2();
 
-			ReflectionMapping mapping = new ReflectionMapping(source, target, new ReflectionMappingOption() { ThrowIfNotMatched = true });
+            var mapping = new ReflectionMapping(source, target, new ReflectionMappingOption() { ThrowIfNotMatched = true });
 
-		}
+        }
 	}
 }

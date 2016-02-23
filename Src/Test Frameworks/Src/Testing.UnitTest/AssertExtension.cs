@@ -18,8 +18,8 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
 
 		public static void IsTrue(bool condition, object keyOfAssertionDescription, params object[] parameters)
 		{
-			StackFrame stack = new StackFrame(1);
-			var testmethod = stack.GetMethod();
+			var stack = new StackFrame(1);
+            var testmethod = stack.GetMethod();
 
 			var attr = testmethod.GetCustomAttributes(typeof(AssertionDescriptionAttribute), false);
 			if (attr == null || attr.Length == 0)

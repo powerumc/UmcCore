@@ -44,8 +44,8 @@ namespace Umc.Core.Application
 			{
 				try
 				{
-					Thread thread = new Thread(new ThreadStart(app.Initialize));
-					thread.SetApartmentState(apartmentState);
+					var thread = new Thread(new ThreadStart(app.Initialize));
+                    thread.SetApartmentState(apartmentState);
 					thread.Start();
 				}
 				catch

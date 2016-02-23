@@ -26,9 +26,9 @@ namespace Umc.Core.IoC.Configuration
 			if( root.containers == null ) 
 				return new RootElementVerifyResult(true);
 
-			RootElementVerifyResult result = new RootElementVerifyResult(false);
+			var result = new RootElementVerifyResult(false);
 
-			foreach (var container in root.containers)
+            foreach (var container in root.containers)
 			{
 				var grouping = from r in container.register
 							group r by new { r.contract, r.key } into g

@@ -29,9 +29,9 @@ namespace Umc.Core.Application
 		{
 			try
 			{
-				ICrossApplication application = this.AppDomain
+				var application = this.AppDomain
 													.CreateInstanceAndUnwrap(assemblyName, typeName) as ICrossApplication;
-				if (application == null)
+                if (application == null)
 					throw new CrossApplicationException("application == null");
 
 				application.AssemblyName = assemblyName;

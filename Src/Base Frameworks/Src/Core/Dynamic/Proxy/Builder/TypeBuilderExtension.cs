@@ -31,9 +31,9 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 		/// </returns>
 		public ConstructorBuilder CreateConstructor(MethodAttributes methodAttributes, CallingConventions callingConventions, Type[] parameterTypes)
 		{
-			List<ParameterCriteriaMetadataInfo> list = new List<ParameterCriteriaMetadataInfo>();
+			var list = new List<ParameterCriteriaMetadataInfo>();
 
-			foreach (var parameter in parameterTypes)
+            foreach (var parameter in parameterTypes)
 			{
 				list.Add(new ParameterCriteriaMetadataInfo(parameter));
 			}
@@ -112,9 +112,9 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 			if (this.TypeBuilder == null)
 				throw new NullReferenceException(this.TypeBuilder.GetType().Name);
 
-			MethodBuilder methodBuilder = this.TypeBuilder.DefineMethod(name, methodAttributes, returnType, argumentTypes);
+			var methodBuilder = this.TypeBuilder.DefineMethod(name, methodAttributes, returnType, argumentTypes);
 
-			if (isOverride == true && parentMethodInfo == null)
+            if (isOverride == true && parentMethodInfo == null)
 				throw new ArgumentNullException("parentMethodInfo");
 
 			if (isOverride == true)
@@ -135,9 +135,9 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 			if ( this.TypeBuilder == null )
 				throw new NullReferenceException(this.TypeBuilder.GetType().Name);
 
-			PropertyBuilder builder = this.TypeBuilder.DefineProperty(name, attribute, callingConventions, returnType, null, null, parameterTypes, null, null);
+			var builder = this.TypeBuilder.DefineProperty(name, attribute, callingConventions, returnType, null, null, parameterTypes, null, null);
 
-			return builder;
+            return builder;
 		}
 
 		public void CreateAttribute(Type type, params object[] param)
@@ -145,8 +145,8 @@ namespace Umc.Core.Dynamic.Proxy.Builder
 			if ( this.TypeBuilder == null )
 				throw new NullReferenceException(this.TypeBuilder.GetType().Name);
 
-			CustomAttributeBuilder attribute = new CustomAttributeBuilder(type.GetConstructors()[0], param);
-			this.TypeBuilder.SetCustomAttribute(attribute);
+			var attribute = new CustomAttributeBuilder(type.GetConstructors()[0], param);
+            this.TypeBuilder.SetCustomAttribute(attribute);
 		}
 
 

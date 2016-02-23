@@ -28,16 +28,16 @@ namespace Umc.Core.IoC.Configuration
 
 		private void WriteToSerialization(object root)
 		{
-			XmlSerializer xs = new XmlSerializer(typeof(UmcCoreIoCElement));
-			xs.Serialize(Console.Out, root);
+			var xs = new XmlSerializer(typeof(UmcCoreIoCElement));
+            xs.Serialize(Console.Out, root);
 		}
 
 		[TestCategory("BVT Function"), TestMethod]
 		[Description("종속성 관계를 분석하여 XML 형태로 출력하는 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_Visit_Method_Executing_Test()
 		{
-			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(this.mockTypes);
-			var root = visitor.VisitTypes();
+			var visitor = new FrameworkDependencyVisitor(this.mockTypes);
+            var root = visitor.VisitTypes();
 
 			WriteToSerialization(root);
 			
@@ -47,9 +47,9 @@ namespace Umc.Core.IoC.Configuration
 		[Description("DependencyTypeCatalog를 이용하여 종속성 관계를 분석하여 XML 형태로 출력 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_By_DependencyTypeCatalog()
 		{
-			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(this.mockTypes);
-			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
-			var root = visitor.VisitTypes();
+			var catalog = new FrameworkTypeCatalog(this.mockTypes);
+            var visitor = new FrameworkDependencyVisitor(catalog);
+            var root = visitor.VisitTypes();
 
 			WriteToSerialization(root);
 		}
@@ -58,9 +58,9 @@ namespace Umc.Core.IoC.Configuration
 		[Description("DependencyAssemblyCatalog를 이용하여 종속성 관계를 분석하여 XML 형태로 출력 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_By_DependencyAssemblyCatalog()
 		{
-			FrameworkAssemblyCatalog catalog = new FrameworkAssemblyCatalog(Assembly.GetExecutingAssembly());
-			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
-			var root = visitor.VisitTypes();
+			var catalog = new FrameworkAssemblyCatalog(Assembly.GetExecutingAssembly());
+            var visitor = new FrameworkDependencyVisitor(catalog);
+            var root = visitor.VisitTypes();
 
 			WriteToSerialization(root);
 		}
@@ -69,9 +69,9 @@ namespace Umc.Core.IoC.Configuration
 		[Description("DependencyDirectoryCatalog를 이용하여 종속성 관계를 분석하여 XML 형태로 출력 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkDependencyVisitor_By_DependencyDirectoryCatalog()
 		{
-			FrameworkDirectoryCatalog catalog = new FrameworkDirectoryCatalog(TestContext.TestDeploymentDir);
-			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
-			var root = visitor.VisitTypes();
+			var catalog = new FrameworkDirectoryCatalog(TestContext.TestDeploymentDir);
+            var visitor = new FrameworkDependencyVisitor(catalog);
+            var root = visitor.VisitTypes();
 
 			WriteToSerialization(root);
 		}

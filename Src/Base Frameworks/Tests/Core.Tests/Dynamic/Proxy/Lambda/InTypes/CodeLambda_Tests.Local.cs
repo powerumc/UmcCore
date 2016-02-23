@@ -14,11 +14,11 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("동적 메서드의 로컬 변수를 선언하는 테스트, 오류가 발생하지 않으면 통과")]
 		public void Define_Local_Test()
 		{
-			string typeName    = Guid.NewGuid().ToString("N");
-			string methodName1 = Guid.NewGuid().ToString("N");
-			string localName1  = Guid.NewGuid().ToString("N");
+			var typeName    = Guid.NewGuid().ToString("N");
+            var methodName1 = Guid.NewGuid().ToString("N");
+            var localName1  = Guid.NewGuid().ToString("N");
 
-			var assembly = new AssemblyLambda().Assembly();
+            var assembly = new AssemblyLambda().Assembly();
 			{
 				var module = assembly.Module();
 				{
@@ -26,8 +26,8 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 					{
 						var method1 = type.Public.Static.Method(methodName1);
 						{
-							Operand local1 = method1.Local(typeof(string), localName1);
-							method1.Return();
+							var local1 = method1.Local(typeof(string), localName1);
+                            method1.Return();
 						};
 					};
 

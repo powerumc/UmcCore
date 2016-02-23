@@ -14,10 +14,10 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 		[Description("Operand 의 New 메서드 테스트, 오류가 발생하지 않으면 통과")]
 		public void TestMethod1()
 		{
-			string typeName   = Guid.NewGuid().ToString("N");
-			string methodName = Guid.NewGuid().ToString("N");
+			var typeName   = Guid.NewGuid().ToString("N");
+            var methodName = Guid.NewGuid().ToString("N");
 
-			var assembly = new AssemblyLambda().Assembly();
+            var assembly = new AssemblyLambda().Assembly();
 			{
 				var module = assembly.Module();
 				{

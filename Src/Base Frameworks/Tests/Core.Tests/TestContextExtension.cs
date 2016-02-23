@@ -24,8 +24,8 @@ namespace Umc.Core.Testing.UnitTest
 
 		public static void ShowObject(this TestContext testContext, object @object, TextWriter writer)
 		{
-			ShowObject show = new ShowObject(@object, writer);
-			show.Show();
+			var show = new ShowObject(@object, writer);
+            show.Show();
 		}
 	}
 }

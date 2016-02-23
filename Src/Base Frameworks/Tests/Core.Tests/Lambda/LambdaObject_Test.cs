@@ -43,10 +43,10 @@ namespace Umc.Core
 		[Description("Lambda If 객체의 If, AndIf, OrIf 테스트, 각 조합 결과를 만족하면 통과")]
 		public void LambdaContextObject_If_Test()
 		{
-			LambdaContextObject<MockPerson> lambda = new LambdaContextObject<MockPerson>(person);
+			var lambda = new LambdaContextObject<MockPerson>(person);
 
-			// 기본 조건 테스트
-			Assert.IsTrue(lambda.If(o => o.Name == TestOwner.Junil_Um).Value);
+            // 기본 조건 테스트
+            Assert.IsTrue(lambda.If(o => o.Name == TestOwner.Junil_Um).Value);
 			Assert.IsFalse(lambda.If(o => o.Name == TestOwner.Junil_Um + "A").Value);
 
 
@@ -65,9 +65,9 @@ namespace Umc.Core
 		[Description("Lambda 의 LambdaInvokeObject 테스트, LambdaThen 결과가 올바르면 통과")]
 		public void LambdaContextObject_Then_Test()
 		{
-			LambdaContextObject<MockPerson> lambda = new LambdaContextObject<MockPerson>(person);
+			var lambda = new LambdaContextObject<MockPerson>(person);
 
-			bool thenResult = false;
+            bool thenResult = false;
 			lambda.If(o => o.Name == TestOwner.Junil_Um)
 					.AndIf(o => o.Age == 1)
 					.Then(o => thenResult = true)
@@ -80,9 +80,9 @@ namespace Umc.Core
 		[Description("Lambda 의 LambdaElse 객체가 올바르게 동작하는지 테스트, Else 조건이 만족하면 통과")]
 		public void LambdaContextObject_Else_Test()
 		{
-			LambdaContextObject<MockPerson> lambda = new LambdaContextObject<MockPerson>(person);
+			var lambda = new LambdaContextObject<MockPerson>(person);
 
-			bool thenResult = false;
+            bool thenResult = false;
 			bool elseResult = false;
 			lambda.If(o => o.Name == TestOwner.Junil_Um)
 					.AndIf(o => o.Age == 2)
@@ -98,9 +98,9 @@ namespace Umc.Core
 		[Description("Lambda 를 이용하여 복합 조합식이 올바르게 동작하는지 테스트, 모든 연산 결과가 올바르면 통과")]
 		public void LambdaContextObject_ElseIf_Test()
 		{
-			LambdaContextObject<MockPerson> lambda = new LambdaContextObject<MockPerson>(person);
+			var lambda = new LambdaContextObject<MockPerson>(person);
 
-			bool thenResult = false;
+            bool thenResult = false;
 			bool elseResult = false;
 			bool elseResult1 = false;
 			bool elseResult2 = false;

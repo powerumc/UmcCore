@@ -78,8 +78,8 @@ namespace Umc.Core.Xml
 			}
 			else
 			{
-				InstanceAttribute next = firstAttribute;
-				InstanceAttribute prev = null;
+				var next = firstAttribute;
+                InstanceAttribute prev = null;
 				while ( next != null )
 				{
 					prev = next;
@@ -91,8 +91,8 @@ namespace Umc.Core.Xml
 
 		internal InstanceElement Clone (decimal occurs)
 		{
-			InstanceElement newElem = (InstanceElement)MemberwiseClone();
-			newElem.Occurs = occurs;
+			var newElem = (InstanceElement)MemberwiseClone();
+            newElem.Occurs = occurs;
 			newElem.Child = null;
 			newElem.Parent = null;
 			newElem.Sibling = null;

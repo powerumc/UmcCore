@@ -14,11 +14,11 @@ namespace Umc.Core.Dynamic.Proxy.Lambda.InTypes
 		[Description("동적 타입에 필드를 선언하여 사용하는 테스트, 오류가 발생하지 않으면 통과")]
 		public void Define_Field_Test()
 		{
-			string typeName    = Guid.NewGuid().ToString("N");
-			string methodName1 = Guid.NewGuid().ToString("N");
-			string fieldName1  = Guid.NewGuid().ToString("N");
+			var typeName    = Guid.NewGuid().ToString("N");
+            var methodName1 = Guid.NewGuid().ToString("N");
+            var fieldName1  = Guid.NewGuid().ToString("N");
 
-			var assembly = new AssemblyLambda().Assembly();
+            var assembly = new AssemblyLambda().Assembly();
 			{
 				var module = assembly.Module();
 				{

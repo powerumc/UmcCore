@@ -21,13 +21,13 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 				{
 					var type = module.Class(Guid.NewGuid().ToString("N"));
 					
-					TypeAccessor typeAccessor = new TypeAccessor(type);
-					MethodAccessor methodAccessor = new MethodAccessor(type);
-					FieldAccessor fieldAccessor = new FieldAccessor(type);
+					var typeAccessor = new TypeAccessor(type);
+                    var methodAccessor = new MethodAccessor(type);
+                    var fieldAccessor = new FieldAccessor(type);
 
-					AccessorInvocation invocation = new AccessorInvocation(type, typeAccessor, methodAccessor, fieldAccessor);
+                    var invocation = new AccessorInvocation(type, typeAccessor, methodAccessor, fieldAccessor);
 
-					var t = invocation.Public;
+                    var t = invocation.Public;
 					t = invocation.Abstract;
 					t = invocation.Abstract;
 

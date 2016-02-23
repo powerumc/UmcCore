@@ -15,11 +15,11 @@ namespace Umc.Core.Mapping
 		/// <summary>
 		///		매개 변수가 전달되는 용도로 사용합니다.
 		/// </summary>
-		Send = 0,
+		Send = 1,
 
 		/// <summary>
 		///		전달된 매개 변수를 받는 용도로 사용합니다.
 		/// </summary>
-		Receive = 1
+		Receive = Send << 1
 	}
 }

@@ -21,11 +21,11 @@ namespace Umc.Core.Mapping
 		[Description("MappingProviderForProperty 프로바이더의 Getter, Setter 테스트, 값이 유효하면 통과")]
 		public void MappingProperty()
 		{
-			MockPerson person = new MockPerson() { Name = "NCsoft 1", Age = 11 };
+			var person = new MockPerson() { Name = "NCsoft 1", Age = 11 };
 
-			MappingProviderForProperty mapping = new MappingProviderForProperty(person);
+            var mapping = new MappingProviderForProperty(person);
 
-			mapping.Setter("Name", "Junil, Um");
+            mapping.Setter("Name", "Junil, Um");
 			mapping.Setter("Age", 255);
 			var obj1 = mapping.Getter("Name");
 
@@ -40,13 +40,13 @@ namespace Umc.Core.Mapping
 		[Description("MappingProviderForDataRow 프로바이더의 Getter, Setter 테스트, 값이 유효하면 통과")]
 		public void MappingDataRow()
 		{
-			DataTable dt = new DataTable();
-			dt.Columns.Add("Name", typeof(string));
+			var dt = new DataTable();
+            dt.Columns.Add("Name", typeof(string));
 			dt.Columns.Add("Age", typeof(int));
 			dt.Rows.Add("NCsoft 1", 11);
 
-			MappingProviderForDataRow mapping = new MappingProviderForDataRow(dt.Rows[0]);
-			TestContext.WriteLine(mapping.Getter("Name").ToString());
+			var mapping = new MappingProviderForDataRow(dt.Rows[0]);
+            TestContext.WriteLine(mapping.Getter("Name").ToString());
 			Assert.AreEqual("NCsoft 1", mapping.Getter("Name"));
 			Assert.AreEqual(11, mapping.Getter("Age"));
 
@@ -60,17 +60,17 @@ namespace Umc.Core.Mapping
 		public void Mapping_Property_Assign_To_DataRow()
 		{
 			// Source
-			MockPerson source = new MockPerson() { Name = "NCsoft 1", Age = 11 };
+			var source = new MockPerson() { Name = "NCsoft 1", Age = 11 };
 
-			// Target
-			DataTable target = new DataTable();
-			target.Columns.Add("Name", typeof(string));
+            // Target
+            var target = new DataTable();
+            target.Columns.Add("Name", typeof(string));
 			target.Columns.Add("Age", typeof(int));
 
-			MappingProviderForProperty mapping1 = new MappingProviderForProperty(source);
-			MappingProviderForDataRow mapping2 = new MappingProviderForDataRow(target);
+			var mapping1 = new MappingProviderForProperty(source);
+            var mapping2 = new MappingProviderForDataRow(target);
 
-			mapping1.AssignTo(mapping2);
+            mapping1.AssignTo(mapping2);
 
 			var row = target.Rows[0];
 			TestContext.WriteLine("Name:{0}, Age:{1}", row["Name"], row["Age"]);
@@ -83,16 +83,16 @@ namespace Umc.Core.Mapping
 		[Description("MappingProvider 로 DataRow->Property 로 매핑 테스트, 값이 유효하면 통과")]
 		public void Mapping_DataRow_Assign_To_Property()
 		{
-			DataTable source = new DataTable();
-			source.Columns.Add("Name", typeof(string));
+			var source = new DataTable();
+            source.Columns.Add("Name", typeof(string));
 			source.Columns.Add("Age", typeof(int));
 			source.Rows.Add("NCsoft 1", 11);
 
-			MockPerson target = new MockPerson();
+			var target = new MockPerson();
 
-			MappingProviderForDataRow mapping1 = new MappingProviderForDataRow(source.Rows[0]);
-			MappingProviderForProperty mapping2 = new MappingProviderForProperty(target);
-			mapping1.AssignTo(mapping2);
+            var mapping1 = new MappingProviderForDataRow(source.Rows[0]);
+            var mapping2 = new MappingProviderForProperty(target);
+            mapping1.AssignTo(mapping2);
 
 			TestContext.WriteLine("Name:{0}, Age:{1}", target.Name, target.Age);
 
@@ -104,16 +104,16 @@ namespace Umc.Core.Mapping
 		[Description("MappingProvider 로 매핑키의 대소문자 무시 DataRow->Property로 매핑 테스트, 값이 유효하면 통과")]
 		public void Mapping_DataRow_Assign_To_Property_Ingore_Key_UpperCase()
 		{
-			DataTable source = new DataTable();
-			source.Columns.Add("Name", typeof(string));
+			var source = new DataTable();
+            source.Columns.Add("Name", typeof(string));
 			source.Columns.Add("Age", typeof(int));
 			source.Rows.Add("NCsoft 1", 11);
 
-			MockPerson target = new MockPerson();
+			var target = new MockPerson();
 
-			MappingProviderForDataRow mapping1 = new MappingProviderForDataRow(source.Rows[0]);
-			MappingProviderForProperty mapping2 = new MappingProviderForProperty(target, StringComparer.OrdinalIgnoreCase);
-			mapping1.AssignTo(mapping2);
+            var mapping1 = new MappingProviderForDataRow(source.Rows[0]);
+            var mapping2 = new MappingProviderForProperty(target, StringComparer.OrdinalIgnoreCase);
+            mapping1.AssignTo(mapping2);
 
 			TestContext.WriteLine("Name:{0}, Age:{1}", target.Name, target.Age);
 

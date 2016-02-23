@@ -33,8 +33,8 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainer 에 두 개의 객체를 등록한 후 호출한다. 오류가 발생하지 않으면 통과")]
 		public void Create_ROOT_Container_Of_Two_Object_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			container.RegisterType<IMockSimple, MockSimple>();
+			var container = new FrameworkContainerForUnity();
+            container.RegisterType<IMockSimple, MockSimple>();
 			container.RegisterType<IMockConstructor, MockConstructor>();
 
 			container.Resolve<IMockSimple>().Say();
@@ -46,11 +46,11 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainer 에 FrameworkChildContainer 를 등록한 후 각각 객체 하나씩을 등록한 후 호출한다. 오류가 발생하지 않으면 통과")]
 		public void Create_ROOT_and_Child_Container_test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			container.RegisterType<IMockSimple, MockSimple>();
+			var container = new FrameworkContainerForUnity();
+            container.RegisterType<IMockSimple, MockSimple>();
 
-			FrameworkContainerForUnityChild childContainer = new FrameworkContainerForUnityChild("child1", container);
-			container.AddChildContainer(childContainer);
+			var childContainer = new FrameworkContainerForUnityChild("child1", container);
+            container.AddChildContainer(childContainer);
 
 			childContainer.RegisterType<IMockConstructor, MockConstructor>();
 
@@ -63,12 +63,12 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainer 에 두 개의 FrameworkChildContainer 를 등록하였다. 오류가 발생하지 않으면 통과")]
 		public void Create_ROOT_and_Two_Childs_Container_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			
-			FrameworkContainerForUnityChild childContainer1 = new FrameworkContainerForUnityChild("Child1", container);
-			FrameworkContainerForUnityChild childContainer2 = new FrameworkContainerForUnityChild("Child2", container);
+			var container = new FrameworkContainerForUnity();
 
-			Assert.IsTrue( container.Childs.Count() == 2, "FrameworkContainer 에 두 개의 Child Container 를 등록하였지만, FrameworkContainer Child Count 는 {0} 개 입니다.", container.Childs.Count());
+            var childContainer1 = new FrameworkContainerForUnityChild("Child1", container);
+            var childContainer2 = new FrameworkContainerForUnityChild("Child2", container);
+
+            Assert.IsTrue( container.Childs.Count() == 2, "FrameworkContainer 에 두 개의 Child Container 를 등록하였지만, FrameworkContainer Child Count 는 {0} 개 입니다.", container.Childs.Count());
 		}
 
 		[TestCategory("BVT Function"), TestMethod]
@@ -77,19 +77,19 @@ namespace Umc.Core.IoC.Unity
 		[ExpectedException(typeof(ArgumentException))]
 		public void Create_ROOT_And_Two_Childs_Container_But_Regist_Same_Child_Container_Key_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
+			var container = new FrameworkContainerForUnity();
 
-			FrameworkContainerForUnityChild childContainer1 = new FrameworkContainerForUnityChild("Child1", container);
-			FrameworkContainerForUnityChild childContainer2 = new FrameworkContainerForUnityChild("Child1", container);
-		}
+            var childContainer1 = new FrameworkContainerForUnityChild("Child1", container);
+            var childContainer2 = new FrameworkContainerForUnityChild("Child1", container);
+        }
 
 		[TestCategory("BVT Function"), TestMethod]
 		[Description("RegisterType<,> 와 Resolve<> 메서드 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkContainer_Register_and_Resolve_Methods_Overrode1_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			
-			container.RegisterType<IMockSimple, MockSimple>();
+			var container = new FrameworkContainerForUnity();
+
+            container.RegisterType<IMockSimple, MockSimple>();
 			container.Resolve<IMockSimple>().Say();
 		}
 
@@ -97,9 +97,9 @@ namespace Umc.Core.IoC.Unity
 		[Description("RegisterType<> 와 Resolve<> 메서드 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkContainer_Register_and_Resolve_Methods_Overrode2_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
+			var container = new FrameworkContainerForUnity();
 
-			container.RegisterType<MockSimple>();
+            container.RegisterType<MockSimple>();
 			container.Resolve<MockSimple>().Say();
 		}
 
@@ -107,9 +107,9 @@ namespace Umc.Core.IoC.Unity
 		[Description("RegiserType<,>(key) 와 Resolve<>(key) 메서드 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkContainer_Register_and_Resolve_Methods_Overrode3_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
+			var container = new FrameworkContainerForUnity();
 
-			container.RegisterType<IMockSimple, MockSimple>("key");
+            container.RegisterType<IMockSimple, MockSimple>("key");
 			container.Resolve<IMockSimple>("key").Say();
 		}
 
@@ -118,9 +118,9 @@ namespace Umc.Core.IoC.Unity
 		[ExpectedException(typeof(Microsoft.Practices.Unity.ResolutionFailedException))]
 		public void FrameworkContainer_Register_and_Resolve_Methods_Override4_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
+			var container = new FrameworkContainerForUnity();
 
-			container.RegisterType<IMockSimple, MockSimple>("key");
+            container.RegisterType<IMockSimple, MockSimple>("key");
 			container.Resolve<IMockSimple>().Say();
 		}
 
@@ -128,9 +128,9 @@ namespace Umc.Core.IoC.Unity
 		[Description("RegisterType<,> 과 리턴 타입이 Object 인 Resolve() 메서드 테스트, obj is IMock1 이 참이어야 통과")]
 		public void FrameworkContainer_Register_and_Resolve_Methods_Override5_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
+			var container = new FrameworkContainerForUnity();
 
-			container.RegisterType<IMockSimple, MockSimple>();
+            container.RegisterType<IMockSimple, MockSimple>();
 			var obj = container.Resolve(typeof(IMockSimple));
 
 			Assert.IsTrue(obj is IMockSimple, "Resolve된 Object 가 등록된 IMock 타입과 다르므로 실패하였습니다");
@@ -152,8 +152,8 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainer 에 Singleton으로 객체를 등록한 후, 다시 꺼냈을 때 Singleton 객체가 맞는지 검사, 객체의 값이 변하지 않으면 통과")]
 		public void FrameworkContainer_Register_with_Static_Lifetime_Test1()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			container.RegisterType<IMockSimple, MockSimple>(LifetimeFlag.Singleton);
+			var container = new FrameworkContainerForUnity();
+            container.RegisterType<IMockSimple, MockSimple>(LifetimeFlag.Singleton);
 
 			var obj = container.Resolve<IMockSimple>();
 			Assert.IsTrue(obj.Name == null);
@@ -168,8 +168,8 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainer 에 PerCall 으로 객체를 등록한 후, 다시 꺼냈을 때 PerCall 객체가 맞는지 검사, 객체의 값이 초기값이면 통과")]
 		public void FrameworkContainer_Register_with_PerCall_Lifetime_Test1()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			container.RegisterType<IMockSimple, MockSimple>(LifetimeFlag.PerCall);
+			var container = new FrameworkContainerForUnity();
+            container.RegisterType<IMockSimple, MockSimple>(LifetimeFlag.PerCall);
 
 			var obj = container.Resolve<IMockSimple>();
 			Assert.IsTrue(obj.Name == null);
@@ -188,8 +188,8 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainer 에서 Injection되지 않는 생성자 파라미터를 사용한 경우 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkContainer_Resolve_Constructor_Contract_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			container.RegisterType<IMockInitConstructor, MockInitConstructor>();
+			var container = new FrameworkContainerForUnity();
+            container.RegisterType<IMockInitConstructor, MockInitConstructor>();
 
 			container.Resolve<IMockInitConstructor>().Say();
 		}
@@ -199,8 +199,8 @@ namespace Umc.Core.IoC.Unity
 		[Description("FrameworkContainerForUnity 의 Property Injection 이 성공하는지 테스트, 오류가 발생하지 않으면 통과")]
 		public void FrameworkContainer_PropertyInjection_Test()
 		{
-			FrameworkContainerForUnity container = new FrameworkContainerForUnity();
-			container.RegisterType<IMockSimple, MockSimple>()
+			var container = new FrameworkContainerForUnity();
+            container.RegisterType<IMockSimple, MockSimple>()
 				.RegisterType<IMockPropertyInjection, MockPropertyInjection>();
 
 			container.Resolve<IMockPropertyInjection>().Say();
@@ -212,19 +212,19 @@ namespace Umc.Core.IoC.Unity
 		[Description("Config 파일에서 종속성 설정을 불러오는 테스트, 객체가 올바르게 반환되면 통과")]
 		public void Save_and_Load_FrameworkConfiguratoinExtension_Test()
 		{
-			string filename = "configuration.ioc.config";
+			var filename = "configuration.ioc.config";
 
-			Type[] mockTypes = new Type[]
+            var mockTypes = new Type[]
 			{
 				typeof(MockSimple),
 			};
 
-			FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(mockTypes);
-			FrameworkDependencyVisitor visitor = new FrameworkDependencyVisitor(catalog);
-			var root = visitor.VisitTypes();
+            var catalog = new FrameworkTypeCatalog(mockTypes);
+            var visitor = new FrameworkDependencyVisitor(catalog);
+            var root = visitor.VisitTypes();
 
-			XmlSerializer xs = new XmlSerializer(typeof(UmcCoreIoCElement));
-			using (StreamWriter sw = new StreamWriter(filename))
+			var xs = new XmlSerializer(typeof(UmcCoreIoCElement));
+            using (StreamWriter sw = new StreamWriter(filename))
 			{
 				xs.Serialize(sw, root);
 			}

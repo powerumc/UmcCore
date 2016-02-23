@@ -40,8 +40,8 @@ namespace Umc.Core.IoC.Catalog
 		{
 			foreach(var assembly in this.assemblies)
 			{
-				FrameworkTypeCatalog catalog = new FrameworkTypeCatalog(assembly.GetTypes());
-				var types = catalog.GetMatchingTypes();
+				var catalog = new FrameworkTypeCatalog(assembly.GetTypes());
+                var types = catalog.GetMatchingTypes();
 
 				foreach (var type in types)
 				{

@@ -38,15 +38,15 @@ namespace Umc.Core.Testing.UnitTest
 
 		protected void VisitType(Type type)
 		{
-			List<Action> actions = new List<Action>();
-			foreach (var property in type.GetProperties())
+			var actions = new List<Action>();
+            foreach (var property in type.GetProperties())
 			{
 				if (/*Type.GetTypeCode(property.PropertyType) == TypeCode.Object &&*/
 					property.GetIndexParameters().Count() == 0)
 				{
 					this.WriteIndent();
-					object propertyGetValue = property.GetValue(this.Object, null);
-					this.Writer.WriteLine("P_{0} : {1}", property.Name, propertyGetValue ?? "NULL");
+					var propertyGetValue = property.GetValue(this.Object, null);
+                    this.Writer.WriteLine("P_{0} : {1}", property.Name, propertyGetValue ?? "NULL");
 
 					if (propertyGetValue is IEnumerable)
 					{
@@ -56,8 +56,8 @@ namespace Umc.Core.Testing.UnitTest
 						{
 							var currentobject = ienumberableObject.Current;
 
-							ShowObject show = new ShowObject(currentobject, this.Writer, this.Indent + 1);
-							actions.Add(new Action(show.Show));
+							var show = new ShowObject(currentobject, this.Writer, this.Indent + 1);
+                            actions.Add(new Action(show.Show));
 						}
 					}
 
@@ -65,8 +65,8 @@ namespace Umc.Core.Testing.UnitTest
 						property.PropertyType.FullName != typeof(object).FullName &&
 						Type.GetTypeCode(property.PropertyType) == TypeCode.Object)
 					{
-						ShowObject show = new ShowObject(propertyGetValue, this.Writer, this.Indent + 1);
-						actions.Add(new Action(show.Show));
+						var show = new ShowObject(propertyGetValue, this.Writer, this.Indent + 1);
+                        actions.Add(new Action(show.Show));
 					}
 				}
 			}

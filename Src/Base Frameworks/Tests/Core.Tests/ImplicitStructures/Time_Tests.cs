@@ -15,16 +15,16 @@ namespace Umc.Core
 		public void AssignTheTime()
 		{
 			Time time = "1:2:3";
-			TimeSpan timespan = new TimeSpan(1,2,3);
-			
-			Assert.IsTrue(time==timespan);
+			var timespan = new TimeSpan(1,2,3);
+
+            Assert.IsTrue(time==timespan);
 
 
 
 
-			TimeSpan fail = new TimeSpan(1,2,4);
+			var fail = new TimeSpan(1,2,4);
 
-			Assert.IsFalse(time == fail);
+            Assert.IsFalse(time == fail);
 		}
 
 		[TestCategory("BVT Function"), TestMethod]
@@ -32,14 +32,14 @@ namespace Umc.Core
 		public void AssignTheTimeWithDays()
 		{
 			Time time = "5.1:2:3";
-			TimeSpan timespan = new TimeSpan(5,1,2,3);
+			var timespan = new TimeSpan(5,1,2,3);
 
-			Assert.IsTrue(time==timespan);
+            Assert.IsTrue(time==timespan);
 
 
-			TimeSpan fail = new TimeSpan(6,1,2,3);
+			var fail = new TimeSpan(6,1,2,3);
 
-			Assert.IsFalse(time == fail);
+            Assert.IsFalse(time == fail);
 		}
 
 		[TestCategory("BVT Function"), TestMethod]

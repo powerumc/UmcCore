@@ -59,10 +59,10 @@ namespace Umc.Core.Xml
 
 		static CompiledFacets ()
 		{
-			Assembly systemXmlAsm = typeof(XmlSchema).Assembly;
+			var systemXmlAsm = typeof(XmlSchema).Assembly;
 
-			Type RestrictionFacetsType = systemXmlAsm.GetType("System.Xml.Schema.RestrictionFacets", true);
-			XsdSimpleValueType = systemXmlAsm.GetType("System.Xml.Schema.XsdSimpleValue", true);
+            var RestrictionFacetsType = systemXmlAsm.GetType("System.Xml.Schema.RestrictionFacets", true);
+            XsdSimpleValueType = systemXmlAsm.GetType("System.Xml.Schema.XsdSimpleValue", true);
 			XmlSchemaDatatypeType = typeof(XmlSchemaDatatype);
 
 			lengthInfo = RestrictionFacetsType.GetField("Length", BindingFlags.Instance | BindingFlags.NonPublic);

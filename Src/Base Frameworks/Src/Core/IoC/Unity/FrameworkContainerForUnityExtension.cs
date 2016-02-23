@@ -26,8 +26,8 @@ namespace Umc.Core.IoC.Unity
 		{
 			container = SetupFrameworkContainer(path, ref container);
 
-			XmlSerializer xs = new XmlSerializer(typeof(UmcCoreIoCElement));
-			var containerElement = (UmcCoreIoCElement)xs.Deserialize(File.OpenRead(path));
+			var xs = new XmlSerializer(typeof(UmcCoreIoCElement));
+            var containerElement = (UmcCoreIoCElement)xs.Deserialize(File.OpenRead(path));
 
 			containerElement.Verify();
 

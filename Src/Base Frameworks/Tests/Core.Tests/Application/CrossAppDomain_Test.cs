@@ -17,8 +17,8 @@ namespace Umc.Core.Application
 		[DeploymentItem("Umc.Core.Testing.UnitTest.dll")]
 		public void Create_CrossAppDomain()
 		{
-			CrossAppDomain app = new CrossAppDomain("Init App");
-			app.AppDomain.SetupInformation.PrivateBinPath = TestContext.TestDeploymentDir;
+			var app = new CrossAppDomain("Init App");
+            app.AppDomain.SetupInformation.PrivateBinPath = TestContext.TestDeploymentDir;
 			app.AppDomain.SetupInformation.ApplicationBase = TestContext.TestDeploymentDir;
 			app.AppDomain.SetupInformation.ApplicationBase = TestContext.TestDeploymentDir;
 			//app.Execute(typeof(Program).Assembly.FullName, typeof(Program).FullName);

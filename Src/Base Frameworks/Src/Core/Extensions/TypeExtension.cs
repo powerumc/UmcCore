@@ -47,9 +47,9 @@ namespace System
 		[SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
 		public static IEnumerable<T> GetCustomAttributesEx<T>(this Type type, bool inhert) where T : class
 		{
-			object[] attributes = type.GetCustomAttributes(typeof(T), inhert);
+			var attributes = type.GetCustomAttributes(typeof(T), inhert);
 
-			if( attributes.Length == 0 )
+            if ( attributes.Length == 0 )
 				return null;
 
 			return attributes.Cast<T>();

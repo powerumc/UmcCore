@@ -83,8 +83,8 @@ namespace Umc.Core.Xml
 			get
 			{
 				int cnt = 0;
-				InstanceGroup currentGroup = this.child;
-				while ( currentGroup != null )
+				var currentGroup = this.child;
+                while ( currentGroup != null )
 				{
 					cnt++;
 					currentGroup = currentGroup.Sibling;
@@ -103,8 +103,8 @@ namespace Umc.Core.Xml
 			else
 			{
 				InstanceGroup prev = null;
-				InstanceGroup next = this.child;
-				while ( next != null )
+				var next = this.child;
+                while ( next != null )
 				{
 					prev = next;
 					next = next.Sibling;
@@ -116,8 +116,8 @@ namespace Umc.Core.Xml
 		internal InstanceGroup GetChild (int index)
 		{
 			int curIndex = 0;
-			InstanceGroup currentGroup = this.child;
-			while ( currentGroup != null )
+			var currentGroup = this.child;
+            while ( currentGroup != null )
 			{
 				if ( curIndex == index )
 				{

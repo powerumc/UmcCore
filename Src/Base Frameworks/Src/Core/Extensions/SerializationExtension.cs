@@ -21,8 +21,8 @@ namespace System.IO
 				ms.Position = 0;
 
 				int read = 0;
-				byte[] bData = new byte[ms.Length];
-				do
+				var bData = new byte[ms.Length];
+                do
 				{
 					read = ms.Read(bData, 0, bData.Length);
 
@@ -51,8 +51,8 @@ namespace System.IO
 				ms.Position = 0;
 
 				int read = 0;
-				byte[] bData = new byte[bufferSize];
-				do
+				var bData = new byte[bufferSize];
+                do
 				{
 					read = ms.Read(bData, 0, bData.Length);
 

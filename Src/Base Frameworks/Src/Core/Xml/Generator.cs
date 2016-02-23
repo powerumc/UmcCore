@@ -78,11 +78,11 @@ namespace Umc.Core.Xml
 
 		internal static XmlValueGenerator CreateGenerator (XmlSchemaDatatype datatype, int listLength)
 		{
-			XmlTypeCode typeCode = datatype.TypeCode;
+			var typeCode = datatype.TypeCode;
 
-			object restriction = datatype.GetType().InvokeMember("Restriction", BindingFlags.GetProperty | BindingFlags.NonPublic | BindingFlags.Instance, null, datatype, null);
-			CompiledFacets rFacets = new CompiledFacets(restriction);
-			XmlValueGenerator generator;
+            var restriction = datatype.GetType().InvokeMember("Restriction", BindingFlags.GetProperty | BindingFlags.NonPublic | BindingFlags.Instance, null, datatype, null);
+            var rFacets = new CompiledFacets(restriction);
+            XmlValueGenerator generator;
 
 			if ( datatype.Variety == XmlSchemaDatatypeVariety.Union )
 			{
@@ -238,9 +238,9 @@ namespace Umc.Core.Xml
 
 		private static XmlValueGenerator CreateUnionGenerator (XmlSchemaDatatype dtype, CompiledFacets facets, int listLength)
 		{
-			XmlSchemaSimpleType[] memberTypes = (XmlSchemaSimpleType[])dtype.GetType().InvokeMember("types", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, dtype, null);
-			Generator_Union union_genr = new Generator_Union(facets);
-			foreach ( XmlSchemaSimpleType st1 in memberTypes )
+			var memberTypes = (XmlSchemaSimpleType[])dtype.GetType().InvokeMember("types", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, dtype, null);
+            var union_genr = new Generator_Union(facets);
+            foreach ( XmlSchemaSimpleType st1 in memberTypes )
 			{
 				union_genr.AddGenerator(XmlValueGenerator.CreateGenerator(st1.Datatype, listLength));
 			}
@@ -249,9 +249,9 @@ namespace Umc.Core.Xml
 
 		private static XmlValueGenerator CreateListGenerator (XmlSchemaDatatype dtype, CompiledFacets facets, int listLength)
 		{
-			XmlSchemaDatatype itemType = (XmlSchemaDatatype)dtype.GetType().InvokeMember("itemType", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, dtype, null);
-			Generator_List list_genr = new Generator_List(facets);
-			list_genr.ListLength = listLength;
+			var itemType = (XmlSchemaDatatype)dtype.GetType().InvokeMember("itemType", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, dtype, null);
+            var list_genr = new Generator_List(facets);
+            list_genr.ListLength = listLength;
 			list_genr.AddGenerator(XmlValueGenerator.CreateGenerator(itemType, listLength));
 			return list_genr;
 		}
@@ -292,8 +292,8 @@ namespace Umc.Core.Xml
 		{
 			if ( genFacets != null )
 			{
-				RestrictionFlags flags = genFacets.Flags;
-				if ( ( flags & RestrictionFlags.Length ) != 0 )
+				var flags = genFacets.Flags;
+                if ( ( flags & RestrictionFlags.Length ) != 0 )
 				{
 					length = genFacets.Length;
 				}
@@ -400,8 +400,8 @@ namespace Umc.Core.Xml
 		{
 			if ( AllowedValues != null )
 			{
-				object enumValue = GetEnumerationValue();
-				return enumValue.ToString();
+				var enumValue = GetEnumerationValue();
+                return enumValue.ToString();
 			}
 			else
 			{
@@ -445,8 +445,8 @@ namespace Umc.Core.Xml
 						genString.Append(endValue);
 					}
 				}
-				string result = genString.ToString();
-				genString.Length = 0; //Clear the stringBuilder
+				var result = genString.ToString();
+                genString.Length = 0; //Clear the stringBuilder
 				return result;
 			}
 		} // End of genValue
@@ -483,8 +483,8 @@ namespace Umc.Core.Xml
 		{
 			if ( genFacets != null )
 			{
-				RestrictionFlags flags = genFacets.Flags;
-				if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
+				var flags = genFacets.Flags;
+                if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
 				{
 					maxBound = (decimal)Convert.ChangeType(genFacets.MaxInclusive, typeof(decimal));
 				}
@@ -508,8 +508,8 @@ namespace Umc.Core.Xml
 				}
 				if ( ( flags & RestrictionFlags.TotalDigits ) != 0 )
 				{
-					decimal totalDigitsValue = (decimal)Math.Pow(10, genFacets.TotalDigits) - 1;
-					if ( totalDigitsValue <= maxBound )
+					var totalDigitsValue = (decimal)Math.Pow(10, genFacets.TotalDigits) - 1;
+                    if ( totalDigitsValue <= maxBound )
 					{ //Use the lower of totalDigits value and maxInc/maxEx
 						maxBound = totalDigitsValue;
 						minBound = 0 - maxBound;
@@ -562,8 +562,8 @@ namespace Umc.Core.Xml
 			{
 				try
 				{
-					AddSubtractState state = states[occurNum % states.Length];
-					switch ( state )
+					var state = states[occurNum % states.Length];
+                    switch ( state )
 					{
 						case AddSubtractState.StartPlusInc:
 							result = startValue + increment;
@@ -855,8 +855,8 @@ namespace Umc.Core.Xml
 		{
 			if ( genFacets != null )
 			{
-				RestrictionFlags flags = genFacets.Flags;
-				if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
+				var flags = genFacets.Flags;
+                if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
 				{
 					maxBound = (double)genFacets.MaxInclusive;
 				}
@@ -910,8 +910,8 @@ namespace Umc.Core.Xml
 			{
 				try
 				{
-					AddSubtractState state = states[occurNum % states.Length];
-					switch ( state )
+					var state = states[occurNum % states.Length];
+                    switch ( state )
 					{
 						case AddSubtractState.StartPlusInc:
 							result = startValue + increment;
@@ -991,8 +991,8 @@ namespace Umc.Core.Xml
 		{
 			if ( genFacets != null )
 			{
-				RestrictionFlags flags = genFacets.Flags;
-				if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
+				var flags = genFacets.Flags;
+                if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
 				{
 					maxBound = (float)genFacets.MaxInclusive;
 				}
@@ -1046,8 +1046,8 @@ namespace Umc.Core.Xml
 			{
 				try
 				{
-					AddSubtractState state = states[occurNum % states.Length];
-					switch ( state )
+					var state = states[occurNum % states.Length];
+                    switch ( state )
 					{
 						case AddSubtractState.StartPlusInc:
 							result = startValue + increment;
@@ -1128,8 +1128,8 @@ namespace Umc.Core.Xml
 		{
 			if ( genFacets != null )
 			{
-				RestrictionFlags flags = genFacets.Flags;
-				if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
+				var flags = genFacets.Flags;
+                if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
 				{
 					maxBound = (TimeSpan)genFacets.MaxInclusive;
 				}
@@ -1166,8 +1166,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			TimeSpan result = TimeSpan.Zero;
-			if ( AllowedValues != null )
+			var result = TimeSpan.Zero;
+            if ( AllowedValues != null )
 			{
 				try
 				{
@@ -1183,8 +1183,8 @@ namespace Umc.Core.Xml
 			{
 				try
 				{
-					AddSubtractState state = states[occurNum % states.Length];
-					switch ( state )
+					var state = states[occurNum % states.Length];
+                    switch ( state )
 					{
 						case AddSubtractState.StartPlusInc:
 							result = startValue + increment;
@@ -1269,8 +1269,8 @@ namespace Umc.Core.Xml
 		{
 			if ( genFacets != null )
 			{
-				RestrictionFlags flags = genFacets.Flags;
-				if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
+				var flags = genFacets.Flags;
+                if ( ( flags & RestrictionFlags.MaxInclusive ) != 0 )
 				{
 					maxBound = (DateTime)genFacets.MaxInclusive;
 				}
@@ -1305,8 +1305,8 @@ namespace Umc.Core.Xml
 		}
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(result);
+			var result = GenerateDate();
+            return XmlConvert.ToString(result);
 		}
 
 		protected DateTime GenerateDate ()
@@ -1325,11 +1325,11 @@ namespace Umc.Core.Xml
 			}
 			else
 			{
-				DateTime result = DateTime.UtcNow;
-				try
+				var result = DateTime.UtcNow;
+                try
 				{
-					AddSubtractState state = states[occurNum % states.Length];
-					switch ( state )
+					var state = states[occurNum % states.Length];
+                    switch ( state )
 					{
 						case AddSubtractState.StartPlusInc:
 							result = startValue.Add(increment);
@@ -1400,8 +1400,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(result.Date, "yyyy-MM-dd");
+			var result = GenerateDate();
+            return XmlConvert.ToString(result.Date, "yyyy-MM-dd");
 		}
 	}
 
@@ -1415,8 +1415,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(result.Date, "yyyy-MM");
+			var result = GenerateDate();
+            return XmlConvert.ToString(result.Date, "yyyy-MM");
 		}
 	}
 
@@ -1430,8 +1430,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(result.Date, "yyyy");
+			var result = GenerateDate();
+            return XmlConvert.ToString(result.Date, "yyyy");
 		}
 	}
 
@@ -1445,8 +1445,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(result.Date, "--MM-dd");
+			var result = GenerateDate();
+            return XmlConvert.ToString(result.Date, "--MM-dd");
 		}
 	}
 
@@ -1459,8 +1459,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(result.Date, "---dd");
+			var result = GenerateDate();
+            return XmlConvert.ToString(result.Date, "---dd");
 		}
 	}
 
@@ -1474,8 +1474,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			DateTime result = GenerateDate();
-			return XmlConvert.ToString(GenerateDate().Date, "--MM--");
+			var result = GenerateDate();
+            return XmlConvert.ToString(GenerateDate().Date, "--MM--");
 		}
 	}
 
@@ -1509,14 +1509,14 @@ namespace Umc.Core.Xml
 		{
 			if ( AllowedValues != null )
 			{
-				object enumValue = GetEnumerationValue();
-				return (string)this.Datatype.ChangeType(enumValue, TypeOfString);
+				var enumValue = GetEnumerationValue();
+                return (string)this.Datatype.ChangeType(enumValue, TypeOfString);
 			}
 			else
 			{
 				int binNo = (int)Convert.ChangeType(binGen.GenerateValue(), typeof(int));
-				StringBuilder str = new StringBuilder(binNo.ToString("X4"));
-				if ( length == -1 && minLength == -1 && maxLength == -1 )
+				var str = new StringBuilder(binNo.ToString("X4"));
+                if ( length == -1 && minLength == -1 && maxLength == -1 )
 				{
 					return str.ToString();
 				}
@@ -1596,8 +1596,8 @@ namespace Umc.Core.Xml
 		{
 			if ( AllowedValues != null )
 			{
-				object enumValue = GetEnumerationValue();
-				return Convert.ToBase64String(enumValue as byte[]);
+				var enumValue = GetEnumerationValue();
+                return Convert.ToBase64String(enumValue as byte[]);
 			}
 			else
 			{
@@ -1621,8 +1621,8 @@ namespace Umc.Core.Xml
 
 		public override string GenerateValue ()
 		{
-			string result = base.GenerateValue();
-			if ( result.Length == 1 )
+			var result = base.GenerateValue();
+            if ( result.Length == 1 )
 			{ //If it is a qname of length 1, then return a char to be sure
 				return new string(Prefix[0], 1);
 			}
@@ -1733,8 +1733,8 @@ namespace Umc.Core.Xml
 			}
 			else
 			{
-				string id = base.GenerateValue();
-				IDList.Add(id); //Add to arraylist so that you can retreive it from there for IDREF
+				var id = base.GenerateValue();
+                IDList.Add(id); //Add to arraylist so that you can retreive it from there for IDREF
 				return (string)IDList[IDCnt++];
 			}
 		}
@@ -1751,8 +1751,8 @@ namespace Umc.Core.Xml
 		{
 			if ( IDList.Count == 0 )
 			{
-				string id = g_ID.GenerateValue();
-				IDRef = true;
+				var id = g_ID.GenerateValue();
+                IDRef = true;
 			}
 			if ( refCnt >= IDList.Count )
 			{
@@ -1801,15 +1801,15 @@ namespace Umc.Core.Xml
 		{
 			if ( AllowedValues != null )
 			{
-				object enumValue = GetEnumerationValue();
-				//Unpack the union enumeration value into memberType and typedValue
-				object typedValue = CompiledFacets.XsdSimpleValueType.InvokeMember("typedValue", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, enumValue, null);
-				return (string)this.Datatype.ChangeType(typedValue, TypeOfString);
+				var enumValue = GetEnumerationValue();
+                //Unpack the union enumeration value into memberType and typedValue
+                var typedValue = CompiledFacets.XsdSimpleValueType.InvokeMember("typedValue", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance, null, enumValue, null);
+                return (string)this.Datatype.ChangeType(typedValue, TypeOfString);
 			}
 			else if ( unionGens.Count > 0 )
 			{
-				XmlValueGenerator genr = (XmlValueGenerator)( unionGens[occurNum % unionGens.Count] );
-				genr.Prefix = this.Prefix;
+				var genr = (XmlValueGenerator)( unionGens[occurNum % unionGens.Count] );
+                genr.Prefix = this.Prefix;
 				occurNum = occurNum + 1;
 				return genr.GenerateValue();
 			}
@@ -1861,8 +1861,8 @@ namespace Umc.Core.Xml
 			}
 			if ( AllowedValues != null )
 			{
-				object enumValue = GetEnumerationValue();
-				return (string)this.Datatype.ChangeType(enumValue, TypeOfString);
+				var enumValue = GetEnumerationValue();
+                return (string)this.Datatype.ChangeType(enumValue, TypeOfString);
 			}
 			else
 			{

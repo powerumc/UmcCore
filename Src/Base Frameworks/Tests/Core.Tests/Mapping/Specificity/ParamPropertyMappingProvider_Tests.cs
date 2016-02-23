@@ -32,14 +32,14 @@ namespace Umc.Core.Mapping
 		[Description("ParamPropertyMappingProvider가 올바르게 속성값을 읽는지 테스트, 값이 유효하면 통과")]
 		public void ParamMappingObject_Getter_Test()
 		{
-			ParamObject param = new ParamObject()
+			var param = new ParamObject()
 			{
 				UserName = "NCsoft",
 				Age = 255
 			};
 
-			ParamPropertyMappingProvider mapping = new ParamPropertyMappingProvider(param);
-			TestContext.WriteLine(mapping.Getter("UserName").ToString());
+            var mapping = new ParamPropertyMappingProvider(param);
+            TestContext.WriteLine(mapping.Getter("UserName").ToString());
 			TestContext.WriteLine(mapping.Getter("Age").ToString());
 
 			Assert.AreEqual("NCsoft", mapping.Getter("UserName"));
@@ -50,15 +50,15 @@ namespace Umc.Core.Mapping
 		[Description("ParamPropertyMappingProvider가 올바르게 속성값을 쓰는지 테스트, 값이 유효하면 통과")]
 		public void ParamMappingObject_Setter_Test()
 		{
-			ParamObject param = new ParamObject()
+			var param = new ParamObject()
 			{
 				UserName = "NCsoft",
 				Age = 255
 			};
 
-			ParamPropertyMappingProvider mapping = new ParamPropertyMappingProvider(param);
+            var mapping = new ParamPropertyMappingProvider(param);
 
-			mapping.Setter("UserName", "NCsoft NCsoft");
+            mapping.Setter("UserName", "NCsoft NCsoft");
 			mapping.Setter("Age", 0);
 
 			Assert.AreEqual("NCsoft NCsoft", mapping.Getter("UserName"));
@@ -69,14 +69,14 @@ namespace Umc.Core.Mapping
 		[Description("ParamPropertyMappingProvider가 Name속성으로 올바르게 값을 읽고 쓰는지 테스트, 값이 유효하면 통과")]
 		public void ShouldBeCanGetter_via_NameValue_NameProperty_Test()
 		{
-			ParamObject param = new ParamObject()
+			var param = new ParamObject()
 			{
 				UserName = "NCsoft",
 				Age = 255
 			};
 
-			ParamPropertyMappingProvider mapping = new ParamPropertyMappingProvider(param);
-			Assert.AreEqual("NCsoft", mapping.Getter("username"));
+            var mapping = new ParamPropertyMappingProvider(param);
+            Assert.AreEqual("NCsoft", mapping.Getter("username"));
 
 			mapping.Setter("username", "NCsoft NCsoft");
 			Assert.AreEqual("NCsoft NCsoft", mapping.Getter("username"));
@@ -88,15 +88,15 @@ namespace Umc.Core.Mapping
 		[ExpectedException(typeof(MappingException))]
 		public void ShouldBeNotMatching_ParamProperty_Test()
 		{
-			ParamObject param = new ParamObject()
+			var param = new ParamObject()
 			{
 				UserName = "NCsoft",
 				Age = 255,
 				NonAttribute = "Some Value"
 			};
 
-			ParamPropertyMappingProvider mapping = new ParamPropertyMappingProvider(param);
-			var value = mapping.Getter("NonAttribute");
+            var mapping = new ParamPropertyMappingProvider(param);
+            var value = mapping.Getter("NonAttribute");
 
 			TestContext.WriteLine("NonAttribute Property : ", value);
 		}
@@ -113,13 +113,13 @@ namespace Umc.Core.Mapping
 		[Description("ParamPropertyAttribute의 DefaultValue 속성이 올바르게 적용되는지 테스트, 값이 유효하면 통과")]
 		public void ShouldBe_Return_Value_When_Empty_Property_Test()
 		{
-			ParamObjectForDefaultValue sourceParam = new ParamObjectForDefaultValue();
-			ParamObjectForDefaultValue targetParam = new ParamObjectForDefaultValue();
+			var sourceParam = new ParamObjectForDefaultValue();
+            var targetParam = new ParamObjectForDefaultValue();
 
-			ParamPropertyMappingProvider sourceMapping = new ParamPropertyMappingProvider(sourceParam);
-			ParamPropertyMappingProvider targetMapping = new ParamPropertyMappingProvider(targetParam);
+            var sourceMapping = new ParamPropertyMappingProvider(sourceParam);
+            var targetMapping = new ParamPropertyMappingProvider(targetParam);
 
-			sourceMapping.AssignTo(targetMapping);
+            sourceMapping.AssignTo(targetMapping);
 
 			Assert.AreEqual("NCsoft", targetParam.UserName);
 
@@ -160,19 +160,19 @@ namespace Umc.Core.Mapping
 		[Description("ParamPropertyAttribute의 ParamAction이 Send,Received별로 매핑이 올바르게 되는지 테스트, 값이 유효하면 통과")]
 		public void Just_Send_Param_Action_Test()
 		{
-			ParamObjectLeft sendParam = new ParamObjectLeft()
+			var sendParam = new ParamObjectLeft()
 			{
 				Both = "Both",
 				OnlySend = "OnlySend",
 				OnlyReceived = "OnlyReceived"
 			};
 
-			ParamObjectRight receivedParam = new ParamObjectRight();
+            var receivedParam = new ParamObjectRight();
 
-			ParamPropertyMappingProvider sendMapping = new ParamPropertyMappingProvider(sendParam);
-			ParamPropertyMappingProvider receivedMapping = new ParamPropertyMappingProvider(receivedParam);
+            var sendMapping = new ParamPropertyMappingProvider(sendParam);
+            var receivedMapping = new ParamPropertyMappingProvider(receivedParam);
 
-			sendMapping.AssignTo(receivedMapping);
+            sendMapping.AssignTo(receivedMapping);
 
 			receivedParam.GetType()
 				.GetProperties()
@@ -212,19 +212,19 @@ namespace Umc.Core.Mapping
 		[ExpectedException(typeof(MappingException))]
 		public void ShouldBe_Fire_Exception_Why_Not_Exists_Property_Possible_Mapping_Name_Test()
 		{
-			Stopwatch watcher = Stopwatch.StartNew();
+			var watcher = Stopwatch.StartNew();
 
-			Temp_SourceClass source = new Temp_SourceClass()
+            var source = new Temp_SourceClass()
 			{
 				UserName = "NCsoft"
 			};
 
-			Temp_TargetClass target = new Temp_TargetClass();
+            var target = new Temp_TargetClass();
 
-			MappingProviderForProperty sourceMapping = new MappingProviderForProperty(source);
-			ParamPropertyMappingProvider targetMapping = new ParamPropertyMappingProvider(target);
+            var sourceMapping = new MappingProviderForProperty(source);
+            var targetMapping = new ParamPropertyMappingProvider(target);
 
-			sourceMapping.AssignTo(targetMapping);
+            sourceMapping.AssignTo(targetMapping);
 		}
 	}
 }

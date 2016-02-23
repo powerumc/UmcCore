@@ -15,9 +15,9 @@ namespace Umc.Core.IoC
 		[Description("LifetimeMapping 객체의 LifetimeFlag.External 이 ExternallyControlledLifetimeManager 타입인지 테스트, 타입이 같으면 통과")]
 		public void TestMethod1()
 		{
-			LifetimeMappingForUnity mapping = new LifetimeMappingForUnity();
+			var mapping = new LifetimeMappingForUnity();
 
-			var obj = mapping.GetLifetimeObject(LifetimeFlag.External, null);
+            var obj = mapping.GetLifetimeObject(LifetimeFlag.External, null);
 			Assert.IsTrue( obj is ExternallyControlledLifetimeManager, "LifetimeObject 가 ExternallyControlledLifetimeManager 이 아닙니다.");
 		}
 	}
