@@ -38,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
     <OutputPath>bin\Release</OutputPath>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\Umc.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -577,7 +578,7 @@
     <Compile Include="Web\Extensions\RequestExtensions.cs" />
     <Compile Include="Web\Extensions\WebFormExtensions.cs" />
     <Compile Include="Web\FormBuilderResources.cs" />
-    <Compile Include="Web\FrameworkContainerPageHandlerFactory.cs" />
+    <Compile Include="Web\Handlers\FrameworkContainerPageHandlerFactory.cs" />
     <Compile Include="Web\Listeners\JavaScriptTraceListner.cs" />
     <Compile Include="Web\MappingProviderForWeb.cs" />
     <Compile Include="Web\Modules\JavaScriptTraceModule.cs" />
