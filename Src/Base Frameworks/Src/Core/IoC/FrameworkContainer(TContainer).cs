@@ -14,8 +14,8 @@ namespace Umc.Core.IoC
 	{
 		protected readonly static object KEY_ROOT = "ROOT";
 		
-		internal TContainer ContainerObject { get; set; }
-		internal Dictionary<object, List<IFrameworkContainer>> ChildContainers;
+		public TContainer ContainerObject { get; set; }
+		public Dictionary<object, List<IFrameworkContainer>> ChildContainers;
 
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -118,7 +118,7 @@ namespace Umc.Core.IoC
 		/// <returns>	
 		/// 	개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다. 
 		/// </returns>
-		public abstract IFrameworkContainer RegisterType<T>();
+		public abstract IFrameworkContainer RegisterType<T>() where T : class;
 
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다. 
@@ -128,12 +128,12 @@ namespace Umc.Core.IoC
 		/// <returns>	
 		/// 	개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다. 
 		/// </returns>
-		public abstract IFrameworkContainer RegisterType<T>(LifetimeFlag flag);
+		public abstract IFrameworkContainer RegisterType<T>(LifetimeFlag flag) where T : class;
 
 		
-		public abstract IFrameworkContainer RegisterInstance<T> (T @object);
-		public abstract IFrameworkContainer RegisterInstance<TContract>(TContract @object, LifetimeFlag flag);
-		public abstract IFrameworkContainer RegisterInstance<TContract>(string key, TContract @object, LifetimeFlag flag);
+		public abstract IFrameworkContainer RegisterInstance<T> (T @object) where T : class;
+		public abstract IFrameworkContainer RegisterInstance<TContract>(TContract @object, LifetimeFlag flag) where TContract : class;
+		public abstract IFrameworkContainer RegisterInstance<TContract>(string key, TContract @object, LifetimeFlag flag) where TContract : class;
 
 		public abstract IFrameworkContainer RegisterInstance(string key, Type type, object @object);
 		public abstract IFrameworkContainer RegisterInstance(Type type, object @object);
@@ -142,7 +142,7 @@ namespace Umc.Core.IoC
 
 		public abstract IFrameworkContainer RegisterType(Type contractType, Type implementType, LifetimeFlag flag);
 		public abstract IFrameworkContainer RegisterType(string key, Type contractType, Type implementType, LifetimeFlag flag);
-		public abstract IFrameworkContainer RegisterType<TContract>(Type implementType, LifetimeFlag flag);
+		public abstract IFrameworkContainer RegisterType<TContract>(Type implementType, LifetimeFlag flag) where TContract : class;
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다. 
 		/// </summary>
@@ -151,7 +151,8 @@ namespace Umc.Core.IoC
 		/// <returns>	
 		/// 	개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다. 
 		/// </returns>
-		public abstract IFrameworkContainer RegisterType<TContract, TImplements>() where TImplements : TContract;
+		public abstract IFrameworkContainer RegisterType<TContract, TImplements>() where TContract : class
+                                                                                   where TImplements : TContract;
 
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다. 
@@ -162,7 +163,8 @@ namespace Umc.Core.IoC
 		/// <returns>	
 		/// 	개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다. 
 		/// </returns>
-		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(LifetimeFlag flag) where TImplements : TContract;
+		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(LifetimeFlag flag) where TContract : class
+                                                                                                    where TImplements : TContract;
 
 
 		/// <summary>	
@@ -174,7 +176,8 @@ namespace Umc.Core.IoC
 		/// <returns>	
 		/// 	개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다. 
 		/// </returns>
-		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(string key) where TImplements : TContract;
+		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(string key) where TContract : class
+                                                                                             where TImplements : TContract;
 
 
 		/// <summary>	
@@ -187,7 +190,8 @@ namespace Umc.Core.IoC
 		/// <returns>	
 		/// 	개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다. 
 		/// </returns>
-		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TImplements : TContract;
+		public abstract IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TContract : class
+                                                                                                                where TImplements : TContract;
 
 		public abstract bool IsRegisted(Type type);
 

@@ -39,7 +39,7 @@ namespace Umc.Core.IoC
 		/// <typeparam name="T">등록되는 개체의 타입입니다.</typeparam>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterType<T>();
+		IFrameworkContainer RegisterType<T>() where T : class;
 
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
@@ -48,7 +48,7 @@ namespace Umc.Core.IoC
 		/// <param name="flag">	객체의 생명주기 값입니다. </param>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterType<T>(LifetimeFlag flag);
+		IFrameworkContainer RegisterType<T>(LifetimeFlag flag) where T : class;
 
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
@@ -57,9 +57,9 @@ namespace Umc.Core.IoC
 		/// <param name="object">등록되는 객체입니다.</param>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterInstance<TContract> (TContract @object);
-		IFrameworkContainer RegisterInstance<TContract>(TContract @object, LifetimeFlag flag);
-		IFrameworkContainer RegisterInstance<TContract>(string key, TContract @object, LifetimeFlag flag);
+		IFrameworkContainer RegisterInstance<TContract> (TContract @object) where TContract : class;
+		IFrameworkContainer RegisterInstance<TContract>(TContract @object, LifetimeFlag flag) where TContract : class;
+		IFrameworkContainer RegisterInstance<TContract>(string key, TContract @object, LifetimeFlag flag) where TContract : class;
 
 		IFrameworkContainer RegisterInstance(string key, Type type, object @object);
 		IFrameworkContainer RegisterInstance(Type type, object @object);
@@ -69,7 +69,7 @@ namespace Umc.Core.IoC
 		IFrameworkContainer RegisterType(Type contractType, Type implementType, LifetimeFlag flag);
 		IFrameworkContainer RegisterType(string key, Type contractType, Type implementType, LifetimeFlag flag);
 
-		IFrameworkContainer RegisterType<TContract>(Type implementType, LifetimeFlag flag);
+		IFrameworkContainer RegisterType<TContract>(Type implementType, LifetimeFlag flag) where TContract : class;
 
 		/// <summary>
 		///		타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
@@ -78,7 +78,8 @@ namespace Umc.Core.IoC
 		/// <typeparam name="TImplements">등록되는 개체의 구현 타입입니다.</typeparam>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterType<TContract, TImplements>() where TImplements : TContract;
+		IFrameworkContainer RegisterType<TContract, TImplements>() where TContract : class
+                                                                   where TImplements : TContract;
 
 		/// <summary>	
 		/// 	타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
@@ -88,7 +89,8 @@ namespace Umc.Core.IoC
 		/// <param name="flag">	객체의 생명주기 값입니다. </param>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterType<TContract, TImplements>(LifetimeFlag flag) where TImplements : TContract;
+		IFrameworkContainer RegisterType<TContract, TImplements>(LifetimeFlag flag) where TContract : class 
+                                                                                    where TImplements : TContract;
 
 		/// <summary>
 		///		타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
@@ -98,7 +100,8 @@ namespace Umc.Core.IoC
 		/// <param name="key">개체의 키 값입니다.</param>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterType<TContract, TImplements>(string key) where TImplements : TContract;
+		IFrameworkContainer RegisterType<TContract, TImplements>(string key) where TContract : class
+                                                                             where TImplements : TContract;
 
 		/// <summary>	
 		/// 	<para>타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.</para> 
@@ -109,7 +112,8 @@ namespace Umc.Core.IoC
 		/// <param name="flag">	객체의 생명주기 값입니다. </param>
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-		IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TImplements : TContract;
+		IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TContract : class
+                                                                                                where TImplements : TContract;
 
 		bool IsRegisted(Type type);
 

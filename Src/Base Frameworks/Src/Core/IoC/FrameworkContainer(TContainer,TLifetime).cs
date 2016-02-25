@@ -14,7 +14,7 @@ namespace Umc.Core.IoC
 	public abstract class FrameworkContainer<TContainer, TLifetime> : FrameworkContainer<TContainer>
 		where TLifetime : new()
 	{
-		internal TLifetime LifetimeMapping { get; set; }
+		public TLifetime LifetimeMapping { get; set; }
 
 		protected FrameworkContainer()
 			: base()
