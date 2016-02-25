@@ -257,7 +257,14 @@ namespace Umc.Core.IoC.Castle
 
         public override bool IsRegisted(Type type)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return ContainerObject.Resolve(type) != null;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
