@@ -12,42 +12,42 @@ using System.Collections.Concurrent;
 namespace Umc.Core.IoC.Catalog
 {
 
-	/// <summary>	
-	/// 	어셈블리 수준에서 관리 대상의 목록을 관리하는 클래스 입니다.
-	/// </summary>
-	public class FrameworkAssemblyCatalog : FrameworkCatalog
-	{
-		private IEnumerable<Assembly> assemblies;
+    /// <summary>	
+    /// 	어셈블리 수준에서 관리 대상의 목록을 관리하는 클래스 입니다.
+    /// </summary>
+    public class FrameworkAssemblyCatalog : FrameworkCatalog
+    {
+        private IEnumerable<Assembly> assemblies;
 
-		public FrameworkAssemblyCatalog(params Assembly[] assemblies)
-			: this(assemblies.AsEnumerable())
-		{
-		}
+        public FrameworkAssemblyCatalog(params Assembly[] assemblies)
+            : this(assemblies.AsEnumerable())
+        {
+        }
 
-		public FrameworkAssemblyCatalog(IEnumerable<Assembly> assemblies)
-		{
-			this.assemblies = assemblies;
-		}
+        public FrameworkAssemblyCatalog(IEnumerable<Assembly> assemblies)
+        {
+            this.assemblies = assemblies;
+        }
 
 
-		/// <summary>	
-		/// 	관리되는 대상 목록의 조건에 만족하는 타입을 반환합니다. 
-		/// </summary>
-		/// <returns>	
-		/// 	조건에 만족하는 타입 목록입니다. 
-		/// </returns>
-		public override IEnumerable<Type> GetMatchingTypes()
-		{
-			foreach(var assembly in this.assemblies)
-			{
-				var catalog = new FrameworkTypeCatalog(assembly.GetTypes());
+        /// <summary>	
+        /// 	관리되는 대상 목록의 조건에 만족하는 타입을 반환합니다. 
+        /// </summary>
+        /// <returns>	
+        /// 	조건에 만족하는 타입 목록입니다. 
+        /// </returns>
+        public override IEnumerable<Type> GetMatchingTypes()
+        {
+            foreach(var assembly in this.assemblies)
+            {
+                var catalog = new FrameworkTypeCatalog(assembly.GetTypes());
                 var types = catalog.GetMatchingTypes();
 
-				foreach (var type in types)
-				{
-					yield return type;
-				}
-			}
-		}
-	}
+                foreach (var type in types)
+                {
+                    yield return type;
+                }
+            }
+        }
+    }
 }

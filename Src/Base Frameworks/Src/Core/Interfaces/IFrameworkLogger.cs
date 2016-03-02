@@ -6,9 +6,22 @@ using log4net;
 
 namespace Umc.Core
 {
+    /// <summary>
+    ///     로깅 서비스를 제공하는 인터페이스 입니다.
+    /// </summary>
 	public interface IFrameworkLogger
 	{
+        /// <summary>
+        ///     디버그 메시지를 출력합니다.
+        /// </summary>
+        /// <param name="message"> 출력할 메시지 입니다. </param>
 		IFrameworkLogger Debug(object message);
+
+        /// <summary>
+        ///     디버그 메시지를 출력합니다.
+        /// </summary>
+        /// <param name="message">   출력할 메시지 입니다. </param>
+        /// <param name="exception"> 예외 정보 입니다. </param>
 		IFrameworkLogger Debug(object message, Exception exception);
 		IFrameworkLogger DebugFormat(string format, params object[] args);
 		IFrameworkLogger DebugFormat(string format, object arg0);

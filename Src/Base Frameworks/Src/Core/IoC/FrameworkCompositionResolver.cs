@@ -11,8 +11,7 @@ namespace Umc.Core.IoC
     ///		직렬화된 IoC Container 의 데이터를 <see cref="IFrameworkContainer"/> 로 역직렬화를 하는 클래스입니다.
     /// </summary>
     /// <typeparam name="TFrameworkContainer"><see cref="IFrameworkContainer"/> 를 구현하는 컨테이너 객체입니다.</typeparam>
-    public abstract class FrameworkCompositionResolver<TFrameworkContainer> : IFrameworkComposable<TFrameworkContainer>
-        where TFrameworkContainer : IFrameworkContainer
+    public abstract class FrameworkCompositionResolver<TFrameworkContainer> : IFrameworkComposable<TFrameworkContainer> where TFrameworkContainer : IFrameworkContainer
     {
         protected TFrameworkContainer container { get; private set; }
 
@@ -21,8 +20,6 @@ namespace Umc.Core.IoC
             this.container = container;
             this.container.RegisterInstance<IFrameworkContainer>(container);
         }
-
-
 
         /// <summary>	
         /// 	자식 컨테이너에 대한 역직렬화를 수행합니다.
@@ -70,13 +67,20 @@ namespace Umc.Core.IoC
         /// <summary>	
         /// 	IoC 컨테이너가 제공하는 객체 처리를 수행합니다.
         /// </summary>
-        /// <param name="element">	컨테이너 요소입니다. </param>
-        /// <param name="lifetime">	The lifetime. </param>
-        /// <param name="constructor">역직렬화된 생성자 요소입니다.</param>
-        /// <param name="properties">역직렬화된 속성(Property) 요소입니다.</param>
-        /// <param name="methods">역직렬화된 메서드 요소입니다.</param>
+        /// <param name="element">	    컨테이너 요소입니다. </param>
+        /// <param name="lifetime">	    The lifetime. </param>
+        /// <param name="constructor">  역직렬화된 생성자 요소입니다.</param>
+        /// <param name="properties">   역직렬화된 속성(Property) 요소입니다.</param>
+        /// <param name="methods">      역직렬화된 메서드 요소입니다.</param>
         protected abstract void ResolveRegisterProcessor(RegisterElement element, LifetimeFlag lifetime, IEnumerable<object> constructor, IEnumerable<object> properties, IEnumerable<object> methods);
 
+        /// <summary>
+        ///     IoC 컨테이너가 제공하는 객체 처리를 수행합니다
+        /// </summary>
+        /// <param name="key">              The key. </param>
+        /// <param name="contractType">     Type of the contract. </param>
+        /// <param name="implementType">    Type of the implement. </param>
+        /// <param name="lifetime">         The lifetime. </param>
         protected abstract void ResolveRegisterProcessor(string key, Type contractType, Type implementType, LifetimeFlag lifetime);
 
 
@@ -127,6 +131,10 @@ namespace Umc.Core.IoC
             this.ResolveDynamic(element.dynamic);
         }
 
+        /// <summary>
+        ///     dynamic 요소를 처리합니다.
+        /// </summary>
+        /// <param name="elements"> The elements. </param>
         protected void ResolveDynamic(List<DynamicElement> elements)
         {
             if (elements == null || elements.Count() == 0) return;
@@ -175,7 +183,7 @@ namespace Umc.Core.IoC
                 }
                 catch (NotSupportedException)
                 {
-
+                    // ignore
                 }
             }
         }

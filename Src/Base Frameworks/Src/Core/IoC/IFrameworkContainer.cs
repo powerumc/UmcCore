@@ -58,17 +58,82 @@ namespace Umc.Core.IoC
 		/// <returns>개체 등록을 마친 후 현재의 <see cref="IFrameworkContainer"/> 를 반환합니다.</returns>
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
 		IFrameworkContainer RegisterInstance<TContract> (TContract @object) where TContract : class;
+
+        /// <summary>
+        ///    타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        /// <typeparam name="TContract"> 등록되는 개체의 타입입니다. </typeparam>
+        /// <param name="object"> 등록되는 객체입니다. </param>
+        /// <param name="flag">   객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterInstance<TContract>(TContract @object, LifetimeFlag flag) where TContract : class;
+
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        ///
+        /// <typeparam name="TContract"> 등록되는 개체의 타입입니다. </typeparam>
+        /// <param name="key">    개체의 키 값입니다. </param>
+        /// <param name="object"> 등록되는 객체입니다. </param>
+        /// <param name="flag">   객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterInstance<TContract>(string key, TContract @object, LifetimeFlag flag) where TContract : class;
 
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        /// <param name="key">    개체의 키 값입니다. </param>
+        /// <param name="type">   등록되는 객체의 타입입니다. </param>
+        /// <param name="object"> 등록되는 객체입니다. </param>
 		IFrameworkContainer RegisterInstance(string key, Type type, object @object);
+
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        /// <param name="type">   등록되는 객체의 타입입니다. </param>
+        /// <param name="object"> 등록되는 객체입니다. </param>
 		IFrameworkContainer RegisterInstance(Type type, object @object);
+
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        /// <param name="type">   등록되는 객체의 타입입니다. </param>
+        /// <param name="object"> 등록되는 객체입니다. </param>
+        /// <param name="flag">   객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterInstance(Type type, object @object, LifetimeFlag flag);
+
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        ///
+        /// <param name="key">    개체의 키 값입니다. </param>
+        /// <param name="type">   등록되는 객체의 타입입니다. </param>
+        /// <param name="object"> 등록되는 객체입니다. </param>
+        /// <param name="flag">   객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterInstance(string key, Type type, object @object, LifetimeFlag flag);
 
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        /// <param name="contractType">  등록되는 객체의 타입입니다. </param>
+        /// <param name="implementType"> 구현되는 개체의 타입입니다. </param>
+        /// <param name="flag">          객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterType(Type contractType, Type implementType, LifetimeFlag flag);
+
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        /// <param name="key">           개체의 키 값입니다. </param>
+        /// <param name="contractType">  등록되는 객체의 타입입니다. </param>
+        /// <param name="implementType"> 구현되는 개체의 타입입니다. </param>
+        /// <param name="flag">          객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterType(string key, Type contractType, Type implementType, LifetimeFlag flag);
 
+        /// <summary>
+        ///     타입을 <see cref="IFrameworkContainer"/> 에 등록합니다.
+        /// </summary>
+        ///
+        /// <typeparam name="TContract"> 등록되는 객체의 타입입니다. </typeparam>
+        /// <param name="implementType"> 구현되는 개체의 타입입니다. </param>
+        /// <param name="flag">          객체의 생명주기 값입니다. </param>
 		IFrameworkContainer RegisterType<TContract>(Type implementType, LifetimeFlag flag) where TContract : class;
 
 		/// <summary>
@@ -115,6 +180,10 @@ namespace Umc.Core.IoC
 		IFrameworkContainer RegisterType<TContract, TImplements>(string key, LifetimeFlag flag) where TContract : class
                                                                                                 where TImplements : TContract;
 
+        /// <summary>
+        ///     개체가 컨테이너에 등록이 되었는지 여부를 반환합니다.
+        /// </summary>
+        /// <param name="type"> 등록되는 객체의 타입입니다. </param>
 		bool IsRegisted(Type type);
 
 		/// <summary>
@@ -124,6 +193,11 @@ namespace Umc.Core.IoC
 		/// <returns>반환된 객체입니다.</returns>
 		object Resolve(Type type);
 
+        /// <summary>
+        ///     <see cref="IFrameworkContainer"/> 에 등록된 개체를 반환합니다.
+        /// </summary>
+        /// <param name="key">  개체의 키 값입니다. </param>
+        /// <param name="type"> 반환하는 객체의 타입입니다. </param>
 		object Resolve(string key, Type type);
 		
 		/// <summary>	
