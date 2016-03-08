@@ -48,9 +48,20 @@ namespace System
 			get { return this.Now.CompareTo(this.Begin) != -1 && this.Now.CompareTo(this.End) != 1; }
 		}
 
+		/// <summary>
+		/// 	값이 마지막 값의 범위를 벗어났는지 여부를 검사합니다.
+		/// </summary>
 		public bool IsOver
 		{
 			get { return this.Now.CompareTo(this.End) == 1; }
+		}
+
+		/// <summary>
+		/// 	값이 사이에 있거나 마지막 값의 범위를 벗어났는지 여부를 검사합니다.
+		/// </summary>
+		public bool IsBetweenOrOver
+		{
+			get { return IsBetween || IsOver; }
 		}
 }
 }
