@@ -124,6 +124,7 @@ namespace Umc.Core.Mapping
 				   .Map(2).Return(new Person() { Name = "NCsoft 2" });
 
 			var value = mapping.GetMappingValue(1);
+			Console.WriteLine(value.FlipTablesFrom());
 
 			Assert.IsTrue(value.Name == "NCsoft 1");
 		}

@@ -26,12 +26,12 @@ namespace Umc.Core.Mapping
 
 		public override void SetObject(object @object)
 		{
-			throw new NotImplementedException();
+			this.list = @object as IList<TModel>;
 		}
 
 		public override object GetObject()
 		{
-			throw new NotImplementedException();
+			return this.list;
 		}
 
 		public override IEnumerable<object> MappingKeys

@@ -40,7 +40,8 @@ namespace Umc.Core.Mapping
 
 		public override object GetObject()
 		{
-			return this.datarow;
+			var row = this.datarow;
+			return row ?? this.datatable.NewRow();
 		}
 
 		public override IEnumerable<object> MappingKeys
