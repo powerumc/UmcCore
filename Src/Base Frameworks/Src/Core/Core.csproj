@@ -551,6 +551,7 @@
     <Compile Include="Security\FrameworkPermission.cs" />
     <Compile Include="Security\FrameworkPermissionAttribute.cs" />
     <Compile Include="Serialization\Formatter\CsvFormatter.cs" />
+    <Compile Include="System\Between.cs" />
     <Compile Include="System\DateTimeBetween.cs" />
     <Compile Include="T4\Data\SPWrapperGenerator.cs">
       <AutoGen>True</AutoGen>

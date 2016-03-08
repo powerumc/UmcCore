@@ -152,7 +152,9 @@
       <HintPath>..\..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Configuration" />
@@ -223,6 +225,7 @@
     <Compile Include="Reflection\Emit\OpCodeMap_Tests.cs" />
     <Compile Include="Reflection\ReflectionUtil_Tests.cs" />
     <Compile Include="ShowObject.cs" />
+    <Compile Include="System\Between_Tests.cs" />
     <Compile Include="TestContextExtension.cs" />
     <Compile Include="TestOwner.cs" />
     <Compile Include="UnitTestBase.cs" />
