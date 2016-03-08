@@ -11,12 +11,12 @@ namespace Umc.Core.Mapping
 	/// </summary>
 	/// <typeparam name="TInput">	입력 값의 타입입니다.. </typeparam>
 	/// <typeparam name="TReturn">	반환되는 값의 타입입니다.. </typeparam>
-	public abstract class PropertyMapping<TInput, TReturn> : KeyValueMapping<TInput, TReturn>
+	public class PropertyMapping<TInput, TReturn> : KeyValueMapping<TInput, TReturn>
 	{
 
 		/// <summary>	
 		/// 	매핑을 초기화 합니다.
 		/// </summary>
-		protected abstract override void InitializeMapping();
+		protected override void InitializeMapping() { }
 	}
 }

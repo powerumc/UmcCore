@@ -10,7 +10,7 @@ namespace Umc.Core.Mapping
 	/// </summary>
 	/// <typeparam name="TInput">입력 값의 타입입니다.</typeparam>
 	/// <typeparam name="TReturn">결과 값의 타입입니다.</typeparam>
-	public abstract class LazyMapping<TInput, TReturn> : Mapping<Func<TInput, bool>, Func<TInput, TReturn>>
+	public class LazyMapping<TInput, TReturn> : Mapping<Func<TInput, bool>, Func<TInput, TReturn>>
 	{
 
 		protected LazyMapping()
@@ -27,7 +27,7 @@ namespace Umc.Core.Mapping
 		/// <summary>	
 		/// 	매핑을 초기화 합니다.
 		/// </summary>
-		protected abstract override void InitializeMapping();
+		protected override void InitializeMapping() { }
 
 		/// <summary>	
 		/// 	매핑된 결과에 대한 <see cref="IValuable{TReturn}"/> 값을 반환합니다.
@@ -68,7 +68,7 @@ namespace Umc.Core.Mapping
 	///		객체와 객체간의 매핑 관계를 대리자 형태로 정의하는 클래스 입니다.
 	/// </summary>
 	/// <typeparam name="TReturn">결과 값의 타입입니다.</typeparam>
-	public abstract class LazyMapping<TReturn> : LazyMapping<object, TReturn>
+	public class LazyMapping<TReturn> : LazyMapping<object, TReturn>
 	{
 		protected LazyMapping()
 			: base()
@@ -84,6 +84,6 @@ namespace Umc.Core.Mapping
 		/// <summary>	
 		/// 	매핑을 초기화 합니다.
 		/// </summary>
-		protected abstract override void InitializeMapping();
+		protected override void InitializeMapping() { }
 	}
 }
