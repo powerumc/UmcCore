@@ -10,21 +10,51 @@ using log4net.Repository.Hierarchy;
 
 namespace Umc.Core.Logger
 {
-	public class FrameworkLogger : IFrameworkLogger
+    /// <summary>
+    ///     로깅 서비스를 제공하는 클래스입니다.
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// public class LogTest
+    /// {
+    ///     private static readonly IFrameworkLogger logger = FrameworkLogger.GetLogger(typeof(LogTest));
+    ///
+    ///     public void Say()
+    ///     {
+    ///         logger.Debug("디버그 메시지를 출력합니다");
+    ///     }
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="T:Umc.Core.IFrameworkLogger"/>
+    public class FrameworkLogger : IFrameworkLogger
 	{
 		private const string NAME = "FrameworkLogger";
 		private readonly ILog log;
 
+        /// <summary>
+        ///     로깅 서비스를 제공하는 클래스의 생성자 입니다.
+        /// </summary>
+        /// <param name="type"> 로깅할 개체의 타입입니다. </param>
 		protected FrameworkLogger(Type type)
 		{
 			this.log = LogManager.GetLogger(type);
 		}
+
+        /// <summary>
+        ///     로깅 서비스를 제공하는 클래스의 생성자 입니다.
+        /// </summary>
+        /// <param name="name"> 로깅할 이름입니다. </param>
 
 		protected FrameworkLogger(string name)
 		{
 			this.log = LogManager.GetLogger(name);
 		}
 
+        /// <summary>
+        ///     로그 인스턴스를 가져옵니다.
+        /// </summary>
+        /// <param name="type"> 로깅할 개체의 타입입니다. </param>
 		public static IFrameworkLogger GetLogger(Type type)
 		{
 			EnsureLoggerInited();
@@ -33,6 +63,10 @@ namespace Umc.Core.Logger
 			return logger;
 		}
 
+        /// <summary>
+        ///     로그 인스턴스를 가져옵니다.
+        /// </summary>
+        /// <param name="name"> 로깅할 이름입니다. </param>
 		public static IFrameworkLogger GetLogger(string name)
 		{
 			EnsureLoggerInited();

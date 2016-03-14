@@ -394,7 +394,6 @@
     <Compile Include="Interfaces\IMappingProvider.cs" />
     <Compile Include="Interfaces\IVisitable.cs" />
     <Compile Include="DataModels\WarningCollection.cs" />
-    <Compile Include="Interfaces\Office\IOfficeCommand.cs" />
     <Compile Include="IoC\Catalog\FrameworkDynamicTypeCatalog.cs" />
     <Compile Include="IoC\Interceptor\FrameworkInterceptionAttribute.cs" />
     <Compile Include="IoC\Interceptor\FrameworkInterceptionInput.cs">
