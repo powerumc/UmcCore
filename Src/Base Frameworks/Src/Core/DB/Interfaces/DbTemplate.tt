@@ -8,6 +8,7 @@
 <#@ import namespace="System.Data" #>
 <#@ import namespace="System.Data.SqlClient" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Runtime.Remoting.Metadata.W3cXsd2001" #>
 <#  var tables = tableTemplate.Execute();
 
 	var tableProjectItem = AddFolder("Tables");
@@ -509,12 +510,17 @@ namespace <#=GetCurrentNamespace()#>
 				spBuilder.AppendLine(@"
       , @frk_n4ErrorCode int
       , @frk_strErrorText nvarchar(100)
-      , @frk_isRequiresNewTransaction tinyint = 1");
+      , @frk_isRequiresNewTransaction tinyint");
 			}
 			foreach(var spParam in sp.SP_DATA) {
 				if (spParam.PARAMETER_MODE.Contains("OUT")) spBuilder.AppendFormat("      , {0} {1}\n", spParam.PARAMETER_NAME, spParam.DATA_TYPE);
 			}
 			spBuilder.AppendLine(";");
+
+		    if (sp.HasFrkParameter)
+		    {
+		        spBuilder.AppendLine("SET @frk_isRequiresNewTransaction = 1;");
+		    }
 
 			spBuilder.AppendFormat("exec @return_value__________ = {0}\n", sp.SP_NAME);
 			if (sp.HasFrkParameter) {
@@ -536,8 +542,15 @@ namespace <#=GetCurrentNamespace()#>
 			}
 			spBuilder.AppendLine(";");
 			
-			var spResult = this.GetSpResult(spBuilder.ToString());
-			return spResult;
+		    try
+		    {
+		        var spResult = this.GetSpResult(spBuilder.ToString());
+		        return spResult;
+		    }
+		    catch (Exception ex)
+		    {
+		        return new DataTable();
+		    }
 		}
 	}
 
@@ -551,7 +564,7 @@ namespace <#=GetCurrentNamespace()#>
 
 	    public bool HasFrkParameter
 	    {
-	        get { return hasFrkParameter && SP_DATA.Any(o => o.PARAMETER_NAME == "@frk_n4ErrorCode"); }
+	        get { return hasFrkParameter /*&& SP_DATA.Any(o => o.PARAMETER_NAME == "@frk_n4ErrorCode")*/; }
 	        set { hasFrkParameter = value; }
 	    }
 
