@@ -202,9 +202,10 @@ namespace <#=GetCurrentNamespace()#>
 		public <#=returnType#> <#=sp.SP_NAME#>(<#=spInterface#> input)
 		{
 			var sp = new SP<<#=spInterface#>, <#=tmodelInterface#>>(input, this.ConnectionString)<#=!sp.HasFrkParameter ? " { HasSpResult = false }" : ""#>;
-<#		Write("\t\t\tsp");
-	    var cnt = 0;
-	    foreach(var column in sp.SP_DATA) { cnt++; Write(cnt > 1 ? "\t\t\t  " : "");#>
+<#		var cnt = 0;
+	    foreach(var column in sp.SP_DATA) { 
+			if (cnt == 0) Write("\t\t\tsp");
+			cnt++; Write(cnt > 1 ? "\t\t\t  " : "");#>
 .AddParameter(_ => _.<#=GetSpParam(column.PARAMETER_NAME)#>, input.<#=GetSpParam(column.PARAMETER_NAME)#><#=column.CHARACTER_MAXIMUM_LENGTH != null ? ", " + (int)column.CHARACTER_MAXIMUM_LENGTH : ""#>)<#=cnt == sp.SP_DATA.Count ? ";" : ""#>
 <#		} #>
 			
@@ -243,7 +244,7 @@ namespace <#=GetCurrentNamespace()#>
 <#		cnt = 0; foreach(var column in sp.SP_DATA) { cnt++; #>
 																					/* <#=column.PARAMETER_MODE#> */	<#=RealTypeFromSP(column)#> <#=GetSpParam(column.PARAMETER_NAME)#><#=cnt == sp.SP_DATA.Count ? "" : ",\r\n"#><#		} #>
 
-																					, out <#=GetInterfaceName(sp.SP_NAME)#> input)
+																					<#= sp.SP_DATA.Any() ? "," : "" #> out <#=GetInterfaceName(sp.SP_NAME)#> input)
 		{
 			input = SP.Resolve<<#=GetInterfaceName(sp.SP_NAME)#>>();
 <#			foreach(var column in sp.SP_DATA) { #>
@@ -259,9 +260,10 @@ namespace <#=GetCurrentNamespace()#>
 		public <#=tmodelReturnType#> <#=sp.SP_NAME#><TModel>(<#=spInterface#> input) where TModel : class
 		{
 			var sp = new SP<<#=spInterface#>, TModel>(input, this.ConnectionString)<#=!sp.HasFrkParameter ? " { HasSpResult = false }" : ""#>;
-<#		Write("\t\t\tsp");
-	    cnt = 0;
-	    foreach(var column in sp.SP_DATA) { cnt++; Write(cnt > 1 ? "\t\t\t  " : "");#>
+<#		cnt = 0;
+	    foreach(var column in sp.SP_DATA) { 
+			if (cnt == 0) Write("\t\t\tsp");
+			cnt++; Write(cnt > 1 ? "\t\t\t  " : "");#>
 .AddParameter(_ => _.<#=GetSpParam(column.PARAMETER_NAME)#>, input.<#=GetSpParam(column.PARAMETER_NAME)#><#=column.CHARACTER_MAXIMUM_LENGTH != null ? ", " + (int)column.CHARACTER_MAXIMUM_LENGTH : ""#>)<#=cnt == sp.SP_DATA.Count ? ";" : ""#>
 <#		} #>
 			
@@ -502,10 +504,8 @@ namespace <#=GetCurrentNamespace()#>
 		public DataTable ExecuteSpResult(SP_NAME_T sp) {
 			var spBuilder = new StringBuilder();
 			spBuilder.AppendLine("DECLARE	@return_value__________ int");
-
-		    var hasSpOutputParam = sp.HasFrkParameter && sp.SP_DATA.Any(o => o.PARAMETER_NAME == "@frk_n4ErrorCode");
-
-			if (hasSpOutputParam) {
+			
+			if (sp.HasFrkParameter) {
 				spBuilder.AppendLine(@"
       , @frk_n4ErrorCode int
       , @frk_strErrorText nvarchar(100)
@@ -517,14 +517,14 @@ namespace <#=GetCurrentNamespace()#>
 			spBuilder.AppendLine(";");
 
 			spBuilder.AppendFormat("exec @return_value__________ = {0}\n", sp.SP_NAME);
-			if (hasSpOutputParam) {
+			if (sp.HasFrkParameter) {
 				spBuilder.AppendLine(@"
        @frk_n4ErrorCode = @frk_n4ErrorCode OUTPUT
      , @frk_strErrorText = @frk_strErrorText OUTPUT
      , @frk_isRequiresNewTransaction = @frk_isRequiresNewTransaction");
 			}
 
-			var index = hasSpOutputParam ? 1 : 0;
+			var index = sp.HasFrkParameter ? 1 : 0;
 			foreach(var spParam in sp.SP_DATA) {
 				var value = "''";
 				if (spParam.DATA_TYPE.Contains("binary")) value = "0";
@@ -546,9 +546,16 @@ namespace <#=GetCurrentNamespace()#>
 	public class SP_NAME_T {
 		public string SP_NAME { get; set; }
 		public IList<SP_DATA_T> SP_DATA { get; set; }
-		public bool   HasFrkParameter { get; set; }
 
-		public SP_NAME_T() {
+	    private bool hasFrkParameter;
+
+	    public bool HasFrkParameter
+	    {
+	        get { return hasFrkParameter && SP_DATA.Any(o => o.PARAMETER_NAME == "@frk_n4ErrorCode"); }
+	        set { hasFrkParameter = value; }
+	    }
+
+	    public SP_NAME_T() {
 			SP_DATA = new List<SP_DATA_T>();
 		}
 	}
