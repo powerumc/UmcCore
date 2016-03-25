@@ -131,8 +131,6 @@ namespace <#=GetCurrentNamespace()#>.Models
 	using System.Collections;
 	using System.Collections.Generic;
 	using Umc.Core;
-	using Umc.Core.DAO;
-	using Umc.Core;
 	using Umc.Core.Data;
 	using Umc.Core.DB;
 
@@ -173,8 +171,6 @@ namespace <#=GetCurrentNamespace()#>
 	using System.Collections;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
-	using Umc.Core;
-	using Umc.Core.DAO;
 	using Umc.Core;
 	using Umc.Core.Data;
 	using Umc.Core.DB;
@@ -342,10 +338,10 @@ namespace <#=GetCurrentNamespace()#>
 						var TABLE_SCHEMA		= reader["TABLE_SCHEMA"].ToString();
 						var TABLE_NAME			= reader["TABLE_NAME"].ToString();
 						var COLUMN_NAME			= reader["COLUMN_NAME"].ToString();
-						var ORDINAL_POSITION	= (int)reader["ORDINAL_POSITION"];
+						var ORDINAL_POSITION	= (short)reader["ORDINAL_POSITION"];
 						var IS_NULLABLE			= reader["IS_NULLABLE"].ToString();
 						var DATA_TYPE			= reader["DATA_TYPE"].ToString();
-						var KEY_ORDINAL_POSITION = reader["KEY_ORDINAL_POSITION"] as Nullable<int>;
+						var KEY_ORDINAL_POSITION = reader["KEY_ORDINAL_POSITION"] as Nullable<short>;
 						var CHARACTER_MAXIMUM_LENGTH = reader["CHARACTER_MAXIMUM_LENGTH"] as Nullable<int>;
 
 
@@ -485,7 +481,7 @@ namespace <#=GetCurrentNamespace()#>
 					
 					data_t.DATA_TYPE			= row["DATA_TYPE"].ToString();
 					data_t.PARAMETER_MODE		= row["PARAMETER_MODE"].ToString();
-					data_t.ORDINAL_POSITION		= (int)row["ORDINAL_POSITION"];
+					data_t.ORDINAL_POSITION		= (short)row["ORDINAL_POSITION"];
 					data_t.CHARACTER_MAXIMUM_LENGTH = row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? (int?)row["CHARACTER_MAXIMUM_LENGTH"] : null;
 
 					name_t.SP_DATA.Add(data_t);
@@ -507,7 +503,9 @@ namespace <#=GetCurrentNamespace()#>
 			var spBuilder = new StringBuilder();
 			spBuilder.AppendLine("DECLARE	@return_value__________ int");
 
-			if (sp.HasFrkParameter) {
+		    var hasSpOutputParam = sp.HasFrkParameter && sp.SP_DATA.Any(o => o.PARAMETER_NAME == "@frk_n4ErrorCode");
+
+			if (hasSpOutputParam) {
 				spBuilder.AppendLine(@"
       , @frk_n4ErrorCode int
       , @frk_strErrorText nvarchar(100)
@@ -519,14 +517,14 @@ namespace <#=GetCurrentNamespace()#>
 			spBuilder.AppendLine(";");
 
 			spBuilder.AppendFormat("exec @return_value__________ = {0}\n", sp.SP_NAME);
-			if (sp.HasFrkParameter) {
+			if (hasSpOutputParam) {
 				spBuilder.AppendLine(@"
        @frk_n4ErrorCode = @frk_n4ErrorCode OUTPUT
      , @frk_strErrorText = @frk_strErrorText OUTPUT
      , @frk_isRequiresNewTransaction = @frk_isRequiresNewTransaction");
 			}
 
-			var index = sp.HasFrkParameter ? 1 : 0;
+			var index = hasSpOutputParam ? 1 : 0;
 			foreach(var spParam in sp.SP_DATA) {
 				var value = "''";
 				if (spParam.DATA_TYPE.Contains("binary")) value = "0";
