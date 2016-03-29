@@ -643,8 +643,16 @@ namespace <#=GetCurrentNamespace()#>
 	private static System.CodeDom.Compiler.CodeDomProvider codedom = System.CodeDom.Compiler.CodeDomProvider.CreateProvider("CSharp");
 	public string RealTypeFrom(TABLE_COLUMN_NAME column)
 	{
-		var dbtype = (SqlDbType)Enum.Parse(typeof(SqlDbType), column.DATA_TYPE, true);
-		var type = TypeFrom(dbtype);
+		SqlDbType dbtype;
+	    Type type;
+	    if (Enum.TryParse(column.DATA_TYPE, true, out dbtype))
+	    {
+	        type = TypeFrom(dbtype);
+	    }
+	    else
+	    {
+	        type = TypeFrom(SqlDbType.Decimal);
+	    }
 		//var isNullable = column.IS_NULLABLE == "YES";
 		var isNullable = true;
 		
@@ -716,11 +724,20 @@ namespace <#=GetCurrentNamespace()#>
 		var sbAttributes = new StringBuilder();
 		if (data.IS_NULLABLE == "NO") sbAttributes.AppendFormat("[Required]");
 		
-		var dbtype = (SqlDbType)Enum.Parse(typeof(SqlDbType), data.DATA_TYPE, true);
-		var type = TypeFrom(dbtype);
+		//var dbtype = (SqlDbType)Enum.Parse(typeof(SqlDbType), data.DATA_TYPE, true);
+	    SqlDbType dbtype;
+	    Type type;
+	    if (Enum.TryParse(data.DATA_TYPE, true, out dbtype))
+	    {
+	        type = TypeFrom(dbtype);
+	    }
+	    else
+	    {
+	        type = TypeFrom(SqlDbType.Decimal);
+	    }
 
 
-		if (type == typeof(string)) sbAttributes.AppendFormat("[StringLength({0})]", data.CHARACTER_MAXIMUM_LENGTH);
+	    if (type == typeof(string)) sbAttributes.AppendFormat("[StringLength({0})]", data.CHARACTER_MAXIMUM_LENGTH);
 
 		if (sbAttributes.Length > 0) sbAttributes.AppendLine().Append("\t\t");
 
