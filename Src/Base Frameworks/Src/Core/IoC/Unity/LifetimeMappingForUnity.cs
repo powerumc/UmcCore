@@ -14,7 +14,8 @@ namespace Umc.Core.IoC
 	{
 		protected override void InitializeMapping()
 		{
-			this.Map(o => o == LifetimeFlag.External).Return(o => new ExternallyControlledLifetimeManager())
+			this.Map(o => o == LifetimeFlag.Default).Return(o => new TransientLifetimeManager())
+                .Map(o => o == LifetimeFlag.External).Return(o => new ExternallyControlledLifetimeManager())
 				.Map(o => o == LifetimeFlag.Hierarchy).Return(o => new HierarchicalLifetimeManager())
 				.Map(o => o == LifetimeFlag.PerCall).Return(o => new TransientLifetimeManager())
 				.Map(o => o == LifetimeFlag.PerThread).Return(o => new PerThreadLifetimeManager())

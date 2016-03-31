@@ -15,7 +15,7 @@ namespace Umc.Core.IoC.Castle
 	{
 		protected override void InitializeMapping()
 		{
-			this.Map(o => o == LifetimeFlag.Default).Return(o => typeof(global::Castle.MicroKernel.Lifestyle.SingletonLifestyleManager))
+			this.Map(o => o == LifetimeFlag.Default).Return(o => typeof(global::Castle.MicroKernel.Lifestyle.TransientLifestyleManager))
 				//.Map(o => o == LifetimeFlag.PerThread).Return(o => typeof(global::Castle.MicroKernel.Lifestyle.PerThreadLifestyleManager))
 				.Map(o => o == LifetimeFlag.Singleton).Return(o => typeof(global::Castle.MicroKernel.Lifestyle.SingletonLifestyleManager))
 				.Map(o => o == LifetimeFlag.PerCall).Return(o => typeof(global::Castle.MicroKernel.Lifestyle.TransientLifestyleManager));
