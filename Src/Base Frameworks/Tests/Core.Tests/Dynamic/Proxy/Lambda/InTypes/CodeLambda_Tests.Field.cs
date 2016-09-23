@@ -25,15 +25,15 @@ namespace Umc.Core.Dynamic.Proxy.Lambda.InTypes
 					var type = module.Class(typeName);
 					{
 						var field1 = type.Public.Field(typeof(string), fieldName1);
-					};
+					}
 
 					var releaseType = type.ReleaseType();
 
 					int fieldCount = releaseType.GetFields().Length;
 
 					Assert.IsTrue(fieldCount > 0, "동적 타입에 필드를 1개 생성하였지만 필드의 개수가 {0} 입니다.", fieldCount);
-				};
-			};
+				}
+			}
 		}
 
 		[TestCategory("BVT Function"), TestMethod]

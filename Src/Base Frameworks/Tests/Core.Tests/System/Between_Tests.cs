@@ -50,5 +50,14 @@ namespace System
 
 			Assert.IsTrue(between.IsBetween);
 		}
+
+	    [TestMethod]
+	    public void DateTimeNotBetween_Test()
+	    {
+            var between = new Between<DateTime>(DateTime.Now, DateTime.Now, DateTime.Now.AddSeconds(-1));
+            Console.WriteLine(between.IsBetween);
+
+            Assert.IsFalse(between.IsBetween);
+        }
 	}
 }

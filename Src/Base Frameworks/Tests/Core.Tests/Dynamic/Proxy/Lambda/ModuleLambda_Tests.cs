@@ -36,12 +36,12 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 						var method = type.Public.Static.Method(methodName);
 						{
 							method.Return();
-						};
-					};
-				};
+						}
+					}
+				}
 
 				module.ReleaseType();
-			};
+			}
 		}
 	}
 }

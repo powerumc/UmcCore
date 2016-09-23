@@ -28,12 +28,12 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 						{
 							var local1 = method1.Local(typeof(string), localName1);
                             method1.Return();
-						};
-					};
+						}
+					}
 
 					var releaseType = type.ReleaseType();
-				};
-			};
+				}
+			}
 		}
 
 		[TestCategory("BVT Function"), TestMethod]

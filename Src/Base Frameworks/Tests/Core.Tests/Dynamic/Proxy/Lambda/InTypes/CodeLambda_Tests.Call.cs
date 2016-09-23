@@ -28,7 +28,7 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 						{
 							method1.IL.EmitWriteLine("This is Dynamic Method (Method1)");
 							method1.Return();
-						};
+						}
 
 						var method2 = type.Public.Static.Method(methodName2);
 						{
@@ -36,16 +36,16 @@ namespace Umc.Core.Dynamic.Proxy.Lambda
 
 							method2.Call((Operand)method1);
 							method2.Return();
-						};
-					};
+						}
+					}
 
 
 					var releaseType = type.ReleaseType();
 
 					releaseType.GetMethod(methodName1).Invoke(null, null);
 					releaseType.GetMethod(methodName2).Invoke(null, null);
-				};
-			};
+				}
+			}
 		}
 
 		[TestCategory("BVT Function"), TestMethod]

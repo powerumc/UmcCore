@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="O_어셈블리에서_1_특성을_찾을_수_없습니다" xml:space="preserve">
     <value>Can not found {1} Attribute in {0} Assembly.</value>
@@ -130,7 +130,7 @@
     <value>Assembly</value>
   </data>
   <data name="특성" xml:space="preserve">
-    <value>특성</value>
+    <value>Attribute(s)</value>
   </data>
   <data name="파라메터" xml:space="preserve">
     <value>Parameter(s)</value>
