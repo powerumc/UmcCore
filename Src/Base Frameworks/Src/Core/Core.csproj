@@ -624,7 +624,7 @@
     <Compile Include="Xml\XmlGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\Interfaces\DbTemplate.tt">
+    <Content Include="T4\Data\DbTemplate.tt">
       <LastGenOutput>DbTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="T4\Data\SPWrapperGenerator.tt">
@@ -685,6 +685,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DB\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!--<Import Project="..\..\..\..\CommonCode\Umc.Core.ImportBefore.targets" />

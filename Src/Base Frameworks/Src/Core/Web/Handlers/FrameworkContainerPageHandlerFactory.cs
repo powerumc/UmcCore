@@ -13,6 +13,9 @@ namespace Umc.Core.Web.Handlers
 	{
 		public IHttpHandler GetHandler(HttpContext context, string requestType, string url, string pathTranslated)
 		{
+		    if (url == null)
+                throw new NullReferenceException("url");
+
             var handler = BuildManager.GetObjectFactory(url, false).CreateInstance();
             if (handler.GetType().ToString().StartsWith("ASP."))
             {

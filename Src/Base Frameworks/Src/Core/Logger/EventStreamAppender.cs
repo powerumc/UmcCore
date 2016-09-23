@@ -35,7 +35,7 @@ namespace Umc.Core.Logger
 				{
 					Interlocked.Increment(ref head);
 					continue;
-				};
+				}
 				
 				sb.Append(msg);
 

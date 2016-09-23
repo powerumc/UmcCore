@@ -36,15 +36,14 @@ namespace <#=GetCurrentNamespace()#>.Tables
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using Umc.Core;
-	using Umc.Core;
-	using Umc.Core.DB;
+	
 
 	public partial class TableNames { public const string <#=GetClassName(table).ToUpper()#> = "<#=catalog.TABLE_CATELOG_NAME#>.<#=schema.TABLE_SCHEMA_NAME#>.<#=table.TABLENAME#>"; }
 
 	public partial interface <#=GetInterfaceName(table)#>
 	{
 <#         foreach(var column in table.TABLE_COLUMN_NAMES) { #>
-		<#=GetValidationAnnotation(column)#>global::<#=RealTypeFrom(column)#> <#=column.COLUMN_NAME#> { get; set; }
+		<#=GetValidationAnnotation(column)#>global::<#=RealTypeFrom(column)#> <#=GetColumnName(column.COLUMN_NAME)#> { get; set; }
 <# } #>
 	}
 }
@@ -84,9 +83,8 @@ namespace <#=GetCurrentNamespace()#>.StoredProcedures
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 	using Umc.Core;
-	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.DB;
+	
 
 	public partial class SPNames { public const string <#=sp.SP_NAME.ToUpper()#> = "<#=sp.SP_NAME#>"; }
 
@@ -133,7 +131,7 @@ namespace <#=GetCurrentNamespace()#>.Models
 	using System.Collections.Generic;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.DB;
+	
 
 	/// <summary>
 	/// <#=sp.SP_NAME#> 프로시저의 결과를 반환하는 인터페이스 모델입니다.
@@ -142,7 +140,7 @@ namespace <#=GetCurrentNamespace()#>.Models
 	{
 <#		DataTable spResult = spTemplate.ExecuteSpResult(sp);
 	    foreach(DataColumn column in spResult.Columns) { #>
-		global::<#=column.DataType#><#=column.AllowDBNull && column.DataType != typeof(string) && !column.DataType.IsArray ? "?" : ""#> <#=column.ColumnName#> { get; set; }
+		global::<#=column.DataType#><#=column.AllowDBNull && column.DataType != typeof(string) && !column.DataType.IsArray ? "?" : ""#> <#=GetColumnName(column.ColumnName)#> { get; set; }
 <# } #>
 	}
 }	
@@ -174,7 +172,7 @@ namespace <#=GetCurrentNamespace()#>
 	using System.ComponentModel.DataAnnotations;
 	using Umc.Core;
 	using Umc.Core.Data;
-	using Umc.Core.DB;
+	
 	using <#=GetCurrentNamespace()#>.Models;
 <# if(tables.TABLE_CATALOGS.Count > 0) { #>using <#=GetCurrentNamespace()#>.Tables;<#}#>
 	using <#=GetCurrentNamespace()#>.StoredProcedures;
@@ -341,7 +339,7 @@ namespace <#=GetCurrentNamespace()#>
 						var TABLE_SCHEMA		= reader["TABLE_SCHEMA"].ToString();
 						var TABLE_NAME			= reader["TABLE_NAME"].ToString();
 						var COLUMN_NAME			= reader["COLUMN_NAME"].ToString();
-						var ORDINAL_POSITION	= (short)reader["ORDINAL_POSITION"];
+						var ORDINAL_POSITION	= short.Parse(reader["ORDINAL_POSITION"].ToString());
 						var IS_NULLABLE			= reader["IS_NULLABLE"].ToString();
 						var DATA_TYPE			= reader["DATA_TYPE"].ToString();
 						var KEY_ORDINAL_POSITION = reader["KEY_ORDINAL_POSITION"] as Nullable<short>;
@@ -484,7 +482,7 @@ namespace <#=GetCurrentNamespace()#>
 					
 					data_t.DATA_TYPE			= row["DATA_TYPE"].ToString();
 					data_t.PARAMETER_MODE		= row["PARAMETER_MODE"].ToString();
-					data_t.ORDINAL_POSITION		= (short)row["ORDINAL_POSITION"];
+					data_t.ORDINAL_POSITION		= short.Parse(row["ORDINAL_POSITION"].ToString());
 					data_t.CHARACTER_MAXIMUM_LENGTH = row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? (int?)row["CHARACTER_MAXIMUM_LENGTH"] : null;
 
 					name_t.SP_DATA.Add(data_t);
@@ -618,6 +616,12 @@ namespace <#=GetCurrentNamespace()#>
 
 	private string GetColumnName(string columnName)
 	{
+		switch(columnName) 
+		{
+			case "class":
+				return "@" + columnName;
+		}
+
 		return columnName;
 	}
 
